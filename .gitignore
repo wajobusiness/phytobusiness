@@ -10,6 +10,7 @@ Thumbs.db
 # Logs & Temporary Data
 *.log
 *.zip
+!phyto-business.zip
 error_log
 .system_generated/
 
