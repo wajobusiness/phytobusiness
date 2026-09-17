@@ -67,11 +67,13 @@ function get_flash(): ?array {
 }
 
 /**
- * Generate asset URL relative to current script or absolute
+ * Generate asset URL relative to current script or absolute with cache-busting
  */
 function asset(string $path): string {
     $cleanPath = ltrim($path, '/');
-    return get_business_url('assets/' . $cleanPath);
+    $filePath = __DIR__ . '/../assets/' . $cleanPath;
+    $version = file_exists($filePath) ? (string)filemtime($filePath) : '2.0.1';
+    return get_business_url('assets/' . $cleanPath) . '?v=' . $version;
 }
 
 /**
