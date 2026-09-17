@@ -130,39 +130,14 @@ require_once __DIR__ . '/functions.php';
       </div>
     </div>
     <div id="psVideoContainer" class="ratio ratio-16x9 bg-black"></div>
+    <div class="p-2 px-3 small d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: rgba(18, 19, 24, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.25);">
+      <span class="text-secondary" style="font-size: 0.8rem;">If playback is restricted by your browser or network:</span>
+      <a id="psVideoFallbackBtn" href="#" target="_blank" rel="noopener" class="text-danger fw-bold text-decoration-none d-inline-flex align-items-center gap-1" style="font-size: 0.82rem; color: #FF4D5E !important;">
+        <span>Watch on YouTube ↗</span>
+      </a>
+    </div>
   </div>
 </div>
-
-<style>
-.ps-video-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: rgba(5, 10, 8, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-.ps-video-modal.active {
-  opacity: 1;
-  visibility: visible;
-}
-.ps-video-modal-dialog {
-  width: 100%;
-  max-width: 960px;
-  background: #0B1311;
-  border: 1px solid var(--ps-border-gold);
-  border-radius: var(--ps-radius-lg);
-  overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-}
-</style>
 
 <!-- Vendor & Custom JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>

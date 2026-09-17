@@ -26,7 +26,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         
         <!-- About Us Dropdown -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['about.php', 'faq.php']) ? 'active' : '' ?>" href="<?= get_business_url('about.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['about.php', 'faq.php']) ? 'active' : '' ?>" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             About Us
           </a>
           <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
@@ -41,7 +41,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         <!-- Opportunity Dropdown (Consolidating Why, Roadmap, Plan & Packages) -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['business-opportunity.php', 'how-it-works.php', 'compensation-plan.php', 'membership.php']) ? 'active' : '' ?>" href="<?= get_business_url('business-opportunity.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['business-opportunity.php', 'how-it-works.php', 'compensation-plan.php', 'membership.php']) ? 'active' : '' ?>" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Opportunity
           </a>
           <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
@@ -54,7 +54,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
         <!-- Proof & Media Dropdown (Consolidating Stories, Gallery & Events) -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['success-stories.php', 'gallery.php', 'events.php']) ? 'active' : '' ?>" href="<?= get_business_url('success-stories.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['success-stories.php', 'gallery.php', 'events.php']) ? 'active' : '' ?>" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Proof & Media
           </a>
           <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
@@ -90,19 +90,43 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
     </div>
 
     <!-- Mobile Drawer Overlay Menu -->
-    <div id="psNavMenu" class="d-xl-none collapse" style="background: rgba(10, 11, 14, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.3); padding: 20px 0;">
+    <div id="psNavMenu" class="d-xl-none collapse" style="background: rgba(10, 11, 14, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.3); padding: 20px 0; max-height: 80vh; overflow-y: auto;">
       <div class="container d-flex flex-column gap-2">
-        <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link <?= is_active_page('index.php') ?>">Home</a>
-        <a href="<?= get_business_url('about.php') ?>" class="ps-nav-link <?= is_active_page('about.php') ?>">About Us</a>
-        <a href="<?= get_business_url('business-opportunity.php') ?>" class="ps-nav-link <?= is_active_page('business-opportunity.php') ?>">Why Join?</a>
-        <a href="<?= get_business_url('how-it-works.php') ?>" class="ps-nav-link <?= is_active_page('how-it-works.php') ?>">How It Works</a>
-        <a href="<?= get_business_url('compensation-plan.php') ?>" class="ps-nav-link <?= is_active_page('compensation-plan.php') ?>">Compensation Plan</a>
-        <a href="<?= get_business_url('membership.php') ?>" class="ps-nav-link <?= is_active_page('membership.php') ?>">Packages & Tiers</a>
-        <a href="<?= get_business_url('success-stories.php') ?>" class="ps-nav-link <?= is_active_page('success-stories.php') ?>">Success Stories</a>
-        <a href="<?= get_business_url('gallery.php') ?>" class="ps-nav-link <?= is_active_page('gallery.php') ?>">Media & Videos</a>
-        <a href="<?= get_business_url('events.php') ?>" class="ps-nav-link <?= is_active_page('events.php') ?>">News & Events</a>
-        <a href="<?= get_business_url('faq.php') ?>" class="ps-nav-link <?= is_active_page('faq.php') ?>">FAQ</a>
-        <a href="<?= get_business_url('contact.php') ?>" class="ps-nav-link <?= is_active_page('contact.php') ?>">Contact & Offices</a>
+        <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link js-mobile-nav-link <?= is_active_page('index.php') ?>">Home</a>
+        
+        <!-- Mobile Section: About Us -->
+        <div class="border-top border-secondary border-opacity-25 pt-2 mt-1">
+          <div class="text-white-50 text-uppercase fw-bold small px-2 mb-1" style="letter-spacing: 0.05em; font-size: 0.72rem;">About PhytoScience</div>
+          <div class="d-flex flex-column ms-2">
+            <a href="<?= get_business_url('about.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('about.php') ?>">Company Profile & 4P System</a>
+            <a href="<?= get_business_url('about.php#leadership') ?>" class="ps-nav-link js-mobile-nav-link py-1">Founders & Leadership</a>
+            <a href="<?= get_business_url('about.php#science') ?>" class="ps-nav-link js-mobile-nav-link py-1">Science & Mibelle R&D</a>
+            <a href="<?= get_business_url('faq.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('faq.php') ?>">Frequently Asked Questions</a>
+          </div>
+        </div>
+
+        <!-- Mobile Section: Opportunity -->
+        <div class="border-top border-secondary border-opacity-25 pt-2 mt-1">
+          <div class="text-white-50 text-uppercase fw-bold small px-2 mb-1" style="letter-spacing: 0.05em; font-size: 0.72rem;">Business Opportunity</div>
+          <div class="d-flex flex-column ms-2">
+            <a href="<?= get_business_url('business-opportunity.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('business-opportunity.php') ?>">Why PhytoScience?</a>
+            <a href="<?= get_business_url('how-it-works.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('how-it-works.php') ?>">How It Works (7-Step Roadmap)</a>
+            <a href="<?= get_business_url('compensation-plan.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('compensation-plan.php') ?>">Hybrid Compensation Plan</a>
+            <a href="<?= get_business_url('membership.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('membership.php') ?>">Packages & Tiers</a>
+          </div>
+        </div>
+
+        <!-- Mobile Section: Proof & Media -->
+        <div class="border-top border-secondary border-opacity-25 pt-2 mt-1">
+          <div class="text-white-50 text-uppercase fw-bold small px-2 mb-1" style="letter-spacing: 0.05em; font-size: 0.72rem;">Proof & Media</div>
+          <div class="d-flex flex-column ms-2">
+            <a href="<?= get_business_url('success-stories.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('success-stories.php') ?>">Success Stories & Cars</a>
+            <a href="<?= get_business_url('gallery.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('gallery.php') ?>">Video & Photo Gallery</a>
+            <a href="<?= get_business_url('events.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('events.php') ?>">News & Events</a>
+          </div>
+        </div>
+
+        <a href="<?= get_business_url('contact.php') ?>" class="ps-nav-link js-mobile-nav-link border-top border-secondary border-opacity-25 pt-2 mt-1 <?= is_active_page('contact.php') ?>">Contact & Global Offices</a>
         
         <div class="d-flex flex-column gap-2 mt-3 pt-3 border-top border-secondary border-opacity-25">
           <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-primary w-100 text-center">Join PhytoScience Now</a>
