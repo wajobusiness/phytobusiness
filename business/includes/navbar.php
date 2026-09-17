@@ -52,6 +52,20 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
           </ul>
         </div>
 
+        <!-- Products Dropdown (Flagship Cellular Formulations) -->
+        <div class="dropdown">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['double-stem-cell.php', 'snowphyll-forte.php', 'crystal-cell.php', 'irq-cell.php', 'actual-plus.php']) ? 'active' : '' ?>" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Products
+          </a>
+          <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
+            <li><a class="dropdown-item dropdown-item-ps text-gold fw-semibold" href="<?= get_product_url('double-stem-cell') ?>">🌿 Double Stemcell™ (Rejuvenation)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('crystal-cell') ?>">💎 Crystal Cell™ (DNA & UV Defense)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('snowphyll-forte') ?>">🍃 Snowphyll Forte™ (Blood Cleanser)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('irq-cell') ?>">🧠 iiQ Plus™ / IRQ Cell (Brain & Vision)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('actual-plus') ?>">💧 Actual Plus™ (39-in-1 Immune Drops)</a></li>
+          </ul>
+        </div>
+
         <!-- Proof & Media Dropdown (Consolidating Stories, Gallery & Events) -->
         <div class="dropdown">
           <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['success-stories.php', 'gallery.php', 'events.php']) ? 'active' : '' ?>" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -115,6 +129,18 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             <a href="<?= get_business_url('how-it-works.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('how-it-works.php') ?>">How It Works (7-Step Roadmap)</a>
             <a href="<?= get_business_url('compensation-plan.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('compensation-plan.php') ?>">Hybrid Compensation Plan</a>
             <a href="<?= get_business_url('membership.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('membership.php') ?>">Packages & Tiers</a>
+          </div>
+        </div>
+
+        <!-- Mobile Section: Featured Products -->
+        <div class="border-top border-secondary border-opacity-25 pt-2 mt-1">
+          <div class="text-white-50 text-uppercase fw-bold small px-2 mb-1" style="letter-spacing: 0.05em; font-size: 0.72rem;">Featured Products</div>
+          <div class="d-flex flex-column ms-2">
+            <a href="<?= get_product_url('double-stem-cell') ?>" class="ps-nav-link js-mobile-nav-link py-1 text-gold fw-semibold <?= is_active_page('double-stem-cell.php') ?>">🌿 Double Stemcell™</a>
+            <a href="<?= get_product_url('crystal-cell') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('crystal-cell.php') ?>">💎 Crystal Cell™</a>
+            <a href="<?= get_product_url('snowphyll-forte') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('snowphyll-forte.php') ?>">🍃 Snowphyll Forte™</a>
+            <a href="<?= get_product_url('irq-cell') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('irq-cell.php') ?>">🧠 iiQ Plus™ / IRQ Cell</a>
+            <a href="<?= get_product_url('actual-plus') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('actual-plus.php') ?>">💧 Actual Plus™</a>
           </div>
         </div>
 

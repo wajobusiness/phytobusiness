@@ -15,7 +15,7 @@ require_once __DIR__ . '/functions.php';
     <div class="row g-4">
       
       <!-- Brand & Legal Info -->
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-3 col-md-6">
         <a href="<?= get_business_url('index.php') ?>" class="d-inline-block mb-3" aria-label="PhytoScience Wellness Home">
           <img src="<?= asset('images/logo.png') ?>" alt="PhytoScience Wellness" class="ps-footer-logo" style="max-height: 52px; width: auto;">
         </a>
@@ -46,7 +46,7 @@ require_once __DIR__ . '/functions.php';
               <a href="tel:+2348068649995" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_NG_2 ?></a>
             </div>
             <div class="mb-1">
-              <strong class="text-white">UK Phone:</strong>
+              <strong class="text-white">UK Office:</strong>
               <a href="tel:+447474439825" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_UK ?></a>
             </div>
             <div>
@@ -82,15 +82,27 @@ require_once __DIR__ . '/functions.php';
         </ul>
       </div>
 
+      <!-- Flagship Products -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h5>Products</h5>
+        <ul class="list-unstyled">
+          <li><a href="<?= get_product_url('double-stem-cell') ?>" class="ps-footer-link text-gold">Double Stemcell™</a></li>
+          <li><a href="<?= get_product_url('crystal-cell') ?>" class="ps-footer-link">Crystal Cell™</a></li>
+          <li><a href="<?= get_product_url('snowphyll-forte') ?>" class="ps-footer-link">Snowphyll Forte™</a></li>
+          <li><a href="<?= get_product_url('irq-cell') ?>" class="ps-footer-link">iiQ Plus / IRQ Cell</a></li>
+          <li><a href="<?= get_product_url('actual-plus') ?>" class="ps-footer-link">Actual Plus™</a></li>
+        </ul>
+      </div>
+
       <!-- Company & Proof -->
-      <div class="col-lg-3 col-md-6 col-6">
+      <div class="col-lg-2 col-md-6 col-6">
         <h5>Company & Proof</h5>
         <ul class="list-unstyled">
           <li><a href="<?= get_business_url('about.php') ?>" class="ps-footer-link">About PhytoScience</a></li>
-          <li><a href="<?= get_business_url('about.php#leadership') ?>" class="ps-footer-link">Founders & Leadership</a></li>
-          <li><a href="<?= get_business_url('about.php#science') ?>" class="ps-footer-link">Science & Mibelle R&D</a></li>
+          <li><a href="<?= get_business_url('about.php#leadership') ?>" class="ps-footer-link">Founders & Team</a></li>
+          <li><a href="<?= get_business_url('about.php#science') ?>" class="ps-footer-link">Science Board</a></li>
           <li><a href="<?= get_business_url('success-stories.php') ?>" class="ps-footer-link">Distributor Stories</a></li>
-          <li><a href="<?= get_business_url('gallery.php') ?>" class="ps-footer-link">Media & Video Gallery</a></li>
+          <li><a href="<?= get_business_url('gallery.php') ?>" class="ps-footer-link">Media Gallery</a></li>
           <li><a href="<?= get_business_url('events.php') ?>" class="ps-footer-link">News & Events</a></li>
           <li><a href="<?= get_business_url('faq.php') ?>" class="ps-footer-link">FAQs</a></li>
         </ul>

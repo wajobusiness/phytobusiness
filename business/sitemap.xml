@@ -67,6 +67,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://phytosciencewellness.com/business/double-stem-cell.php</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://phytosciencewellness.com/business/crystal-cell.php</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://phytosciencewellness.com/business/snowphyll-forte.php</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://phytosciencewellness.com/business/irq-cell.php</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://phytosciencewellness.com/business/actual-plus.php</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://phytosciencewellness.com/business/contact.php</loc>
     <lastmod><?= date('Y-m-d') ?></lastmod>
     <changefreq>monthly</changefreq>

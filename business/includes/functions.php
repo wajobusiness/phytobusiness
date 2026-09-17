@@ -207,4 +207,142 @@ function send_contact_mail(string $to, string $subject, string $body, ?string $r
     return @mail($to, $subject, $body, $headers);
 }
 
+/**
+ * Get clean or file URL for a product
+ */
+function get_product_url(string $slug): string {
+    return get_business_url($slug . '.php');
+}
+
+/**
+ * Process Product Order Submissions
+ */
+function handle_product_order_submission(): ?array {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_POST['action']) || $_POST['action'] !== 'place_order') {
+        return null;
+    }
+
+    // Anti-bot Honeypot check
+    if (!empty($_POST['website_hp'])) {
+        return ['status' => 'error', 'message' => 'Spam verification triggered. Please try again.'];
+    }
+
+    // CSRF check
+    $token = $_POST['csrf_token'] ?? '';
+    if (!csrf_validate($token)) {
+        return ['status' => 'error', 'message' => 'Security token expired. Please refresh the page and try again.'];
+    }
+
+    $fullName      = sanitize($_POST['full_name'] ?? '');
+    $phone         = sanitize($_POST['phone'] ?? '');
+    $altPhone      = sanitize($_POST['alt_phone'] ?? '');
+    $email         = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+    $address       = sanitize($_POST['address'] ?? '');
+    $cityState     = sanitize($_POST['city_state'] ?? '');
+    $country       = sanitize($_POST['country'] ?? 'Nigeria');
+    $productSlug   = sanitize($_POST['product_slug'] ?? '');
+    $productName   = sanitize($_POST['product_name'] ?? 'PhytoScience Product');
+    $package       = sanitize($_POST['package'] ?? '');
+    $paymentMethod = sanitize($_POST['payment_method'] ?? 'Pay on Delivery');
+    $notes         = sanitize($_POST['notes'] ?? '');
+
+    if (empty($fullName) || empty($phone) || empty($address) || empty($package)) {
+        return ['status' => 'error', 'message' => 'Please fill in your name, delivery phone number, full address, and select a package.'];
+    }
+
+    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return ['status' => 'error', 'message' => 'Please provide a valid email address.'];
+    }
+
+    // Rate limiting: 1 submission per 5 seconds
+    $now = time();
+    if (isset($_SESSION['last_order_time']) && ($now - $_SESSION['last_order_time']) < 5) {
+        return ['status' => 'error', 'message' => 'Please wait a moment before submitting again.'];
+    }
+    $_SESSION['last_order_time'] = $now;
+
+    $orderId = 'PS-' . date('Ymd') . '-' . strtoupper(substr(uniqid(), -4));
+
+    // Save to orders.json
+    $logDir = __DIR__ . '/../data';
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0750, true);
+    }
+    $logFile = $logDir . '/orders.json';
+    $entry = [
+        'order_id'       => $orderId,
+        'timestamp'      => date('c'),
+        'ip'             => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
+        'product_slug'   => $productSlug,
+        'product_name'   => $productName,
+        'package'        => $package,
+        'full_name'      => $fullName,
+        'phone'          => $phone,
+        'alt_phone'      => $altPhone,
+        'email'          => $email,
+        'address'        => $address,
+        'city_state'     => $cityState,
+        'country'        => $country,
+        'payment_method' => $paymentMethod,
+        'notes'          => $notes,
+        'status'         => 'Pending Confirmation'
+    ];
+
+    $existing = [];
+    if (file_exists($logFile)) {
+        $content = @file_get_contents($logFile);
+        $decoded = @json_decode($content, true);
+        if (is_array($decoded)) {
+            $existing = $decoded;
+        }
+    }
+    $existing[] = $entry;
+    @file_put_contents($logFile, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+    // Dispatch email notification
+    $to = CONTACT_EMAIL;
+    $subject = "🔥 NEW ORDER: [{$orderId}] {$productName} - {$fullName} ({$cityState})";
+    $body = "A new product order has been placed on the PhytoScience Platform!\n\n" .
+            "ORDER ID: {$orderId}\n" .
+            "DATE: " . date('Y-m-d H:i:s') . "\n" .
+            "PRODUCT: {$productName}\n" .
+            "PACKAGE: {$package}\n" .
+            "PAYMENT METHOD: {$paymentMethod}\n\n" .
+            "CUSTOMER DETAILS:\n" .
+            "Name: {$fullName}\n" .
+            "Phone: {$phone}\n" .
+            (!empty($altPhone) ? "Alt Phone: {$altPhone}\n" : "") .
+            (!empty($email) ? "Email: {$email}\n" : "") .
+            "Delivery Address: {$address}\n" .
+            "City / State: {$cityState}\n" .
+            "Country: {$country}\n\n" .
+            (!empty($notes) ? "Special Notes / Directions:\n{$notes}\n\n" : "") .
+            "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'N/A') . "\n";
+    send_contact_mail($to, $subject, $body, !empty($email) ? $email : null);
+
+    // Build prefilled WhatsApp message
+    $waText = "Hello PhytoScience Team, I just placed an order on the website!\n\n" .
+              "📦 *Order ID:* {$orderId}\n" .
+              "🌿 *Product:* {$productName}\n" .
+              "💎 *Package:* {$package}\n" .
+              "👤 *Customer:* {$fullName}\n" .
+              "📞 *Phone:* {$phone}\n" .
+              "📍 *Delivery Address:* {$address}, {$cityState}, {$country}\n" .
+              "💳 *Payment Preference:* {$paymentMethod}\n\n" .
+              "Please confirm my order and arrange dispatch. Thank you!";
+    $waUrl = "https://wa.me/2348023173303?text=" . urlencode($waText);
+
+    return [
+        'status'         => 'success',
+        'order_id'       => $orderId,
+        'product_name'   => $productName,
+        'package'        => $package,
+        'full_name'      => $fullName,
+        'phone'          => $phone,
+        'whatsapp_url'   => $waUrl,
+        'message'        => 'Thank you! Your order has been placed successfully. Order Reference: ' . $orderId . '. Our logistics team will call or WhatsApp you shortly to confirm dispatch.'
+    ];
+}
+
+
 

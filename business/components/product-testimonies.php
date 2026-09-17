@@ -271,8 +271,8 @@ $videoTestimonies = [
 
         <div class="col-lg-4 text-lg-end">
           <div class="d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-lg-end">
-            <a href="<?= MAIN_SHOP_URL ?>" target="_blank" rel="noopener" class="btn-ps btn-ps-gold text-center">
-              <span>Order Verified Products</span>
+            <a href="<?= get_product_url('double-stem-cell') ?>" class="btn-ps btn-ps-primary text-center">
+              <span>Order Double Stemcell™</span>
             </a>
             <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-glass text-center">
               <span>Join as a Distributor</span>

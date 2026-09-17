@@ -11,8 +11,8 @@
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
 
-# 2. Block direct HTTP access to sensitive data and configs
-<FilesMatch "^(config\.php|\.env|composer\.(json|lock)|inquiries\.json)$">
+# 2. Block direct HTTP access to sensitive data, orders and configs
+<FilesMatch "^(config\.php|\.env|composer\.(json|lock)|.*\.(json|log|sql|md))$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -30,9 +30,14 @@
     # Block access to git or hidden files
     RewriteRule "(^|/)\.(?!well-known)" - [F]
 
-    # If the request is not a directory and doesn't end in .php
-    # Try mapping extensionless URL to .php file
+    # Map extensionless URLs (with or without trailing slash) to .php files
     RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [NC,L]
+
+    # Fallback for generic extensionless paths
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}\.php -f
     RewriteRule ^([^\.]+)$ $1.php [NC,L]
 </IfModule>
@@ -70,4 +75,3 @@
 
 # 6. Character Encoding
 AddDefaultCharset UTF-8
-
