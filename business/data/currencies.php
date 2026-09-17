@@ -187,7 +187,7 @@ function get_country_to_currency_map(): array {
 /**
  * Detect the visitor's preferred currency via cookies, Cloudflare IP header, or server headers
  */
-function detect_visitor_currency(): string {
+function detect_visitor_currency(bool $fallbackDefault = true): string {
     $currencies = get_supported_currencies();
 
     // 1. User manual selection cookie
@@ -213,8 +213,8 @@ function detect_visitor_currency(): string {
         }
     }
 
-    // 4. Default to NGN for Nigerian traffic, USD for general international
-    return 'NGN';
+    // 4. Default to NGN if requested, or empty string to allow browser client auto-detection
+    return $fallbackDefault ? 'NGN' : '';
 }
 
 /**
@@ -261,3 +261,4 @@ function convert_usd_price(float $usdAmount, string $targetCurrency = 'NGN'): st
         return $formattedNumber . ' ' . $curr['symbol'];
     }
 }
+

@@ -139,26 +139,45 @@
       return saved.toUpperCase();
     }
 
-    // 2. Server-side pre-detected variable if available
+    // 2. Server-side pre-detected variable if validly detected by server
     if (window.PS_DETECTED_CURRENCY && CURRENCIES[window.PS_DETECTED_CURRENCY]) {
       return window.PS_DETECTED_CURRENCY;
     }
 
-    // 3. Timezone heuristic (Instant, offline & no network required)
+    // 3. Timezone heuristic (Instant, offline & 0ms on all mobile browsers)
     try {
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      // Nigeria & West Africa
       if (tz.includes('Lagos') || tz.includes('Nigeria')) return 'NGN';
-      if (tz.includes('London')) return 'GBP';
+      // United Kingdom
+      if (tz.includes('London') || tz.includes('Belfast') || tz.includes('Jersey') || tz.includes('Guernsey')) return 'GBP';
+      // Ghana
       if (tz.includes('Accra')) return 'GHS';
-      if (tz.includes('Nairobi')) return 'KES';
-      if (tz.includes('Johannesburg')) return 'ZAR';
-      if (tz.includes('Kuala_Lumpur')) return 'MYR';
-      if (tz.includes('Paris') || tz.includes('Berlin') || tz.includes('Rome') || tz.includes('Madrid') || tz.includes('Amsterdam') || tz.includes('Brussels') || tz.includes('Dublin')) return 'EUR';
-      if (tz.includes('Toronto') || tz.includes('Vancouver') || tz.includes('Montreal')) return 'CAD';
-      if (tz.includes('Sydney') || tz.includes('Melbourne') || tz.includes('Brisbane')) return 'AUD';
-      if (tz.includes('Dubai')) return 'AED';
-      if (tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Delhi')) return 'INR';
-      if (tz.includes('New_York') || tz.includes('Chicago') || tz.includes('Los_Angeles') || tz.includes('Denver')) return 'USD';
+      // Kenya & East Africa
+      if (tz.includes('Nairobi') || tz.includes('Kampala') || tz.includes('Dar_es_Salaam') || tz.includes('Kigali')) return 'KES';
+      // South Africa & Southern Africa
+      if (tz.includes('Johannesburg') || tz.includes('Pretoria') || tz.includes('Maseru') || tz.includes('Gaborone') || tz.includes('Windhoek')) return 'ZAR';
+      // Malaysia & Singapore
+      if (tz.includes('Kuala_Lumpur') || tz.includes('Kuching') || tz.includes('Singapore')) return 'MYR';
+      // Europe / Eurozone
+      if (tz.includes('Europe/Paris') || tz.includes('Europe/Berlin') || tz.includes('Europe/Rome') || tz.includes('Europe/Madrid') || 
+          tz.includes('Europe/Amsterdam') || tz.includes('Europe/Brussels') || tz.includes('Europe/Dublin') || tz.includes('Europe/Vienna') || 
+          tz.includes('Europe/Lisbon') || tz.includes('Europe/Athens') || tz.includes('Europe/Helsinki') || tz.includes('Europe/Stockholm') || 
+          tz.includes('Europe/Oslo') || tz.includes('Europe/Copenhagen') || tz.includes('Europe/Warsaw') || tz.includes('Europe/Prague') || 
+          tz.includes('Europe/')) return 'EUR';
+      // Canada
+      if (tz.includes('Toronto') || tz.includes('Vancouver') || tz.includes('Montreal') || tz.includes('Edmonton') || tz.includes('Winnipeg') || tz.includes('Halifax') || tz.includes('Canada/')) return 'CAD';
+      // Australia
+      if (tz.includes('Sydney') || tz.includes('Melbourne') || tz.includes('Brisbane') || tz.includes('Perth') || tz.includes('Adelaide') || tz.includes('Australia/')) return 'AUD';
+      // UAE & Gulf
+      if (tz.includes('Dubai') || tz.includes('Abu_Dhabi') || tz.includes('Muscat') || tz.includes('Doha') || tz.includes('Bahrain') || tz.includes('Riyadh')) return 'AED';
+      // India
+      if (tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Delhi') || tz.includes('Kolkata')) return 'INR';
+      // CFA Zone
+      if (tz.includes('Dakar') || tz.includes('Abidjan') || tz.includes('Douala') || tz.includes('Lome') || tz.includes('Cotonou') || tz.includes('Ouagadougou') || tz.includes('Bamako') || tz.includes('Niamey')) return 'XOF';
+      // USA & General Americas
+      if (tz.includes('America/New_York') || tz.includes('America/Chicago') || tz.includes('America/Los_Angeles') || tz.includes('America/Denver') || 
+          tz.includes('America/Phoenix') || tz.includes('America/Detroit') || tz.includes('America/Indiana') || tz.includes('America/') || tz.includes('US/')) return 'USD';
     } catch (e) {}
 
     // 4. Fast Geo-IP API Lookup (2 second timeout)
@@ -178,8 +197,31 @@
       // Ignore network abort or failure
     }
 
-    // Default fallback: NGN for African traffic / USD general
+    // Default fallback: NGN
     return 'NGN';
+  }
+
+  /**
+   * Helper to close open currency dropdowns on mobile/desktop
+   */
+  function closeAllCurrencyDropdowns() {
+    document.querySelectorAll('.ps-currency-dropdown, .ps-navbar .dropdown').forEach(d => {
+      d.classList.remove('show');
+      const menu = d.querySelector('.dropdown-menu');
+      if (menu) menu.classList.remove('show');
+      const toggle = d.querySelector('.dropdown-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  /**
+   * Select currency and close menu
+   */
+  function selectAndApply(code) {
+    if (code && CURRENCIES[code]) {
+      applyCurrency(code);
+    }
+    closeAllCurrencyDropdowns();
   }
 
   /**
@@ -216,7 +258,6 @@
     if (pkgSelect) {
       Array.from(pkgSelect.options).forEach(opt => {
         const usd = parseFloat(opt.getAttribute('data-usd'));
-        const origUsd = parseFloat(opt.getAttribute('data-orig-usd'));
         const tierName = opt.getAttribute('data-tier-name') || opt.text.split('—')[0].trim();
         
         if (!isNaN(usd)) {
@@ -270,27 +311,33 @@
     const activeCurrency = await detectCurrency();
     applyCurrency(activeCurrency);
 
-    // 2. Attach click handlers to any currency dropdown items
-    document.addEventListener('click', function(e) {
+    // 2. Attach click & touch handlers to any currency elements
+    function handleItemAction(e) {
       const item = e.target.closest('[data-currency]');
       if (item) {
         e.preventDefault();
         const code = item.getAttribute('data-currency');
-        if (code && CURRENCIES[code]) {
-          applyCurrency(code);
-        }
+        selectAndApply(code);
       }
-    });
+    }
+
+    document.addEventListener('click', handleItemAction);
+    document.addEventListener('touchend', function(e) {
+      const item = e.target.closest('[data-currency]');
+      if (item) {
+        e.preventDefault();
+        const code = item.getAttribute('data-currency');
+        selectAndApply(code);
+      }
+    }, { passive: false });
 
     // 3. Attach change handlers to any currency select elements
     document.addEventListener('change', function(e) {
       if (e.target.classList.contains('js-currency-select')) {
-        const code = e.target.value;
-        if (code && CURRENCIES[code]) {
-          applyCurrency(code);
-        }
+        selectAndApply(e.target.value);
       }
     });
   });
 
 })();
+

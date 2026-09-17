@@ -904,83 +904,135 @@ p {
 }
 
 /* 19. Multi-Currency Switcher & Dynamic Selector Styles */
+.ps-currency-dropdown {
+  position: relative !important;
+  display: inline-block !important;
+}
+
 .ps-currency-dropdown .dropdown-toggle {
   font-size: 0.82rem;
   border: 1px solid rgba(198, 164, 92, 0.35);
-  background: rgba(18, 19, 25, 0.85);
+  background: rgba(18, 19, 25, 0.9);
   border-radius: 20px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   color: #FFFFFF;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: all 0.2s ease;
+  user-select: none;
 }
 
 .ps-currency-dropdown .dropdown-toggle:hover,
 .ps-currency-dropdown .dropdown-toggle:focus {
   border-color: #C6A45C;
-  background: rgba(30, 32, 42, 0.95);
+  background: rgba(30, 32, 42, 0.98);
   color: #FFFFFF;
   box-shadow: 0 0 10px rgba(198, 164, 92, 0.25);
 }
 
 .ps-currency-dropdown .dropdown-menu {
-  min-width: 260px;
-  background: #121319;
-  border: 1px solid rgba(198, 164, 92, 0.3);
-  border-radius: 12px;
-  padding: 8px 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  position: absolute !important;
+  top: calc(100% + 4px) !important;
+  right: 0 !important;
+  left: auto !important;
+  min-width: 250px !important;
+  max-width: calc(100vw - 20px) !important;
+  max-height: 70vh !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  background: #121319 !important;
+  border: 1px solid rgba(198, 164, 92, 0.35) !important;
+  border-radius: 12px !important;
+  padding: 8px 0 !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.95) !important;
+  z-index: 1085 !important;
+  display: none;
+}
+
+/* Force visible when show class is present on either parent or menu */
+.ps-currency-dropdown.show > .dropdown-menu,
+.ps-currency-dropdown .dropdown-menu.show {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
 }
 
 .ps-currency-dropdown .dropdown-item {
-  padding: 8px 16px;
+  padding: 9px 16px;
   font-size: 0.85rem;
   color: #E2E4EB;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: background 0.15s ease, color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.ps-currency-dropdown .dropdown-item:hover {
-  background: rgba(216, 0, 29, 0.15);
-  color: #FF4D5E;
+.ps-currency-dropdown .dropdown-item:hover,
+.ps-currency-dropdown .dropdown-item:focus,
+.ps-currency-dropdown .dropdown-item:active {
+  background: rgba(216, 0, 29, 0.2) !important;
+  color: #FFFFFF !important;
 }
 
 .ps-currency-dropdown .dropdown-item.active {
-  background: rgba(198, 164, 92, 0.2);
-  color: #C6A45C;
+  background: rgba(198, 164, 92, 0.25) !important;
+  color: #C6A45C !important;
   font-weight: bold;
   border-left: 3px solid #C6A45C;
 }
 
 /* Quick Currency Pill Selector (above pricing tables) */
 .ps-currency-pills-wrap {
-  display: inline-flex;
-  align-items: center;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 30px;
-  padding: 4px 6px;
-  gap: 4px;
+  border-radius: 24px;
+  padding: 6px 8px;
+  gap: 6px;
+  max-width: 100% !important;
 }
 
 .ps-currency-pill-btn {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: #A0A2B0;
   font-size: 0.78rem;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 6px 12px;
+  min-height: 34px;
   border-radius: 20px;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: all 0.2s ease;
   text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 
-.ps-currency-pill-btn:hover {
+.ps-currency-pill-btn:hover,
+.ps-currency-pill-btn:focus {
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.08);
 }
 
+.ps-currency-pill-btn:active {
+  transform: scale(0.96);
+}
+
 .ps-currency-pill-btn.active {
   background: #D8001D;
+  border-color: #FF4D5E;
   color: #FFFFFF;
   box-shadow: 0 2px 8px rgba(216, 0, 29, 0.4);
 }

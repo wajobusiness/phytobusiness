@@ -359,8 +359,8 @@ function handle_product_order_submission(): ?array {
 /**
  * Get active detected or selected visitor currency
  */
-function get_active_currency(): string {
-    return detect_visitor_currency();
+function get_active_currency(bool $fallbackDefault = true): string {
+    return detect_visitor_currency($fallbackDefault);
 }
 
 /**

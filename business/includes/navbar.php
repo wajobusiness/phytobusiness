@@ -112,6 +112,22 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
     <!-- Mobile Drawer Overlay Menu -->
     <div id="psNavMenu" class="d-xl-none collapse" style="background: rgba(10, 11, 14, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.3); padding: 20px 0; max-height: 80vh; overflow-y: auto;">
       <div class="container d-flex flex-column gap-2">
+        
+        <!-- Mobile Drawer Currency Selector -->
+        <div class="p-3 rounded-3 mb-2" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(198, 164, 92, 0.3);">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">Currency / Country:</span>
+            <span class="text-gold small fw-bold js-curr-label"><?= htmlspecialchars(get_active_currency()) ?></span>
+          </div>
+          <select class="form-select form-select-sm js-currency-select" aria-label="Select Country Currency" style="background: #121319; color: #FFFFFF; border-color: rgba(198, 164, 92, 0.4); font-size: 0.88rem; border-radius: 8px; padding: 8px 12px;">
+            <?php foreach (get_supported_currencies() as $code => $c): ?>
+              <option value="<?= $code ?>" <?= ($code === get_active_currency()) ? 'selected' : '' ?>>
+                <?= $c['flag'] ?> <?= $code ?> (<?= $c['symbol'] ?>) — <?= $c['name'] ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
         <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link js-mobile-nav-link <?= is_active_page('index.php') ?>">Home</a>
         
         <!-- Mobile Section: About Us -->

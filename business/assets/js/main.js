@@ -64,7 +64,7 @@
     }
 
     // 3. Robust Dropdown Menus (Works for Click, Touch, and Fallback)
-    const dropdownToggles = document.querySelectorAll('.ps-navbar .dropdown-toggle');
+    const dropdownToggles = document.querySelectorAll('.ps-navbar .dropdown-toggle, .ps-currency-dropdown .dropdown-toggle');
 
     dropdownToggles.forEach((toggle) => {
       toggle.addEventListener('click', (e) => {
@@ -78,7 +78,7 @@
         const isCurrentlyOpen = parentDropdown.classList.contains('show') || (menu && menu.classList.contains('show'));
 
         // Close all other open dropdowns first
-        document.querySelectorAll('.ps-navbar .dropdown').forEach((d) => {
+        document.querySelectorAll('.ps-navbar .dropdown, .ps-currency-dropdown').forEach((d) => {
           if (d !== parentDropdown) {
             d.classList.remove('show');
             const otherMenu = d.querySelector('.dropdown-menu');
@@ -101,10 +101,10 @@
       });
     });
 
-    // Close all open dropdowns when clicking outside
+    // Close all open dropdowns when clicking outside or selecting a currency item
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('.ps-navbar .dropdown')) {
-        document.querySelectorAll('.ps-navbar .dropdown').forEach((d) => {
+      if (!e.target.closest('.ps-navbar .dropdown, .ps-currency-dropdown') || e.target.closest('[data-currency]')) {
+        document.querySelectorAll('.ps-navbar .dropdown, .ps-currency-dropdown').forEach((d) => {
           d.classList.remove('show');
           const menu = d.querySelector('.dropdown-menu');
           if (menu) menu.classList.remove('show');

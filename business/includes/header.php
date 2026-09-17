@@ -27,7 +27,7 @@ require_once __DIR__ . '/functions.php';
 
   <!-- Multi-Currency Dynamic Engine -->
   <script>
-    window.PS_DETECTED_CURRENCY = <?= json_encode(get_active_currency()) ?>;
+    window.PS_DETECTED_CURRENCY = <?= json_encode(get_active_currency(false)) ?>;
   </script>
   <script src="<?= asset('js/currency-switcher.js') ?>" defer></script>
 
