@@ -199,9 +199,25 @@ require __DIR__ . '/components/hero.php';
         <span>Swiss Biotechnology Formulations</span>
       </div>
       <h2 class="h2 text-white fw-bold mb-3">Flagship Cellular Health <span class="text-gold">Formulations</span></h2>
-      <p class="text-secondary lead fs-6 mb-0">
+      <p class="text-secondary lead fs-6 mb-3">
         Engineered with patented Swiss plant stem cells and rare medicinal botanicals. Select any product below to view its dedicated advertising landing page, clinical evidence, and direct order options.
       </p>
+
+      <!-- Interactive Currency Switcher Bar -->
+      <div class="d-flex align-items-center justify-content-center gap-2 flex-wrap mb-2">
+        <span class="text-white-50 small fw-bold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em;">Currency:</span>
+        <div class="ps-currency-pills-wrap">
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="NGN">🇳🇬 NGN (₦)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="USD">🇺🇸 USD ($)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GBP">🇬🇧 GBP (£)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="EUR">🇪🇺 EUR (€)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GHS">🇬🇭 GHS (GH₵)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="KES">🇰🇪 KES (KSh)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="ZAR">🇿🇦 ZAR (R)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="MYR">🇲🇾 MYR (RM)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="CAD">🇨🇦 CAD (CA$)</button>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4 justify-content-center">
@@ -212,6 +228,9 @@ require __DIR__ . '/components/hero.php';
           $tierPrice = $prod['pricing'][0]['price_ngn'] ?? '₦38,000';
           $tierOriginal = $prod['pricing'][0]['original_ngn'] ?? '₦48,000';
           $tierUsd = $prod['pricing'][0]['price_usd'] ?? '$45 USD';
+          $prodUsd = (float)preg_replace('/[^0-9.]/', '', $prod['pricing'][0]['price_usd'] ?? '45');
+          $prodOrigUsd = $prodUsd * 1.25;
+          if ($prodUsd >= 44 && $prodUsd <= 46) $prodOrigUsd = 55;
       ?>
         <div class="col-lg-4 col-md-6">
           <div class="ps-card h-100 p-4 d-flex flex-column justify-content-between position-relative overflow-hidden" style="background: #14151B; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; transition: transform 0.3s ease, border-color 0.3s ease;">
@@ -256,10 +275,10 @@ require __DIR__ . '/components/hero.php';
             <div class="pt-3 border-top border-secondary border-opacity-25 mt-2">
               <div class="d-flex align-items-baseline justify-content-between mb-3">
                 <div>
-                  <span class="text-white fw-bold fs-5"><?= htmlspecialchars($tierPrice) ?></span>
-                  <span class="text-secondary text-decoration-line-through small ms-1"><?= htmlspecialchars($tierOriginal) ?></span>
+                  <span class="text-white fw-bold fs-5" data-price-usd="<?= $prodUsd ?>"><?= htmlspecialchars($tierPrice) ?></span>
+                  <span class="text-secondary text-decoration-line-through small ms-1" data-original-usd="<?= $prodOrigUsd ?>"><?= htmlspecialchars($tierOriginal) ?></span>
                 </div>
-                <span class="text-gold small fw-bold"><?= htmlspecialchars($tierUsd) ?></span>
+                <span class="text-gold small fw-bold" data-price-usd="<?= $prodUsd ?>"><?= htmlspecialchars($tierUsd) ?></span>
               </div>
 
               <div class="d-flex gap-2">

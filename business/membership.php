@@ -45,9 +45,25 @@ require __DIR__ . '/components/hero.php';
         <span>Transparent Package Structure</span>
       </div>
       <h2 class="h2 text-white fw-bold mb-3">Choose Your Global Business Level</h2>
-      <p class="text-secondary lead fs-6 mb-0">
+      <p class="text-secondary lead fs-6 mb-3">
         Every package includes authentic Swiss stem cell formulations, your official distributor ID, and 24/7 backoffice access.
       </p>
+
+      <!-- Interactive Currency Switcher Bar -->
+      <div class="d-flex align-items-center justify-content-center gap-2 flex-wrap mb-2">
+        <span class="text-white-50 small fw-bold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em;">Currency:</span>
+        <div class="ps-currency-pills-wrap">
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="NGN">🇳🇬 NGN (₦)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="USD">🇺🇸 USD ($)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GBP">🇬🇧 GBP (£)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="EUR">🇪🇺 EUR (€)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GHS">🇬🇭 GHS (GH₵)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="KES">🇰🇪 KES (KSh)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="ZAR">🇿🇦 ZAR (R)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="MYR">🇲🇾 MYR (RM)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="CAD">🇨🇦 CAD (CA$)</button>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4 align-items-stretch">

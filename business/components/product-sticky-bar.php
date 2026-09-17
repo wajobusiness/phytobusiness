@@ -7,6 +7,7 @@
 declare(strict_types=1);
 
 $starterPrice = $product['pricing'][0]['price_ngn'] ?? '';
+$starterUsd = (float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '45');
 $productImgUrl = asset(ltrim($product['image'], '/'));
 ?>
 <div class="ps-sticky-mobile-bar d-lg-none" id="psStickyMobileBar">
@@ -14,7 +15,7 @@ $productImgUrl = asset(ltrim($product['image'], '/'));
   
   <div class="ps-sticky-info">
     <h4 class="ps-sticky-title"><?= htmlspecialchars($product['name']) ?></h4>
-    <p class="ps-sticky-price">From <?= htmlspecialchars($starterPrice) ?></p>
+    <p class="ps-sticky-price">From <span data-price-usd="<?= $starterUsd ?>"><?= htmlspecialchars($starterPrice) ?></span></p>
   </div>
 
   <div class="ps-sticky-actions">

@@ -27,6 +27,10 @@ function render_package_card(array $pkg, bool $showDetailedCta = true): string
         </li>';
     }
 
+    $rawUsd = (float)preg_replace('/[^0-9.]/', '', $pkg['price_usd'] ?? '130');
+    $displayNgn = sanitize($pkg['price_ngn'] ?? $pkg['price_estimate']);
+    $displayUsd = sanitize($pkg['price_usd'] ?? '$130');
+
     $ctaHtml = $showDetailedCta
         ? '<a href="' . get_business_url('join.php?package=' . urlencode($pkg['slug'])) . '" class="btn-ps ' . ($isFeatured ? 'btn-ps-primary' : 'btn-ps-outline-crimson') . ' w-100 mt-auto">Choose ' . sanitize($pkg['name']) . '</a>'
         : '<a href="' . get_business_url('membership.php') . '" class="btn-ps btn-ps-outline-crimson w-100 mt-auto">View Package Details</a>';
@@ -45,9 +49,10 @@ function render_package_card(array $pkg, bool $showDetailedCta = true): string
         <p class="small text-secondary mb-3">' . sanitize($pkg['tagline']) . '</p>
 
         <div class="ps-package-pricing py-3 mb-3 border-top border-bottom border-secondary border-opacity-25">
-            <div class="d-flex align-items-baseline gap-1">
+            <div class="d-flex align-items-baseline gap-1 flex-wrap">
                 <span class="small text-secondary">Est.</span>
-                <span class="h2 text-white fw-bold mb-0">' . sanitize($pkg['price_estimate']) . '</span>
+                <span class="h2 text-white fw-bold mb-0" data-price-usd="' . $rawUsd . '">' . $displayNgn . '</span>
+                <span class="small text-gold ms-2 fw-semibold">(' . $displayUsd . ' Int\'l)</span>
             </div>
             <div class="small text-crimson mt-1 fw-semibold">Daily Pairing Cap: ' . sanitize($pkg['daily_cap']) . '</div>
         </div>

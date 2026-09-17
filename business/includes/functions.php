@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../data/currencies.php';
 
 /**
  * Sanitize string input to prevent XSS attacks
@@ -354,6 +355,56 @@ function handle_product_order_submission(): ?array {
         'message'        => 'Thank you! Your order has been placed successfully. Order Reference: ' . $orderId . '. Our logistics team will contact you shortly to confirm dispatch.'
     ];
 }
+
+/**
+ * Get active detected or selected visitor currency
+ */
+function get_active_currency(): string {
+    return detect_visitor_currency();
+}
+
+/**
+ * Format a price given in USD to the active or specified currency
+ */
+function format_price(float $usdAmount, ?string $currency = null): string {
+    $c = $currency ?? get_active_currency();
+    return convert_usd_price($usdAmount, $c);
+}
+
+/**
+ * Render the Currency Selector Dropdown for Navbar or Headers
+ */
+function render_currency_selector(string $extraClass = ''): string {
+    $currencies = get_supported_currencies();
+    $activeCode = get_active_currency();
+    $active = $currencies[$activeCode] ?? $currencies['NGN'];
+
+    $itemsHtml = '';
+    foreach ($currencies as $code => $c) {
+        $isActive = ($code === $activeCode);
+        $activeClass = $isActive ? 'active' : '';
+        $itemsHtml .= '<li>
+            <a class="dropdown-item dropdown-item-ps d-flex align-items-center justify-content-between js-currency-item ' . $activeClass . '" href="javascript:void(0)" data-currency="' . $code . '">
+                <span>' . $c['flag'] . ' ' . $code . ' (' . $c['symbol'] . ')</span>
+                <span class="small text-secondary ms-2">' . $c['name'] . '</span>
+            </a>
+        </li>';
+    }
+
+    return '
+    <div class="dropdown ps-currency-dropdown ' . sanitize($extraClass) . '">
+        <button class="btn btn-sm btn-ps-glass dropdown-toggle d-flex align-items-center gap-1 py-1 px-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Change currency">
+            <span class="js-curr-flag">' . $active['flag'] . '</span>
+            <span class="js-curr-code fw-bold">' . $active['code'] . '</span>
+            <span class="text-gold small js-curr-symbol">(' . $active['symbol'] . ')</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-ps dropdown-menu-end shadow-lg" style="max-height: 380px; overflow-y: auto;">
+            <li class="dropdown-header text-uppercase text-gold small" style="font-size: 0.68rem; letter-spacing: 0.05em;">Select Currency</li>
+            ' . $itemsHtml . '
+        </ul>
+    </div>';
+}
+
 
 
 

@@ -85,6 +85,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 
       <!-- Action CTAs -->
       <div class="d-none d-lg-flex align-items-center gap-2">
+        <?= render_currency_selector() ?>
         <a href="<?= MAIN_SHOP_URL ?>" class="btn-ps btn-ps-sm btn-ps-glass" target="_blank" rel="noopener">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
           Shop Products
@@ -98,10 +99,13 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         </a>
       </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="d-xl-none btn btn-link text-white p-2 text-decoration-none js-mobile-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#psNavMenu" data-ps-toggle="nav" aria-expanded="false" aria-controls="psNavMenu" aria-label="Toggle navigation" style="cursor: pointer;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="pointer-events: none;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <!-- Mobile Controls (Currency + Hamburger) -->
+      <div class="d-flex d-lg-none align-items-center gap-2">
+        <?= render_currency_selector('me-1') ?>
+        <button class="d-xl-none btn btn-link text-white p-2 text-decoration-none js-mobile-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#psNavMenu" data-ps-toggle="nav" aria-expanded="false" aria-controls="psNavMenu" aria-label="Toggle navigation" style="cursor: pointer;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="pointer-events: none;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
 
     </div>
 

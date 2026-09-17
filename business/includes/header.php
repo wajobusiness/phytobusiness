@@ -25,6 +25,12 @@ require_once __DIR__ . '/functions.php';
   <link rel="stylesheet" href="<?= asset('css/theme.css') ?>">
   <link rel="stylesheet" href="<?= asset('css/animations.css') ?>">
 
+  <!-- Multi-Currency Dynamic Engine -->
+  <script>
+    window.PS_DETECTED_CURRENCY = <?= json_encode(get_active_currency()) ?>;
+  </script>
+  <script src="<?= asset('js/currency-switcher.js') ?>" defer></script>
+
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="<?= asset('images/favicon.svg') ?>">
   <link rel="icon" type="image/png" sizes="32x32" href="<?= asset('images/favicon-32x32.png') ?>">

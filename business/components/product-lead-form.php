@@ -107,8 +107,13 @@ $orderResult = handle_product_order_submission();
                 <div class="col-md-6">
                   <label for="package-select" class="ps-form-label text-gold">Select Package <span class="text-danger">*</span></label>
                   <select name="package" id="package-select" class="form-select ps-form-control" required>
-                    <?php foreach ($product['pricing'] as $idx => $tier): ?>
-                      <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" <?= !empty($tier['popular']) ? 'selected' : '' ?>>
+                    <?php foreach ($product['pricing'] as $idx => $tier): 
+                      $usdVal = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '45');
+                    ?>
+                      <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" 
+                              data-usd="<?= $usdVal ?>"
+                              data-tier-name="<?= htmlspecialchars($tier['name']) ?>"
+                              <?= !empty($tier['popular']) ? 'selected' : '' ?>>
                         <?= htmlspecialchars($tier['name']) ?> — <?= htmlspecialchars($tier['price_ngn']) ?> (<?= htmlspecialchars($tier['badge']) ?>)
                       </option>
                     <?php endforeach; ?>

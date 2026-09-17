@@ -903,3 +903,86 @@ p {
   transform: scale(1.06);
 }
 
+/* 19. Multi-Currency Switcher & Dynamic Selector Styles */
+.ps-currency-dropdown .dropdown-toggle {
+  font-size: 0.82rem;
+  border: 1px solid rgba(198, 164, 92, 0.35);
+  background: rgba(18, 19, 25, 0.85);
+  border-radius: 20px;
+  padding: 4px 10px;
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.ps-currency-dropdown .dropdown-toggle:hover,
+.ps-currency-dropdown .dropdown-toggle:focus {
+  border-color: #C6A45C;
+  background: rgba(30, 32, 42, 0.95);
+  color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(198, 164, 92, 0.25);
+}
+
+.ps-currency-dropdown .dropdown-menu {
+  min-width: 260px;
+  background: #121319;
+  border: 1px solid rgba(198, 164, 92, 0.3);
+  border-radius: 12px;
+  padding: 8px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.ps-currency-dropdown .dropdown-item {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  color: #E2E4EB;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ps-currency-dropdown .dropdown-item:hover {
+  background: rgba(216, 0, 29, 0.15);
+  color: #FF4D5E;
+}
+
+.ps-currency-dropdown .dropdown-item.active {
+  background: rgba(198, 164, 92, 0.2);
+  color: #C6A45C;
+  font-weight: bold;
+  border-left: 3px solid #C6A45C;
+}
+
+/* Quick Currency Pill Selector (above pricing tables) */
+.ps-currency-pills-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 4px 6px;
+  gap: 4px;
+}
+
+.ps-currency-pill-btn {
+  background: transparent;
+  border: none;
+  color: #A0A2B0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.ps-currency-pill-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ps-currency-pill-btn.active {
+  background: #D8001D;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(216, 0, 29, 0.4);
+}
+
+

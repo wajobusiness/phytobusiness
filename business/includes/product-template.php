@@ -155,14 +155,21 @@ require __DIR__ . '/header.php';
         <!-- Pricing Callout -->
         <div class="p-3 rounded-3 mb-4" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
           <div class="small text-secondary text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">Special Direct Promotional Pricing:</div>
+          <?php 
+            $heroUsd = (float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '45');
+            $heroOrigUsd = $heroUsd * 1.25;
+            if ($heroUsd >= 44 && $heroUsd <= 46) $heroOrigUsd = 55;
+            elseif ($heroUsd >= 84 && $heroUsd <= 86) $heroOrigUsd = 110;
+            elseif ($heroUsd >= 155 && $heroUsd <= 165) $heroOrigUsd = 220;
+          ?>
           <div class="ps-hero-price-wrap my-1">
-            <span class="ps-hero-price-now"><?= htmlspecialchars($product['pricing'][0]['price_ngn']) ?></span>
-            <span class="ps-hero-price-was"><?= htmlspecialchars($product['pricing'][0]['original_ngn']) ?></span>
-            <span class="ps-hero-save-badge">SAVE ₦<?= number_format((int)preg_replace('/[^0-9]/', '', $product['pricing'][0]['original_ngn']) - (int)preg_replace('/[^0-9]/', '', $product['pricing'][0]['price_ngn'])) ?> (21% OFF)</span>
+            <span class="ps-hero-price-now" data-price-usd="<?= $heroUsd ?>"><?= htmlspecialchars($product['pricing'][0]['price_ngn']) ?></span>
+            <span class="ps-hero-price-was" data-original-usd="<?= $heroOrigUsd ?>"><?= htmlspecialchars($product['pricing'][0]['original_ngn']) ?></span>
+            <span class="ps-hero-save-badge">PROMOTIONAL OFFER</span>
           </div>
           <div class="text-white-50 small d-flex align-items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>International equivalent: <strong class="text-gold"><?= htmlspecialchars($product['pricing'][0]['price_usd']) ?></strong> | Pay on Delivery in Lagos & Abuja</span>
+            <span>Auto-converted to your local currency • Fast Doorstep Delivery Worldwide</span>
           </div>
         </div>
 
@@ -618,11 +625,33 @@ require __DIR__ . '/header.php';
         CHOOSE YOUR TRANSFORMATION PACKAGE
       </span>
       <h2 class="display-6 fw-bold text-white mb-3">Limited-Time <span class="text-gold">Promotional Savings</span></h2>
-      <p class="text-secondary">Select your package below to lock in the promotional discount. Free delivery and payment on delivery available across major centers.</p>
+      <p class="text-secondary mb-3">Select your package below to lock in the promotional discount. Free delivery and payment on delivery available across major centers.</p>
+      
+      <!-- Interactive Currency Switcher Bar -->
+      <div class="d-flex align-items-center justify-content-center gap-2 flex-wrap mb-4">
+        <span class="text-white-50 small fw-bold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em;">Currency:</span>
+        <div class="ps-currency-pills-wrap">
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="NGN">🇳🇬 NGN (₦)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="USD">🇺🇸 USD ($)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GBP">🇬🇧 GBP (£)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="EUR">🇪🇺 EUR (€)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="GHS">🇬🇭 GHS (GH₵)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="KES">🇰🇪 KES (KSh)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="ZAR">🇿🇦 ZAR (R)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="MYR">🇲🇾 MYR (RM)</button>
+          <button type="button" class="ps-currency-pill-btn js-currency-btn" data-currency="CAD">🇨🇦 CAD (CA$)</button>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4 justify-content-center align-items-stretch">
-      <?php foreach ($product['pricing'] as $pIdx => $tier): ?>
+      <?php foreach ($product['pricing'] as $pIdx => $tier): 
+        $tierUsd = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '45');
+        $tierOrigUsd = $tierUsd * 1.25;
+        if ($tierUsd >= 44 && $tierUsd <= 46) $tierOrigUsd = 55;
+        elseif ($tierUsd >= 84 && $tierUsd <= 86) $tierOrigUsd = 110;
+        elseif ($tierUsd >= 155 && $tierUsd <= 165) $tierOrigUsd = 220;
+      ?>
         <div class="col-lg-4 col-md-6">
           <div class="ps-pricing-tier-card <?= !empty($tier['popular']) ? 'popular' : '' ?>" onclick="selectPricingTier(<?= $pIdx ?>, '<?= htmlspecialchars(addslashes($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')')) ?>')">
             
@@ -636,8 +665,8 @@ require __DIR__ . '/header.php';
               </span>
               <h3 class="text-white fw-bold fs-4 mb-0"><?= htmlspecialchars($tier['name']) ?></h3>
               
-              <div class="ps-tier-price"><?= htmlspecialchars($tier['price_ngn']) ?></div>
-              <div class="ps-tier-was">Original: <?= htmlspecialchars($tier['original_ngn']) ?></div>
+              <div class="ps-tier-price" data-price-usd="<?= $tierUsd ?>"><?= htmlspecialchars($tier['price_ngn']) ?></div>
+              <div class="ps-tier-was" data-original-usd="<?= $tierOrigUsd ?>" data-prefix="Original: ">Original: <?= htmlspecialchars($tier['original_ngn']) ?></div>
               <div class="text-gold fw-bold small mb-3"><?= htmlspecialchars($tier['price_usd']) ?> (Int'l)</div>
 
               <p class="text-secondary small mb-4"><?= htmlspecialchars($tier['desc']) ?></p>
