@@ -83,7 +83,8 @@ $schemaType = $pageSchemaType ?? 'WebPage';
       "logo": "<?= get_business_url('assets/images/logo.png') ?>",
       "description": "<?= APP_MISSION_STATEMENT ?>",
       "foundingDate": "<?= COMPANY_FOUNDED_YEAR ?>-09-06",
-      "telephone": "<?= CONTACT_PHONE_MY ?>",
+      "telephone": "<?= CONTACT_PHONE_NG_1 ?>",
+      "email": "<?= CONTACT_EMAIL ?>",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "PT 56935, Jalan 9/8, Seksyen 9",

@@ -33,16 +33,23 @@ define('OFFICIAL_PORTAL_URL', 'https://iphyto.com/');
 define('AFRICA_PORTAL_URL', 'https://phytoscienceafrica.com/');
 
 // Contact Coordinates
+define('CONTACT_PHONE_NG_1', '+234 802 317 3303'); // Call and WhatsApp
+define('CONTACT_PHONE_NG_2', '+234 806 864 9995');
+define('CONTACT_PHONE_UK', '+447474439825');
 define('CONTACT_PHONE_MY', '+603 – 8923 1880');
-define('CONTACT_PHONE_INTL', '+234 803 364 5497');
-define('CONTACT_WHATSAPP', '+2348033645497');
-define('CONTACT_WHATSAPP_LINK', 'https://wa.me/2348033645497?text=' . urlencode('Hello PhytoScience Team, I would like to learn more about the Business Opportunity and distributor membership packages.'));
+define('CONTACT_PHONE_INTL', '+234 802 317 3303');
+define('CONTACT_WHATSAPP', '+2348023173303');
+define('CONTACT_WHATSAPP_LINK', 'https://wa.me/2348023173303?text=' . urlencode('Hello PhytoScience Team, I would like to learn more about the Business Opportunity and distributor membership packages.'));
 define('WHATSAPP_LINK', CONTACT_WHATSAPP_LINK);
-define('CONTACT_EMAIL', 'info@phytosciencewellness.com');
+define('CONTACT_EMAIL', 'Phytosciencewellness7@gmail.com');
 
-// Headquarters & Regional Hubs
+// Headquarters & Regional Office Addresses
 define('HQ_ADDRESS', 'Wisma Phyto Science, PT 56935, Jalan 9/8, Seksyen 9, 43650 Bandar Baru Bangi, Selangor Darul Ehsan, Malaysia');
-define('LAGOS_HUB_ADDRESS', '23b Opebi Road, 1st Floor, Pentagon House, Opposite Chrisland School, Opebi, Ikeja, Lagos, Nigeria');
+define('OFFICE_LAGOS_1_ADDRESS', 'Opebi Road, Opebi, Ikeja, Lagos');
+define('OFFICE_LAGOS_2_ADDRESS', 'Folorunsho Plaza, 7 Awolowo way Ikeja Lagos.');
+define('OFFICE_ABUJA_ADDRESS', 'De Avalon plaza, Utako, Abuja');
+define('OFFICE_UK_ADDRESS', "Peel Street Derby, Mackworth, Derby, Derbyshire, DE22 3GG");
+define('LAGOS_HUB_ADDRESS', OFFICE_LAGOS_1_ADDRESS);
 
 // Social Media Channels
 define('SOCIAL_FACEBOOK', 'https://www.facebook.com/myphytoscienceinternational');
@@ -307,20 +314,49 @@ function get_packages_data(): array {
 function get_business_centers_data(): array {
     return [
         [
+            'country' => 'Nigeria (Lagos — Opebi)',
+            'entity' => 'PhytoScience Lagos Office',
+            'city' => 'Opebi, Ikeja, Lagos',
+            'address' => 'Opebi Road, Opebi, Ikeja, Lagos',
+            'phone' => '+234 802 317 3303 (Call & WhatsApp) / +234 806 864 9995',
+            'email' => 'Phytosciencewellness7@gmail.com',
+            'hours' => 'Mon–Fri: 9:00 AM – 5:30 PM, Sat: 10:00 AM – 3:00 PM'
+        ],
+        [
+            'country' => 'Nigeria (Lagos — Awolowo Way)',
+            'entity' => 'PhytoScience Lagos Office',
+            'city' => 'Awolowo Way, Ikeja, Lagos',
+            'address' => 'Folorunsho Plaza, 7 Awolowo way Ikeja Lagos.',
+            'phone' => '+234 802 317 3303 / +234 806 864 9995',
+            'email' => 'Phytosciencewellness7@gmail.com',
+            'hours' => 'Mon–Fri: 9:00 AM – 5:30 PM, Sat: 10:00 AM – 3:00 PM'
+        ],
+        [
+            'country' => 'Nigeria (Abuja)',
+            'entity' => 'PhytoScience Abuja Office',
+            'city' => 'Utako, Abuja',
+            'address' => 'De Avalon plaza, Utako, Abuja',
+            'phone' => '+234 802 317 3303 (Call & WhatsApp) / +234 806 864 9995',
+            'email' => 'Phytosciencewellness7@gmail.com',
+            'hours' => 'Mon–Fri: 9:00 AM – 5:30 PM, Sat: 10:00 AM – 2:00 PM'
+        ],
+        [
+            'country' => 'United Kingdom',
+            'entity' => 'PhytoScience United Kingdom Office',
+            'city' => 'Derby, Derbyshire',
+            'address' => 'Peel Street Derby, Mackworth, Derby, Derbyshire, DE22 3GG',
+            'phone' => '+447474439825',
+            'email' => 'Phytosciencewellness7@gmail.com',
+            'hours' => 'Mon–Fri: 9:00 AM – 5:00 PM'
+        ],
+        [
             'country' => 'Malaysia (Global HQ)',
             'entity' => 'Phyto Science Sdn Bhd',
             'city' => 'Bandar Baru Bangi, Selangor',
             'address' => 'Wisma Phyto Science, PT 56935, Jalan 9/8, Seksyen 9, 43650 Bandar Baru Bangi, Selangor Darul Ehsan, Malaysia',
             'phone' => '+603 – 8923 1880',
+            'email' => 'Phytosciencewellness7@gmail.com',
             'hours' => 'Mon–Thu: 9:30 AM – 7:00 PM (Fri–Sun: Closed)'
-        ],
-        [
-            'country' => 'Nigeria',
-            'entity' => 'Phyto Science Nigeria',
-            'city' => 'Lagos',
-            'address' => '23b Opebi Road, 1st Floor, Pentagon House, Opposite Chrisland School, Opebi, Ikeja, Lagos',
-            'phone' => '+234 802 353 0965 / +234 816 121 1118',
-            'hours' => 'Mon–Fri: 9:00 AM – 5:30 PM, Sat: 10:00 AM – 3:00 PM'
         ],
         [
             'country' => 'Singapore',

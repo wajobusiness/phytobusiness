@@ -22,9 +22,39 @@ require_once __DIR__ . '/functions.php';
         <p class="small text-secondary mb-3">
           <?= COMPANY_LEGAL_NAME ?> (<?= COMPANY_REG_NO ?>). Direct Sales License <?= COMPANY_AJL_LICENSE ?>. We are the global pioneer in plant stem cell therapy, cellular rejuvenation, and financial wellness.
         </p>
-        <p class="small mb-1"><strong class="text-white">Global HQ:</strong> <?= HQ_ADDRESS ?></p>
-        <p class="small mb-1"><strong class="text-white">Phone:</strong> <?= CONTACT_PHONE_MY ?> / <?= CONTACT_PHONE_INTL ?></p>
-        <p class="small mb-3"><strong class="text-white">Email:</strong> <?= CONTACT_EMAIL ?></p>
+        <div class="small d-flex flex-column gap-2 mb-3">
+          <div>
+            <strong class="text-white d-block mb-1">Office Locations:</strong>
+            <div class="text-secondary mb-1">
+              <span class="text-gold fw-semibold">Lagos (Opebi):</span> <?= OFFICE_LAGOS_1_ADDRESS ?>
+            </div>
+            <div class="text-secondary mb-1">
+              <span class="text-gold fw-semibold">Lagos (Ikeja):</span> <?= OFFICE_LAGOS_2_ADDRESS ?>
+            </div>
+            <div class="text-secondary mb-1">
+              <span class="text-gold fw-semibold">Abuja:</span> <?= OFFICE_ABUJA_ADDRESS ?>
+            </div>
+            <div class="text-secondary">
+              <span class="text-gold fw-semibold">United Kingdom:</span> <?= OFFICE_UK_ADDRESS ?>
+            </div>
+          </div>
+
+          <div class="pt-2 border-top border-secondary border-opacity-25">
+            <div class="mb-1">
+              <strong class="text-white">Phone / WhatsApp:</strong>
+              <a href="tel:+2348023173303" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_NG_1 ?></a> / 
+              <a href="tel:+2348068649995" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_NG_2 ?></a>
+            </div>
+            <div class="mb-1">
+              <strong class="text-white">UK Phone:</strong>
+              <a href="tel:+447474439825" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_UK ?></a>
+            </div>
+            <div>
+              <strong class="text-white">Email:</strong>
+              <a href="mailto:<?= CONTACT_EMAIL ?>" class="text-gold text-decoration-none"><?= CONTACT_EMAIL ?></a>
+            </div>
+          </div>
+        </div>
 
         <!-- Social Media Badges -->
         <div class="d-flex align-items-center gap-2 mt-3">

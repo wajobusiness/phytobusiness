@@ -207,43 +207,72 @@ require __DIR__ . '/components/hero.php';
 
       <!-- Right Column: Corporate Global HQ Card & Quick Access -->
       <div class="col-lg-5">
-        <div class="ps-card p-4 p-md-5 mb-4" style="border: 1px solid var(--ps-border-gold); background: linear-gradient(135deg, rgba(15, 90, 62, 0.25) 0%, rgba(10, 18, 16, 0.98) 100%);">
-          <span class="badge bg-gold text-dark fw-bold mb-2">GLOBAL CORPORATE HEADQUARTERS</span>
+        <div class="ps-card p-4 p-md-5 mb-4" style="border: 1px solid var(--ps-border-gold); background: linear-gradient(135deg, rgba(24, 25, 32, 0.95) 0%, rgba(35, 12, 17, 0.7) 100%);">
+          <span class="badge bg-gold text-dark fw-bold mb-2">OFFICIAL CONTACT & REGIONAL HUBS</span>
           <h3 class="h4 text-white mb-2"><?= COMPANY_LEGAL_NAME ?></h3>
           <p class="small text-secondary mb-4">
             Registration No. <?= COMPANY_REG_NO ?> | Direct Selling License <?= COMPANY_AJL_LICENSE ?>
           </p>
 
           <div class="d-flex flex-column gap-3 mb-4">
+            <!-- Office Addresses -->
             <div class="d-flex align-items-start gap-3">
               <svg width="20" height="20" class="text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <div>
-                <strong class="text-white small d-block">HQ Address</strong>
-                <span class="small text-secondary"><?= HQ_ADDRESS ?></span>
+                <strong class="text-white small d-block mb-1">Office Addresses</strong>
+                <div class="small text-secondary mb-2">
+                  <span class="text-white fw-semibold">Lagos Office:</span><br>
+                  <?= OFFICE_LAGOS_1_ADDRESS ?>
+                </div>
+                <div class="small text-secondary mb-2">
+                  <span class="text-white fw-semibold">Lagos Office:</span><br>
+                  <?= OFFICE_LAGOS_2_ADDRESS ?>
+                </div>
+                <div class="small text-secondary mb-2">
+                  <span class="text-white fw-semibold">Abuja Office:</span><br>
+                  <?= OFFICE_ABUJA_ADDRESS ?>
+                </div>
+                <div class="small text-secondary">
+                  <span class="text-white fw-semibold">United Kingdom Office:</span><br>
+                  <?= OFFICE_UK_ADDRESS ?>
+                </div>
               </div>
             </div>
 
+            <!-- Phone Numbers -->
             <div class="d-flex align-items-start gap-3">
               <svg width="20" height="20" class="text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <div>
-                <strong class="text-white small d-block">Telephone Lines</strong>
-                <span class="small text-secondary"><?= CONTACT_PHONE_MY ?> / <?= CONTACT_PHONE_INTL ?></span>
+                <strong class="text-white small d-block mb-1">Phone Numbers</strong>
+                <div class="small text-secondary mb-1">
+                  <a href="tel:+2348023173303" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_NG_1 ?></a> 
+                  <span class="badge bg-crimson ms-1" style="font-size: 0.65rem;">Call & WhatsApp</span>
+                </div>
+                <div class="small text-secondary mb-1">
+                  <a href="tel:+2348068649995" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_NG_2 ?></a>
+                </div>
+                <div class="small text-secondary">
+                  <span class="text-white-50">UK Phone:</span> 
+                  <a href="tel:+447474439825" class="text-secondary text-decoration-none hover-gold"><?= CONTACT_PHONE_UK ?></a>
+                </div>
               </div>
             </div>
 
+            <!-- Email Address -->
             <div class="d-flex align-items-start gap-3">
               <svg width="20" height="20" class="text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <div>
-                <strong class="text-white small d-block">Corporate Support Email</strong>
-                <span class="small text-secondary"><?= CONTACT_EMAIL ?></span>
+                <strong class="text-white small d-block">Official Email</strong>
+                <a href="mailto:<?= CONTACT_EMAIL ?>" class="small text-gold text-decoration-none"><?= CONTACT_EMAIL ?></a>
               </div>
             </div>
 
+            <!-- Operating Hours -->
             <div class="d-flex align-items-start gap-3">
               <svg width="20" height="20" class="text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               <div>
                 <strong class="text-white small d-block">Operating Hours</strong>
-                <span class="small text-secondary">Monday – Friday: 9:00 AM – 6:00 PM (GMT+8)</span>
+                <span class="small text-secondary">Monday – Friday: 9:00 AM – 5:30 PM (Sat: 10:00 AM – 3:00 PM)</span>
               </div>
             </div>
           </div>
