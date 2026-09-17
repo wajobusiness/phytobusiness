@@ -25,7 +25,12 @@
 # 3. Enable URL Rewriting for Clean URLs
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /business/
+
+    # 301 Permanent Redirects: Forward old /business/ URLs to root domain
+    RewriteCond %{REQUEST_URI} ^/business/(.+)$ [NC]
+    RewriteRule ^business/(.+)$ /$1 [R=301,L,QSA]
+    RewriteCond %{REQUEST_URI} ^/business/?$ [NC]
+    RewriteRule ^business/?$ / [R=301,L]
 
     # Block access to git or hidden files
     RewriteRule "(^|/)\.(?!well-known)" - [F]

@@ -58,24 +58,31 @@ define('SOCIAL_TWITTER', 'https://twitter.com/HqPhyto');
 define('SOCIAL_YOUTUBE', 'https://www.youtube.com/@phytoscienceinternational');
 
 /**
- * Helper to get the canonical base URL for the /business/ section
+ * Helper to get the canonical base URL for the platform
+ * Automatically detects whether running at the webroot (/) or in a subfolder (/business/)
  */
 function get_business_url(string $path = ''): string {
     // Determine protocol and host
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
     $host = $_SERVER['HTTP_HOST'] ?? 'phytosciencewellness.com';
     
-    // Auto-detect script path folder
-    $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '/business/index.php');
-    $base = rtrim($scriptDir, '/\\');
+    // Auto-detect whether running inside /business/ subfolder or at webroot /
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $scriptDir = dirname($scriptName);
+    $scriptDir = str_replace('\\', '/', $scriptDir);
     
-    // Ensure base ends up pointing to the business folder
-    if (strpos($base, '/business') === false) {
+    // If the current script directory contains /business, retain /business, otherwise empty for root
+    if (preg_match('#/business(/|$)#i', $scriptDir)) {
         $base = '/business';
+    } else {
+        $base = '';
     }
     
     $cleanPath = ltrim($path, '/');
-    return $cleanPath !== '' ? $base . '/' . $cleanPath : $base . '/';
+    if ($cleanPath !== '') {
+        return $base !== '' ? $base . '/' . $cleanPath : '/' . $cleanPath;
+    }
+    return $base !== '' ? $base . '/' : '/';
 }
 
 // Verified Executive Leadership Members

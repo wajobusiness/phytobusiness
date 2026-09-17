@@ -1,7 +1,6 @@
 User-agent: *
-Allow: /business/
-Disallow: /business/data/
-Disallow: /business/includes/
+Allow: /
+Disallow: /data/
+Disallow: /includes/
 
-Sitemap: https://phytosciencewellness.com/business/sitemap.xml
-
+Sitemap: https://phytosciencewellness.com/sitemap.xml
