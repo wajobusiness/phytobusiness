@@ -1,0 +1,23 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs & Temporary Data
+*.log
+error_log
+.system_generated/
+
+# Sensitive user submission logs (ensure customer inquiries/enrollments are not committed publicly)
+business/data/*.json
+!business/data/.gitkeep
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo

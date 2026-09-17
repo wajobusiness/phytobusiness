@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="psGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFC17B"/>
+      <stop offset="100%" stop-color="#9E7A36"/>
+    </linearGradient>
+    <linearGradient id="psEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F5A3E"/>
+      <stop offset="100%" stop-color="#06261A"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#psEmeraldGrad)" stroke="url(#psGoldGrad)" stroke-width="2"/>
+  <!-- Elegant Stylized Letter P -->
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-size="38" font-weight="700" fill="url(#psGoldGrad)">P</text>
+</svg>
+

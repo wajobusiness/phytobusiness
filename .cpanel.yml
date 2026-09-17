@@ -1,0 +1,10 @@
+---
+deployment:
+  tasks:
+    # 1. Target directory for the business portal inside public_html
+    - export DEPLOYPATH=${DEPLOYPATH:-$HOME/public_html/business/}
+    - /bin/mkdir -p $DEPLOYPATH
+    # 2. Synchronize all business assets and files to deployment path
+    - /bin/cp -R business/* $DEPLOYPATH
+    - /bin/cp business/.htaccess $DEPLOYPATH 2>/dev/null || :
+    - /bin/chmod -R 755 $DEPLOYPATH
