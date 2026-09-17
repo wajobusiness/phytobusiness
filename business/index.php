@@ -165,14 +165,14 @@ require __DIR__ . '/components/hero.php';
 
       <!-- Right Column: Video Lightbox Card -->
       <div class="col-lg-6">
-        <div class="ps-card p-3 position-relative overflow-hidden" style="border: 1px solid var(--ps-border-gold); box-shadow: var(--ps-shadow-xl);">
-          <div class="position-relative rounded overflow-hidden" style="height: 320px; background: #0A1C14;">
+        <div class="ps-card p-3 position-relative overflow-hidden" style="border: 1px solid var(--ps-border-crimson); box-shadow: var(--ps-shadow-xl);">
+          <div class="position-relative rounded overflow-hidden cursor-pointer js-video-trigger" data-video-id="KVqWChK6fdI" data-video-title="Dr. Fred Zülli Explaining PhytoCellTec Stem Cell Science" style="height: 320px; background: #181920;">
             <img src="https://img.youtube.com/vi/KVqWChK6fdI/maxresdefault.jpg" alt="Dr Fred Zulli PhytoCellTec Presentation" class="w-100 h-100 object-fit-cover opacity-85">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="KVqWChK6fdI" data-video-title="Dr. Fred Zülli Explaining PhytoCellTec Stem Cell Science" aria-label="Play Dr Fred Zulli Presentation">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(10,18,16,0.95), transparent);">
-              <span class="badge bg-gold text-dark fw-bold mb-1">Scientific Address</span>
+            <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(10,11,14,0.95), transparent);">
+              <span class="badge bg-crimson fw-bold mb-1">Scientific Address</span>
               <h3 class="text-white mb-0 fs-6">Dr. Fred Zülli on PhytoCellTec™ Bioactive Mechanisms</h3>
             </div>
           </div>
@@ -276,12 +276,12 @@ require __DIR__ . '/components/hero.php';
       <?php foreach ($featuredVideos as $vid): ?>
         <div class="col-md-6 col-lg-3">
           <div class="ps-card h-100 p-3">
-            <div class="position-relative rounded overflow-hidden mb-3" style="height: 180px; background: #0A1C14;">
+            <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="<?= $vid['id'] ?>" data-video-title="<?= sanitize($vid['title']) ?>" style="height: 180px; background: #181920;">
               <img src="https://img.youtube.com/vi/<?= $vid['id'] ?>/mqdefault.jpg" alt="<?= sanitize($vid['title']) ?>" class="w-100 h-100 object-fit-cover">
               <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="<?= $vid['id'] ?>" data-video-title="<?= sanitize($vid['title']) ?>" aria-label="Watch <?= sanitize($vid['title']) ?>">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </button>
-              <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold"><?= sanitize($vid['category']) ?></span>
+              <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold"><?= sanitize($vid['category']) ?></span>
             </div>
             <h3 class="h6 text-white mb-1"><?= sanitize($vid['title']) ?></h3>
             <p class="small text-secondary mb-0"><?= sanitize($vid['desc']) ?></p>

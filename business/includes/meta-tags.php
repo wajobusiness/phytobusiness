@@ -25,9 +25,9 @@ $canonical = !empty($pageCanonical)
     ? sanitize($pageCanonical)
     : get_business_url(basename($_SERVER['PHP_SELF'] ?? ''));
 
-$ogImage = !empty($pageImage)
-    ? sanitize($pageImage)
-    : get_business_url('assets/images/og-share.jpg');
+$ogImage = !empty($pageImage) 
+    ? sanitize($pageImage) 
+    : get_business_url('assets/images/logo.png');
 
 $schemaType = $pageSchemaType ?? 'WebPage';
 ?>
@@ -44,8 +44,8 @@ $schemaType = $pageSchemaType ?? 'WebPage';
 <link rel="canonical" href="<?= $canonical ?>">
 
 <!-- Theme Color & Mobile App Capabilities -->
-<meta name="theme-color" content="#0B1311" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#0C5A3E" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#D8001D">
+<meta name="theme-color" content="#0A0B0E" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PhytoScience">

@@ -16,12 +16,8 @@ require_once __DIR__ . '/functions.php';
       
       <!-- Brand & Legal Info -->
       <div class="col-lg-4 col-md-6">
-        <a href="<?= get_business_url('index.php') ?>" class="ps-brand-logo mb-3">
-          <div class="ps-brand-symbol">P</div>
-          <div class="ps-brand-text">
-            <span class="ps-brand-title">PHYTOSCIENCE</span>
-            <span class="ps-brand-badge">GLOBAL BUSINESS</span>
-          </div>
+        <a href="<?= get_business_url('index.php') ?>" class="d-inline-block mb-3" aria-label="PhytoScience Wellness Home">
+          <img src="<?= asset('images/logo.png') ?>" alt="PhytoScience Wellness" class="ps-footer-logo" style="max-height: 52px; width: auto;">
         </a>
         <p class="small text-secondary mb-3">
           <?= COMPANY_LEGAL_NAME ?> (<?= COMPANY_REG_NO ?>). Direct Sales License <?= COMPANY_AJL_LICENSE ?>. We are the global pioneer in plant stem cell therapy, cellular rejuvenation, and financial wellness.
@@ -120,9 +116,18 @@ require_once __DIR__ . '/functions.php';
 <!-- Video Lightbox Modal -->
 <div id="psVideoModal" class="ps-video-modal" role="dialog" aria-modal="true" aria-labelledby="psVideoModalTitle">
   <div class="ps-video-modal-dialog">
-    <div class="d-flex align-items-center justify-content-between p-3 border-bottom border-dark">
-      <h5 id="psVideoModalTitle" class="m-0 text-white font-heading">PhytoScience Presentation</h5>
-      <button type="button" class="btn-close btn-close-white" data-close-video aria-label="Close video player"></button>
+    <div class="d-flex align-items-center justify-content-between p-3 border-bottom border-dark" style="background: rgba(24, 25, 32, 0.98);">
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-crimson fw-bold">OFFICIAL VIDEO</span>
+        <h5 id="psVideoModalTitle" class="m-0 text-white font-heading fs-6">PhytoScience Presentation</h5>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <a id="psVideoDirectLink" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1" style="font-size: 0.78rem; border-color: #D8001D; color: #FF4D5E;">
+          <span>Watch on YouTube</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+        <button type="button" class="btn-close btn-close-white" data-close-video aria-label="Close video player"></button>
+      </div>
     </div>
     <div id="psVideoContainer" class="ratio ratio-16x9 bg-black"></div>
   </div>

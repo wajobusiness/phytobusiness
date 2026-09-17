@@ -31,9 +31,9 @@ $heroVideoId = $heroVideoId ?? 'hSWI5_NXxWk'; // Official corporate overview
 
 <section class="ps-hero position-relative overflow-hidden <?= $heroIsSubpage ? 'ps-hero-subpage py-5' : 'py-5 py-lg-6' ?>">
   <!-- Ambient background glow elements -->
-  <div class="position-absolute top-0 start-50 translate-middle-x w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.6;">
-    <div style="position: absolute; top: -100px; left: 20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(15, 90, 62, 0.25) 0%, rgba(6, 38, 26, 0) 70%); border-radius: 50%; filter: blur(60px);"></div>
-    <div style="position: absolute; top: 50px; right: 15%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(198, 164, 92, 0.15) 0%, rgba(6, 38, 26, 0) 70%); border-radius: 50%; filter: blur(70px);"></div>
+  <div class="position-absolute top-0 start-50 translate-middle-x w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.65;">
+    <div style="position: absolute; top: -100px; left: 20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(216, 0, 29, 0.22) 0%, rgba(10, 11, 14, 0) 70%); border-radius: 50%; filter: blur(60px);"></div>
+    <div style="position: absolute; top: 50px; right: 15%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(128, 0, 0, 0.25) 0%, rgba(10, 11, 14, 0) 70%); border-radius: 50%; filter: blur(70px);"></div>
   </div>
 
   <div class="container position-relative" style="z-index: 1;">
@@ -118,17 +118,17 @@ $heroVideoId = $heroVideoId ?? 'hSWI5_NXxWk'; // Official corporate overview
         <!-- Hero Right Graphic / Video Highlight Card -->
         <div class="col-lg-5 animate-slide-up" style="animation-delay: 0.25s;">
           <div class="ps-card position-relative overflow-hidden p-3" style="border: 1px solid var(--ps-border-gold); box-shadow: var(--ps-shadow-xl);">
-            <!-- Card media banner -->
-            <div class="position-relative rounded overflow-hidden" style="height: 280px; background: linear-gradient(135deg, #0A1C14 0%, #153A2A 100%);">
-              <img src="https://img.youtube.com/vi/hSWI5_NXxWk/maxresdefault.jpg" alt="PhytoScience Corporate Overview" class="w-100 h-100 object-fit-cover opacity-75 transition-transform">
+            <!-- Card media banner with full trigger delegation -->
+            <div class="position-relative rounded overflow-hidden cursor-pointer js-video-trigger" data-video-id="hSWI5_NXxWk" data-video-title="PhytoScience Corporate Overview" style="height: 280px; background: linear-gradient(135deg, #181920 0%, #20222B 100%);">
+              <img src="https://img.youtube.com/vi/hSWI5_NXxWk/maxresdefault.jpg" alt="PhytoScience Corporate Overview" class="w-100 h-100 object-fit-cover opacity-85 transition-transform">
               
               <!-- Video play overlay button -->
               <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="hSWI5_NXxWk" data-video-title="PhytoScience Corporate Overview" aria-label="Play Corporate Overview Video">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </button>
 
-              <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(10,18,16,0.95), transparent);">
-                <span class="badge bg-gold text-dark fw-bold mb-1">Official Video</span>
+              <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(to top, rgba(10,11,14,0.95), transparent);">
+                <span class="badge bg-crimson fw-bold mb-1">Official Video</span>
                 <h5 class="text-white mb-0 fs-6">PhytoScience: Trend Maker in Cellular Wellness</h5>
               </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 /**
  * PhytoScience Wellness - Luxury Responsive Navigation Bar
+ * Streamlined executive dropdown layout with official logo.
  */
 
 declare(strict_types=1);
@@ -14,56 +15,52 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
   <nav class="ps-navbar" aria-label="Main Navigation">
     <div class="container d-flex align-items-center justify-content-between">
       
-      <!-- Brand Logo -->
-      <a href="<?= get_business_url('index.php') ?>" class="ps-brand-logo" aria-label="PhytoScience Wellness Home">
-        <div class="ps-brand-symbol">P</div>
-        <div class="ps-brand-text">
-          <span class="ps-brand-title">PHYTOSCIENCE</span>
-          <span class="ps-brand-badge">GLOBAL BUSINESS</span>
-        </div>
+      <!-- Official Brand Logo -->
+      <a href="<?= get_business_url('index.php') ?>" class="ps-brand-logo d-flex align-items-center" aria-label="PhytoScience Wellness Home">
+        <img src="<?= asset('images/logo.png') ?>" alt="PhytoScience Wellness" class="ps-navbar-logo" style="max-height: 44px; width: auto;">
       </a>
 
-      <!-- Desktop Nav Links -->
-      <div class="d-none d-xl-flex align-items-center gap-1">
+      <!-- Streamlined Desktop Navigation Links -->
+      <div class="d-none d-xl-flex align-items-center gap-2">
         <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link <?= is_active_page('index.php') ?>">Home</a>
         
-        <!-- About Dropdown -->
+        <!-- About Us Dropdown -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= is_active_page('about.php') ?>" href="<?= get_business_url('about.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['about.php', 'faq.php']) ? 'active' : '' ?>" href="<?= get_business_url('about.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             About Us
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background: rgba(17, 30, 26, 0.98); border: 1px solid var(--ps-border-gold); border-radius: var(--ps-radius-md); padding: 8px;">
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('about.php') ?>">Company Profile & 4P System</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('about.php#leadership') ?>">Founder & Executive Leadership</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('about.php#science') ?>">Science Board & Mibelle R&D</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('about.php#milestones') ?>">Corporate Milestones</a></li>
+          <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('about.php') ?>">Company Profile & 4P System</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('about.php#leadership') ?>">Founder & Executive Leadership</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('about.php#science') ?>">Science Board & Mibelle R&D</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('about.php#milestones') ?>">Corporate Milestones</a></li>
+            <li><hr class="dropdown-divider border-secondary border-opacity-25 my-1"></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('faq.php') ?>">Frequently Asked Questions</a></li>
           </ul>
         </div>
 
-        <!-- Opportunity Dropdown -->
+        <!-- Opportunity Dropdown (Consolidating Why, Roadmap, Plan & Packages) -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['business-opportunity.php', 'how-it-works.php', 'compensation-plan.php']) ? 'active' : '' ?>" href="<?= get_business_url('business-opportunity.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['business-opportunity.php', 'how-it-works.php', 'compensation-plan.php', 'membership.php']) ? 'active' : '' ?>" href="<?= get_business_url('business-opportunity.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Opportunity
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background: rgba(17, 30, 26, 0.98); border: 1px solid var(--ps-border-gold); border-radius: var(--ps-radius-md); padding: 8px;">
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('business-opportunity.php') ?>">Why PhytoScience?</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('how-it-works.php') ?>">How It Works (7-Step Roadmap)</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('compensation-plan.php') ?>">Hybrid Compensation Plan</a></li>
+          <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('business-opportunity.php') ?>">Why PhytoScience? (Overview)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('how-it-works.php') ?>">How It Works (7-Step Roadmap)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('compensation-plan.php') ?>">Hybrid Compensation Plan</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('membership.php') ?>">Packages & Investment Tiers</a></li>
           </ul>
         </div>
 
-        <a href="<?= get_business_url('membership.php') ?>" class="ps-nav-link <?= is_active_page('membership.php') ?>">Packages</a>
-        <a href="<?= get_business_url('success-stories.php') ?>" class="ps-nav-link <?= is_active_page('success-stories.php') ?>">Success Stories</a>
-        
-        <!-- Media & Events Dropdown -->
+        <!-- Proof & Media Dropdown (Consolidating Stories, Gallery & Events) -->
         <div class="dropdown">
-          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['gallery.php', 'events.php', 'faq.php']) ? 'active' : '' ?>" href="<?= get_business_url('gallery.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Media & Resources
+          <a class="ps-nav-link dropdown-toggle <?= in_array($currentPage, ['success-stories.php', 'gallery.php', 'events.php']) ? 'active' : '' ?>" href="<?= get_business_url('success-stories.php') ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Proof & Media
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark" style="background: rgba(17, 30, 26, 0.98); border: 1px solid var(--ps-border-gold); border-radius: var(--ps-radius-md); padding: 8px;">
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('gallery.php') ?>">Video & Photo Gallery</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('events.php') ?>">News & Upcoming Events</a></li>
-            <li><a class="dropdown-item py-2 px-3 text-light" href="<?= get_business_url('faq.php') ?>">Frequently Asked Questions</a></li>
+          <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('success-stories.php') ?>">Distributor Success Stories</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('gallery.php') ?>">Video & Photo Gallery</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('events.php') ?>">News & Upcoming Events</a></li>
           </ul>
         </div>
 
@@ -76,11 +73,11 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
           Shop Products
         </a>
-        <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-sm btn-ps-outline-gold" target="_blank" rel="noopener">
+        <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-sm btn-ps-outline-crimson" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
           Member Login
         </a>
-        <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-sm btn-ps-gold">
+        <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-sm btn-ps-primary">
           Join Now
         </a>
       </div>
@@ -93,10 +90,10 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
     </div>
 
     <!-- Mobile Drawer Overlay Menu -->
-    <div id="psNavMenu" class="d-xl-none collapse" style="background: rgba(10, 18, 16, 0.98); border-top: 1px solid var(--ps-border-gold); padding: 20px 0;">
+    <div id="psNavMenu" class="d-xl-none collapse" style="background: rgba(10, 11, 14, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.3); padding: 20px 0;">
       <div class="container d-flex flex-column gap-2">
         <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link <?= is_active_page('index.php') ?>">Home</a>
-        <a href="<?= get_business_url('about.php') ?>" class="ps-nav-link <?= is_active_page('about.php') ?>">About PhytoScience</a>
+        <a href="<?= get_business_url('about.php') ?>" class="ps-nav-link <?= is_active_page('about.php') ?>">About Us</a>
         <a href="<?= get_business_url('business-opportunity.php') ?>" class="ps-nav-link <?= is_active_page('business-opportunity.php') ?>">Why Join?</a>
         <a href="<?= get_business_url('how-it-works.php') ?>" class="ps-nav-link <?= is_active_page('how-it-works.php') ?>">How It Works</a>
         <a href="<?= get_business_url('compensation-plan.php') ?>" class="ps-nav-link <?= is_active_page('compensation-plan.php') ?>">Compensation Plan</a>
@@ -107,13 +104,12 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <a href="<?= get_business_url('faq.php') ?>" class="ps-nav-link <?= is_active_page('faq.php') ?>">FAQ</a>
         <a href="<?= get_business_url('contact.php') ?>" class="ps-nav-link <?= is_active_page('contact.php') ?>">Contact & Offices</a>
         
-        <div class="d-flex flex-column gap-2 mt-3 pt-3 border-top border-secondary">
-          <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-gold w-100 text-center">Join PhytoScience Now</a>
-          <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-outline-gold w-100 text-center" target="_blank" rel="noopener">Member Portal Login</a>
+        <div class="d-flex flex-column gap-2 mt-3 pt-3 border-top border-secondary border-opacity-25">
+          <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-primary w-100 text-center">Join PhytoScience Now</a>
+          <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-outline-crimson w-100 text-center" target="_blank" rel="noopener">Member Portal Login</a>
           <a href="<?= MAIN_SHOP_URL ?>" class="btn-ps btn-ps-glass w-100 text-center" target="_blank" rel="noopener">Browse Wellness Store</a>
         </div>
       </div>
     </div>
   </nav>
 </header>
-

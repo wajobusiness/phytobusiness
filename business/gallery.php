@@ -121,14 +121,14 @@ require __DIR__ . '/components/hero.php';
         <div class="col-md-6 col-lg-4 gallery-item" data-category="<?= $item['category'] ?>">
           <div class="ps-card h-100 p-3 d-flex flex-column">
             
-            <div class="position-relative rounded overflow-hidden mb-3" style="height: 220px; background: #0A1C14;">
+            <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="<?= $item['id'] ?>" data-video-title="<?= sanitize($item['title']) ?>" style="height: 220px; background: #181920;">
               <img src="https://img.youtube.com/vi/<?= $item['id'] ?>/hqdefault.jpg" alt="<?= sanitize($item['title']) ?>" class="w-100 h-100 object-fit-cover">
               
               <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="<?= $item['id'] ?>" data-video-title="<?= sanitize($item['title']) ?>" aria-label="Play <?= sanitize($item['title']) ?>">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </button>
 
-              <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">
+              <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">
                 <?= sanitize($item['category_name']) ?>
               </span>
             </div>
@@ -136,7 +136,7 @@ require __DIR__ . '/components/hero.php';
             <h3 class="h5 text-white mb-2"><?= sanitize($item['title']) ?></h3>
             <p class="small text-secondary mb-3 flex-grow-1" style="line-height: 1.55;"><?= sanitize($item['desc']) ?></p>
 
-            <button type="button" class="btn-ps btn-ps-sm btn-ps-outline-gold w-100 js-video-trigger mt-auto" data-video-id="<?= $item['id'] ?>" data-video-title="<?= sanitize($item['title']) ?>">
+            <button type="button" class="btn-ps btn-ps-sm btn-ps-outline-crimson w-100 js-video-trigger mt-auto" data-video-id="<?= $item['id'] ?>" data-video-title="<?= sanitize($item['title']) ?>">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="me-1"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               <span>Watch Video</span>
             </button>

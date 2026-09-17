@@ -21,16 +21,15 @@ $ctaPrimaryUrl = $ctaPrimaryUrl ?? get_business_url('membership.php');
 ?>
 
 <section class="py-5 py-lg-6 position-relative overflow-hidden" aria-label="Call to Action">
-  <!-- Subtle gradient background -->
   <div class="container position-relative" style="z-index: 1;">
-    <div class="ps-card p-4 p-md-5 position-relative overflow-hidden" style="border: 1px solid var(--ps-border-gold); background: radial-gradient(circle at top right, rgba(15, 90, 62, 0.4) 0%, rgba(10, 18, 16, 0.98) 80%); box-shadow: var(--ps-shadow-xl);">
+    <div class="ps-card p-4 p-md-5 position-relative overflow-hidden" style="border: 1px solid var(--ps-border-crimson); background: radial-gradient(circle at top right, rgba(216, 0, 29, 0.25) 0%, rgba(10, 11, 14, 0.98) 80%); box-shadow: var(--ps-shadow-xl);">
       
-      <!-- Decorative gold accent line -->
-      <div class="position-absolute top-0 start-0 w-100" style="height: 3px; background: linear-gradient(90deg, #C6A45C, #DFC17B, transparent);"></div>
+      <!-- Decorative crimson accent line -->
+      <div class="position-absolute top-0 start-0 w-100" style="height: 3px; background: linear-gradient(90deg, #D8001D, #FF5C6F, transparent);"></div>
 
       <div class="row align-items-center gy-4 justify-content-between">
         <div class="col-lg-8">
-          <div class="d-inline-flex align-items-center gap-2 ps-badge-gold mb-3">
+          <div class="d-inline-flex align-items-center gap-2 ps-badge-crimson mb-3">
             <span class="ps-status-dot"></span>
             <span>Zero Delays • Daily Payouts • Global Reach</span>
           </div>
@@ -44,7 +43,7 @@ $ctaPrimaryUrl = $ctaPrimaryUrl ?? get_business_url('membership.php');
 
         <div class="col-lg-4 text-lg-end">
           <div class="d-flex flex-column flex-sm-row flex-lg-column gap-3 justify-content-lg-end">
-            <a href="<?= $ctaPrimaryUrl ?>" class="btn-ps btn-ps-gold btn-ps-lg justify-content-center">
+            <a href="<?= $ctaPrimaryUrl ?>" class="btn-ps btn-ps-primary btn-ps-lg justify-content-center">
               <span><?= sanitize($ctaPrimaryText) ?></span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
@@ -60,4 +59,3 @@ $ctaPrimaryUrl = $ctaPrimaryUrl ?? get_business_url('membership.php');
     </div>
   </div>
 </section>
-

@@ -89,18 +89,18 @@ require_once __DIR__ . '/../config.php';
 
     <!-- Right Column: Live Projected Earnings Output -->
     <div class="col-lg-5">
-      <div class="ps-card p-4 text-center" style="background: linear-gradient(135deg, rgba(15, 90, 62, 0.3) 0%, rgba(10, 18, 16, 0.95) 100%); border: 1px solid var(--ps-border-gold); box-shadow: var(--ps-shadow-lg);">
-        <span class="badge bg-gold text-dark fw-bold mb-2">PROJECTION SUMMARY</span>
+      <div class="ps-card p-4 text-center" style="background: linear-gradient(135deg, rgba(216, 0, 29, 0.15) 0%, rgba(18, 19, 24, 0.98) 100%); border: 1px solid var(--ps-border-crimson); box-shadow: var(--ps-shadow-lg);">
+        <span class="badge bg-crimson fw-bold mb-2">PROJECTION SUMMARY</span>
         <div class="text-secondary small text-uppercase" style="letter-spacing: 0.05em;">Estimated Monthly Income</div>
         
         <!-- Big Number -->
         <div class="display-4 fw-bold text-white my-3 d-flex justify-content-center align-items-baseline">
-          <span class="text-gold fs-2 me-1">$</span>
+          <span class="text-crimson fs-2 me-1">$</span>
           <span id="calcTotalOutput" class="text-white">4,050</span>
           <span class="text-secondary fs-5 ms-1">USD</span>
         </div>
 
-        <div class="text-gold small mb-4 fw-semibold" id="calcTierNotice">
+        <div class="text-crimson small mb-4 fw-semibold" id="calcTierNotice">
           Platinum Tier: Unlimited daily binary pairing without capping penalty
         </div>
 
@@ -120,7 +120,7 @@ require_once __DIR__ . '/../config.php';
           </div>
           <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary border-opacity-25">
             <span class="small text-secondary">Daily Pairing Limitation:</span>
-            <span class="small text-gold fw-bold" id="calcDailyCapStatus">No Cap (Unlimited)</span>
+            <span class="small text-crimson fw-bold" id="calcDailyCapStatus">No Cap (Unlimited)</span>
           </div>
         </div>
 
@@ -129,7 +129,7 @@ require_once __DIR__ . '/../config.php';
           *Simulated estimates based on verified PhytoScience direct sponsor percentages (up to 45% on package point values), standard binary pair rates, and stockist key-in overrides. Actual earnings depend on personal diligence, team duplication, active volume, and regional currency conversion rates.
         </p>
 
-        <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-gold w-100">
+        <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-primary w-100">
           Get Started as a Partner Today
         </a>
       </div>

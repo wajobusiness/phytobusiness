@@ -219,11 +219,11 @@ require __DIR__ . '/components/hero.php';
     </div>
 
     <!-- Binary Graphic Visual Container -->
-    <div class="ps-card p-4 p-lg-5 text-center position-relative overflow-hidden" style="border: 1px solid var(--ps-border-gold); background: linear-gradient(180deg, rgba(17, 30, 26, 0.95) 0%, rgba(10, 18, 16, 0.98) 100%);">
+    <div class="ps-card p-4 p-lg-5 text-center position-relative overflow-hidden" style="border: 1px solid var(--ps-border-gold); background: linear-gradient(180deg, #181920 0%, #121318 100%);">
       
       <!-- Top You Node -->
       <div class="d-inline-block mx-auto mb-4">
-        <div class="ps-card p-3 d-inline-block" style="border: 2px solid var(--ps-gold); background: #0A1C14; min-width: 180px;">
+        <div class="ps-card p-3 d-inline-block" style="border: 2px solid var(--ps-gold); background: #181920; min-width: 180px;">
           <span class="badge bg-gold text-dark fw-bold mb-1">YOU</span>
           <div class="text-white fw-bold">Platinum Member</div>
           <div class="small text-gold">Unlimited Daily Pairing</div>
@@ -240,7 +240,7 @@ require __DIR__ . '/components/hero.php';
         <!-- Left Team -->
         <div class="col-md-5">
           <div class="mx-auto mb-2" style="width: 2px; height: 20px; background: var(--ps-gold);"></div>
-          <div class="ps-card p-3 mb-3" style="border: 1px solid var(--ps-border-gold); background: rgba(15, 90, 62, 0.2);">
+          <div class="ps-card p-3 mb-3" style="border: 1px solid var(--ps-border-gold); background: rgba(216, 0, 29, 0.08);">
             <span class="badge bg-dark-subtle text-light border border-secondary mb-1">LEFT TEAM</span>
             <h4 class="h6 text-white mb-1">Partner A (1,500 PP)</h4>
             <div class="small text-secondary">Generated from new enrollments & product re-orders</div>
@@ -253,7 +253,7 @@ require __DIR__ . '/components/hero.php';
 
         <!-- Matching Pair Indicator -->
         <div class="col-md-2 d-flex flex-column align-items-center justify-content-center my-3 my-md-0">
-          <div class="ps-icon-box text-gold p-3 rounded-circle shadow" style="background: rgba(198, 164, 92, 0.2); border: 2px solid var(--ps-gold);">
+          <div class="ps-icon-box text-gold p-3 rounded-circle shadow" style="background: rgba(216, 0, 29, 0.15); border: 2px solid var(--ps-gold);">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
           </div>
           <div class="text-gold fw-bold small mt-2 font-monospace">DAILY PAIR MATCH</div>
@@ -262,7 +262,7 @@ require __DIR__ . '/components/hero.php';
         <!-- Right Team -->
         <div class="col-md-5">
           <div class="mx-auto mb-2" style="width: 2px; height: 20px; background: var(--ps-gold);"></div>
-          <div class="ps-card p-3 mb-3" style="border: 1px solid var(--ps-border-gold); background: rgba(15, 90, 62, 0.2);">
+          <div class="ps-card p-3 mb-3" style="border: 1px solid var(--ps-border-gold); background: rgba(216, 0, 29, 0.08);">
             <span class="badge bg-dark-subtle text-light border border-secondary mb-1">RIGHT TEAM</span>
             <h4 class="h6 text-white mb-1">Partner B (1,500 PP)</h4>
             <div class="small text-secondary">Generated from new enrollments & product re-orders</div>

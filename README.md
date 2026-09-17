@@ -75,3 +75,4 @@ This repository contains the standalone, production-ready **Business Opportunity
 - **Dependencies:** 0 Node.js in production, 0 Laravel, 0 Composer requirements. 100% native PHP.
 - **Security:** CSRF tokens on all POST requests, invisible anti-bot honeypots, `X-Frame-Options`, `X-Content-Type-Options: nosniff`, and restricted HTTP access to `config.php` and `data/`.
 - **Clean URLs:** Managed through `business/.htaccess`. Works seamlessly with `https://phytosciencewellness.com/business/about` or `https://phytosciencewellness.com/business/about.php`.
+

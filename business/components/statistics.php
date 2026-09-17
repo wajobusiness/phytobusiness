@@ -6,18 +6,18 @@
 
 declare(strict_types=1);
 
-$statsVariant = $statsVariant ?? 'dark'; // 'dark' or 'glass'
+$statsVariant = $statsVariant ?? 'dark';
 ?>
 
-<section class="py-5 <?= $statsVariant === 'glass' ? 'ps-section-glass' : 'bg-transparent' ?>" aria-label="Company Statistics">
+<section class="py-5 bg-transparent" aria-label="Company Statistics">
   <div class="container">
-    <div class="ps-card p-4 p-lg-5" style="border: 1px solid var(--ps-border-gold); background: linear-gradient(180deg, rgba(17, 30, 26, 0.85) 0%, rgba(10, 18, 16, 0.95) 100%);">
+    <div class="ps-card p-4 p-lg-5" style="border: 1px solid var(--ps-border-crimson); background: linear-gradient(180deg, rgba(24, 25, 32, 0.95) 0%, rgba(10, 11, 14, 0.98) 100%);">
       <div class="row g-4 text-center">
         
         <!-- Stat 1: Global Footprint -->
         <div class="col-6 col-lg-3">
           <div class="ps-stat-item px-2">
-            <div class="display-5 fw-bold text-gold mb-1 d-flex justify-content-center align-items-baseline">
+            <div class="display-5 fw-bold text-crimson mb-1 d-flex justify-content-center align-items-baseline">
               <span class="ps-counter" data-target="41">0</span>
               <span class="fs-3 ms-1">+</span>
             </div>
@@ -29,7 +29,7 @@ $statsVariant = $statsVariant ?? 'dark'; // 'dark' or 'glass'
         <!-- Stat 2: Active Distributors -->
         <div class="col-6 col-lg-3 border-start-md border-secondary border-opacity-25">
           <div class="ps-stat-item px-2">
-            <div class="display-5 fw-bold text-gold mb-1 d-flex justify-content-center align-items-baseline">
+            <div class="display-5 fw-bold text-crimson mb-1 d-flex justify-content-center align-items-baseline">
               <span class="ps-counter" data-target="100">0</span>
               <span class="fs-3 ms-1">K+</span>
             </div>
@@ -41,7 +41,7 @@ $statsVariant = $statsVariant ?? 'dark'; // 'dark' or 'glass'
         <!-- Stat 3: Monthly Volume Milestone -->
         <div class="col-6 col-lg-3 border-start-lg border-secondary border-opacity-25">
           <div class="ps-stat-item px-2">
-            <div class="display-5 fw-bold text-gold mb-1 d-flex justify-content-center align-items-baseline">
+            <div class="display-5 fw-bold text-crimson mb-1 d-flex justify-content-center align-items-baseline">
               <span class="fs-4 me-1">$</span>
               <span class="ps-counter" data-target="15">0</span>
               <span class="fs-3 ms-1">M+</span>
@@ -54,7 +54,7 @@ $statsVariant = $statsVariant ?? 'dark'; // 'dark' or 'glass'
         <!-- Stat 4: Corporate Longevity / Payout Reliability -->
         <div class="col-6 col-lg-3 border-start-md border-secondary border-opacity-25">
           <div class="ps-stat-item px-2">
-            <div class="display-5 fw-bold text-gold mb-1 d-flex justify-content-center align-items-baseline">
+            <div class="display-5 fw-bold text-crimson mb-1 d-flex justify-content-center align-items-baseline">
               <span class="ps-counter" data-target="100">0</span>
               <span class="fs-3 ms-1">%</span>
             </div>
@@ -67,4 +67,3 @@ $statsVariant = $statsVariant ?? 'dark'; // 'dark' or 'glass'
     </div>
   </div>
 </section>
-

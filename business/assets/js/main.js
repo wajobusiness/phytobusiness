@@ -140,23 +140,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Ultra-Fast Modal Video Lightbox (Lazy iframe injection)
-  const videoTriggers = document.querySelectorAll('[data-video-id]');
+  // 6. Ultra-Fast Modal Video Lightbox (Lazy iframe injection with full event delegation)
   const videoModal = document.getElementById('psVideoModal');
   const videoFrameContainer = document.getElementById('psVideoContainer');
-  const videoModalCloseBtns = document.querySelectorAll('[data-close-video]');
+  const modalTitle = document.getElementById('psVideoModalTitle');
+  const modalDirectLink = document.getElementById('psVideoDirectLink');
 
   const openVideo = (videoId, title = '') => {
-    if (!videoModal || !videoFrameContainer) return;
+    if (!videoModal || !videoFrameContainer) {
+      // Fallback if modal not present: open in new tab directly
+      window.open(`https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`, '_blank', 'noopener');
+      return;
+    }
 
-    const modalTitle = document.getElementById('psVideoModalTitle');
-    if (modalTitle) modalTitle.textContent = title;
+    if (modalTitle) modalTitle.textContent = title || 'PhytoScience Presentation';
+    if (modalDirectLink) {
+      modalDirectLink.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+      modalDirectLink.style.display = 'inline-flex';
+    }
 
     videoFrameContainer.innerHTML = `
       <iframe 
         class="w-100 h-100" 
-        src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0" 
-        title="${encodeURIComponent(title)}"
+        src="https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&enablejsapi=1" 
+        title="${encodeURIComponent(title || 'Video')}"
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen>
@@ -174,17 +181,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  videoTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Event delegation on document: Catches ANY click on [data-video-id] or .js-video-trigger
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-video-id], .js-video-trigger');
+    if (trigger) {
       e.preventDefault();
-      const videoId = btn.getAttribute('data-video-id');
-      const videoTitle = btn.getAttribute('data-video-title') || 'PhytoScience Official Presentation';
-      if (videoId) openVideo(videoId, videoTitle);
-    });
-  });
+      const videoId = trigger.getAttribute('data-video-id') || trigger.dataset.videoId;
+      const title = trigger.getAttribute('data-video-title') || trigger.dataset.videoTitle || 'PhytoScience Official Presentation';
+      if (videoId) {
+        openVideo(videoId, title);
+      }
+    }
 
-  videoModalCloseBtns.forEach(btn => {
-    btn.addEventListener('click', closeVideo);
+    // Modal close triggers
+    if (e.target.closest('[data-close-video]')) {
+      e.preventDefault();
+      closeVideo();
+    }
   });
 
   if (videoModal) {

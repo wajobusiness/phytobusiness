@@ -1,5 +1,6 @@
 /**
  * PhytoScience Wellness - High-End Luxury Micro-Interactions & Scroll Animations
+ * Crimson & Ruby Red brand keyframes
  */
 
 @keyframes psFadeUp {
@@ -31,13 +32,13 @@
 
 @keyframes psPulseGlow {
   0% {
-    box-shadow: 0 0 0 0 rgba(198, 164, 92, 0.4);
+    box-shadow: 0 0 0 0 rgba(216, 0, 29, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(198, 164, 92, 0);
+    box-shadow: 0 0 0 16px rgba(216, 0, 29, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(198, 164, 92, 0);
+    box-shadow: 0 0 0 0 rgba(216, 0, 29, 0);
   }
 }
 
@@ -84,8 +85,7 @@
 }
 
 .shimmer-badge {
-  background: linear-gradient(90deg, rgba(223, 191, 119, 0.15) 0%, rgba(223, 191, 119, 0.45) 50%, rgba(223, 191, 119, 0.15) 100%);
+  background: linear-gradient(90deg, rgba(216, 0, 29, 0.15) 0%, rgba(216, 0, 29, 0.45) 50%, rgba(216, 0, 29, 0.15) 100%);
   background-size: 200% 100%;
   animation: psShimmer 3s infinite linear;
 }
-

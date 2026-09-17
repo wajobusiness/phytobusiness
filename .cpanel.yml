@@ -8,3 +8,4 @@ deployment:
     - /bin/cp -R business/* $DEPLOYPATH
     - /bin/cp business/.htaccess $DEPLOYPATH 2>/dev/null || :
     - /bin/chmod -R 755 $DEPLOYPATH
+

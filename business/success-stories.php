@@ -55,12 +55,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 1: Grand Recognition -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="b0pV9MrxnNk" data-video-title="PhytoScience Grand Recognition & Award Ceremony" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/b0pV9MrxnNk/mqdefault.jpg" alt="Grand Recognition 2025" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="b0pV9MrxnNk" data-video-title="PhytoScience Grand Recognition & Award Ceremony" aria-label="Play Grand Recognition Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">Grand Convention</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">Grand Convention</span>
           </div>
           <h3 class="h5 text-white mb-1">Grand Recognition & Award Gala</h3>
           <p class="small text-secondary mb-0">
@@ -72,12 +72,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 2: Super Cars -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="HSqDO3Wz1Lw" data-video-title="PhytoScience Super Cars Achievers" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/HSqDO3Wz1Lw/mqdefault.jpg" alt="PhytoScience Super Cars Achievers" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="HSqDO3Wz1Lw" data-video-title="PhytoScience Super Cars Achievers" aria-label="Play Super Cars Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">Car Incentive</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">Car Incentive</span>
           </div>
           <h3 class="h5 text-white mb-1">Super Car Bonus Achievers</h3>
           <p class="small text-secondary mb-0">
@@ -89,12 +89,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 3: African Tour -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="E0IaPc9CC4M" data-video-title="PhytoScience African Leadership Tour" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/E0IaPc9CC4M/mqdefault.jpg" alt="PhytoScience African Tour" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="E0IaPc9CC4M" data-video-title="PhytoScience African Leadership Tour" aria-label="Play African Tour Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">African Tour</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">African Tour</span>
           </div>
           <h3 class="h5 text-white mb-1">African Leadership & Impact Tour</h3>
           <p class="small text-secondary mb-0">
@@ -106,12 +106,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 4: Seoul Trip -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="SZJWXkLCeeQ" data-video-title="PhytoScience Seoul Incentive Trip" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/SZJWXkLCeeQ/mqdefault.jpg" alt="Seoul Incentive Trip" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="SZJWXkLCeeQ" data-video-title="PhytoScience Seoul Incentive Trip" aria-label="Play Seoul Trip Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">Travel Incentive</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">Travel Incentive</span>
           </div>
           <h3 class="h5 text-white mb-1">Seoul, South Korea VIP Incentive</h3>
           <p class="small text-secondary mb-0">
@@ -123,12 +123,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 5: Perth Trip -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="j_AgHotA_Ak" data-video-title="PhytoScience Perth Australia Incentive Trip" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/j_AgHotA_Ak/mqdefault.jpg" alt="Perth Australia Incentive Trip" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="j_AgHotA_Ak" data-video-title="PhytoScience Perth Australia Incentive Trip" aria-label="Play Perth Trip Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">Travel Incentive</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">Travel Incentive</span>
           </div>
           <h3 class="h5 text-white mb-1">Perth, Australia Leadership Experience</h3>
           <p class="small text-secondary mb-0">
@@ -140,12 +140,12 @@ require __DIR__ . '/components/hero.php';
       <!-- Video 6: Asia Success Award -->
       <div class="col-md-6 col-lg-4">
         <div class="ps-card h-100 p-3">
-          <div class="position-relative rounded overflow-hidden mb-3" style="height: 200px; background: #0A1C14;">
+          <div class="position-relative rounded overflow-hidden mb-3 cursor-pointer js-video-trigger" data-video-id="DnoJ6-e4xtE" data-video-title="PhytoScience Asia Success Award" style="height: 200px; background: #181920;">
             <img src="https://img.youtube.com/vi/DnoJ6-e4xtE/mqdefault.jpg" alt="Asia Success Award" class="w-100 h-100 object-fit-cover">
             <button type="button" class="position-absolute top-50 start-50 translate-middle btn-ps-play-pulse js-video-trigger" data-video-id="DnoJ6-e4xtE" data-video-title="PhytoScience Asia Success Award" aria-label="Play Asia Success Award Video">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A1210"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </button>
-            <span class="position-absolute top-0 start-0 m-2 badge bg-gold text-dark fw-bold">Industry Honors</span>
+            <span class="position-absolute top-0 start-0 m-2 badge bg-crimson fw-bold">Industry Honors</span>
           </div>
           <h3 class="h5 text-white mb-1">Asia Success Award & Industry Honors</h3>
           <p class="small text-secondary mb-0">

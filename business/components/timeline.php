@@ -22,7 +22,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">September 6, 2012</span>
+        <span class="badge bg-crimson fw-bold mb-2">September 6, 2012</span>
         <h4 class="h5 text-white mb-2">Inception in Kuala Lumpur, Malaysia</h4>
         <p class="small text-secondary mb-0">
           Founded by the late visionary Tan Sri Lai Teck Peng with the ambition to transform direct selling through scientifically validated plant stem cell rejuvenation products.
@@ -36,7 +36,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">2013</span>
+        <span class="badge bg-crimson fw-bold mb-2">2013</span>
         <h4 class="h5 text-white mb-2">Exclusive Partnership with Mibelle Biochemistry Switzerland</h4>
         <p class="small text-secondary mb-0">
           Signed landmark master distribution rights with Dr. Fred Zülli for PhytoCellTec™ Malus Domestica and Solar Vitis plant stem cell formulations, launching Crystal Cell and Double Stemcell.
@@ -50,7 +50,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">2014</span>
+        <span class="badge bg-crimson fw-bold mb-2">2014</span>
         <h4 class="h5 text-white mb-2">US $15 Million Monthly Sales & Africa Expansion</h4>
         <p class="small text-secondary mb-0">
           Reached historical monthly revenue records across Southeast Asia and established initial distribution hubs across West and East Africa, including Nigeria, Cameroon, and Ghana.
@@ -64,7 +64,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">2017</span>
+        <span class="badge bg-crimson fw-bold mb-2">2017</span>
         <h4 class="h5 text-white mb-2">Inauguration of Bangi Corporate HQ</h4>
         <p class="small text-secondary mb-0">
           Moved corporate operations into an eight-figure purpose-built corporate headquarters in Bandar Baru Bangi, Selangor, fully unencumbered and debt-free.
@@ -78,7 +78,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">2022</span>
+        <span class="badge bg-crimson fw-bold mb-2">2022</span>
         <h4 class="h5 text-white mb-2">A Decade of Excellence (10th Anniversary)</h4>
         <p class="small text-secondary mb-0">
           Celebrated 10 continuous years of operations, having distributed tens of millions in commission payouts and minted multi-millionaire distributors across 41+ sovereign nations.
@@ -92,7 +92,7 @@ $timelineMode = $timelineMode ?? 'milestones';
         <span class="ps-timeline-dot"></span>
       </div>
       <div class="ps-timeline-content ps-card p-4">
-        <span class="badge bg-gold text-dark fw-bold mb-2">2025 & Beyond</span>
+        <span class="badge bg-crimson fw-bold mb-2">2025 & Beyond</span>
         <h4 class="h5 text-white mb-2">Global Leadership Summits & Digital Modernization</h4>
         <p class="small text-secondary mb-0">
           Global conventions across Kuala Lumpur, Lagos, Nairobi, and Geneva, expanding digital member backoffices, mobile stockist networks, and NextGen cellular nutrition formulas.
