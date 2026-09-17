@@ -139,6 +139,28 @@ require_once __DIR__ . '/functions.php';
   </div>
 </div>
 
+<!-- Image Lightbox Modal -->
+<div id="psImageModal" class="ps-image-modal" role="dialog" aria-modal="true" aria-labelledby="psImageModalTitle">
+  <div class="ps-image-modal-dialog">
+    <div class="d-flex align-items-center justify-content-between p-3 border-bottom border-dark" style="background: rgba(24, 25, 32, 0.98);">
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-crimson fw-bold">DOCUMENTED PROOF</span>
+        <h5 id="psImageModalTitle" class="m-0 text-white font-heading fs-6">PhytoScience Achiever Showcase</h5>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-close-image aria-label="Close image viewer"></button>
+    </div>
+    <div class="ps-image-modal-body">
+      <img id="psImageModalImg" src="" alt="PhytoScience Car Achiever" class="img-fluid">
+    </div>
+    <div class="p-3 d-flex align-items-center justify-content-between flex-wrap gap-2" style="background: rgba(18, 19, 24, 0.98); border-top: 1px solid rgba(216, 0, 29, 0.25);">
+      <span id="psImageModalCaption" class="text-white small fw-semibold"></span>
+      <a href="<?= get_business_url('join.php') ?>" class="btn btn-sm btn-danger px-3 fw-bold" style="background: #D8001D; border: none;">
+        <span>Join This Winning Team ↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- Vendor & Custom JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 <script src="<?= asset('js/main.js') ?>" defer></script>

@@ -159,8 +159,11 @@ require __DIR__ . '/components/hero.php';
   </div>
 </section>
 
-<!-- 3. DISTRIBUTOR TESTIMONIAL QUOTES -->
-<section class="py-5 py-lg-6 position-relative" style="background: rgba(6, 38, 26, 0.35);">
+<!-- 3. MILLIONAIRES & CAR ACHIEVERS SHOWCASE -->
+<?php require __DIR__ . '/components/car-achievers.php'; ?>
+
+<!-- 4. DISTRIBUTOR TESTIMONIAL QUOTES -->
+<section class="py-5 py-lg-6 position-relative" style="background: #0A0B0E;">
   <div class="container">
     
     <div class="text-center max-w-700 mx-auto mb-5">

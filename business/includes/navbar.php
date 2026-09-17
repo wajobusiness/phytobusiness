@@ -58,6 +58,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             Proof & Media
           </a>
           <ul class="dropdown-menu dropdown-menu-ps dropdown-menu-dark">
+            <li><a class="dropdown-item dropdown-item-ps text-gold fw-semibold" href="<?= get_business_url('index.php#millionaires-car-achievers') ?>">★ Car Achievers & Millionaires</a></li>
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('success-stories.php') ?>">Distributor Success Stories</a></li>
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('gallery.php') ?>">Video & Photo Gallery</a></li>
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_business_url('events.php') ?>">News & Upcoming Events</a></li>
@@ -120,6 +121,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         <div class="border-top border-secondary border-opacity-25 pt-2 mt-1">
           <div class="text-white-50 text-uppercase fw-bold small px-2 mb-1" style="letter-spacing: 0.05em; font-size: 0.72rem;">Proof & Media</div>
           <div class="d-flex flex-column ms-2">
+            <a href="<?= get_business_url('index.php#millionaires-car-achievers') ?>" class="ps-nav-link js-mobile-nav-link py-1 text-gold fw-semibold">★ Car Achievers & Millionaires</a>
             <a href="<?= get_business_url('success-stories.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('success-stories.php') ?>">Success Stories & Cars</a>
             <a href="<?= get_business_url('gallery.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('gallery.php') ?>">Video & Photo Gallery</a>
             <a href="<?= get_business_url('events.php') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('events.php') ?>">News & Events</a>

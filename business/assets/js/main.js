@@ -284,7 +284,56 @@
       });
     }
 
-    // 8. Compensation Plan Simulator (on compensation-plan.php)
+    // 8. Image Lightbox Engine (Car Achievers & Event Proof)
+    const imageModal = document.getElementById('psImageModal');
+    const imageModalImg = document.getElementById('psImageModalImg');
+    const imageModalCaption = document.getElementById('psImageModalCaption');
+
+    const openImage = (src, caption = '') => {
+      if (!src) return;
+      if (imageModalImg) imageModalImg.src = src;
+      if (imageModalCaption) imageModalCaption.textContent = caption || 'PhytoScience Achiever Recognition';
+      if (imageModal) {
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const closeImage = () => {
+      if (imageModal) {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      if (imageModalImg) imageModalImg.src = '';
+    };
+
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.js-image-trigger');
+      if (trigger) {
+        e.preventDefault();
+        const src = trigger.getAttribute('data-img-src') || trigger.getAttribute('href');
+        const caption = trigger.getAttribute('data-img-caption') || '';
+        openImage(src, caption);
+      }
+
+      if (e.target.closest('[data-close-image]')) {
+        closeImage();
+      }
+    });
+
+    if (imageModal) {
+      imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) closeImage();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+          closeImage();
+        }
+      });
+    }
+
+    // 9. Compensation Plan Simulator (on compensation-plan.php)
     const calcForm = document.getElementById('psCompensationCalc');
     if (calcForm) {
       const rankSelect = document.getElementById('calcUserRank');

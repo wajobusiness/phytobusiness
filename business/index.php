@@ -228,7 +228,10 @@ require __DIR__ . '/components/hero.php';
   </div>
 </section>
 
-<!-- 7. VIDEO PROOF OF SUCCESS & RECOGNITION -->
+<!-- 7. MILLIONAIRES & CAR ACHIEVERS SHOWCASE (PHYTOSCIENCE AFRICA SOCIAL PROOF) -->
+<?php require __DIR__ . '/components/car-achievers.php'; ?>
+
+<!-- 8. VIDEO PROOF OF SUCCESS & RECOGNITION -->
 <section class="py-5 py-lg-6 position-relative" id="video-proof">
   <div class="container">
     
