@@ -11,7 +11,7 @@ require_once __DIR__ . '/../includes/functions.php';
 
 $carAchievers = [
     [
-        'image' => 'assets/images/achievers/car-achiever-1.jpg',
+        'image' => 'images/achievers/car-achiever-1.jpg',
         'title' => 'Mercedes-Benz SUV Handover',
         'leader' => 'Top Leadership Achiever',
         'location' => 'Lagos, Nigeria',
@@ -19,7 +19,7 @@ $carAchievers = [
         'desc' => 'Celebrated with keys to a brand-new luxury Mercedes-Benz SUV fully subsidized through company binary incentives.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-2.jpg',
+        'image' => 'images/achievers/car-achiever-2.jpg',
         'title' => 'Toyota Fortuner Executive Delivery',
         'leader' => 'Regional Diamond Leader',
         'location' => 'Abuja, Nigeria',
@@ -27,7 +27,7 @@ $carAchievers = [
         'desc' => 'Honored at the African Convention for outstanding team duplication and leadership rank advancement.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-3.jpg',
+        'image' => 'images/achievers/car-achiever-3.jpg',
         'title' => 'Executive Sedan Key Presentation',
         'leader' => 'Crown Diamond Qualifier',
         'location' => 'Kuala Lumpur / Global',
@@ -35,7 +35,7 @@ $carAchievers = [
         'desc' => 'Awarded on the international convention stage before 10,000 global distributors.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-4.jpg',
+        'image' => 'images/achievers/car-achiever-4.jpg',
         'title' => 'Brand-New Vehicle Celebration',
         'leader' => 'African Growth Champion',
         'location' => 'Port Harcourt, Nigeria',
@@ -43,7 +43,7 @@ $carAchievers = [
         'desc' => 'Turned a Silver package start into a multi-million turnover network driving a company car.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-5.jpg',
+        'image' => 'images/achievers/car-achiever-5.jpg',
         'title' => 'Mercedes-Benz Luxury Handover',
         'leader' => 'Top Producer & Mentor',
         'location' => 'Douala, Cameroon',
@@ -51,7 +51,7 @@ $carAchievers = [
         'desc' => 'Recognized with full corporate car sponsorship following back-to-back Diamond qualifications.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-6.jpg',
+        'image' => 'images/achievers/car-achiever-6.jpg',
         'title' => 'Company-Sponsored Luxury SUV',
         'leader' => 'Mobile Stockist Operator',
         'location' => 'Accra, Ghana',
@@ -59,7 +59,7 @@ $carAchievers = [
         'desc' => 'Leveraged 3%–5% key-in overrides and team pairing to achieve executive car qualification.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-7.jpg',
+        'image' => 'images/achievers/car-achiever-7.jpg',
         'title' => 'Female Leadership Car Award',
         'leader' => 'Top Women Achievers Hub',
         'location' => 'Nairobi, Kenya',
@@ -67,7 +67,7 @@ $carAchievers = [
         'desc' => 'Empowering women entrepreneurs across East Africa while driving a brand-new luxury vehicle.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-8.jpg',
+        'image' => 'images/achievers/car-achiever-8.jpg',
         'title' => 'Global Convention Key Presentation',
         'leader' => 'International Star Leader',
         'location' => 'Bangkok / Global Tour',
@@ -75,7 +75,7 @@ $carAchievers = [
         'desc' => 'Presented with executive car keys by corporate executives during the international celebration.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-9.jpg',
+        'image' => 'images/achievers/car-achiever-9.jpg',
         'title' => 'Convention Stage Key Ceremony',
         'leader' => 'Multi-Tier Leader',
         'location' => 'Selangor, Malaysia',
@@ -83,7 +83,7 @@ $carAchievers = [
         'desc' => 'Standing tall on stage celebrating life-changing financial breakthroughs and luxury car rewards.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-10.jpg',
+        'image' => 'images/achievers/car-achiever-10.jpg',
         'title' => 'Executive Car Delivery Ceremony',
         'leader' => 'Team Builder Elite',
         'location' => 'Kinshasa / Central Africa',
@@ -91,7 +91,7 @@ $carAchievers = [
         'desc' => 'Proving that dedication to the 7-step blueprint produces brand-new car keys in hand.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-11.jpg',
+        'image' => 'images/achievers/car-achiever-11.jpg',
         'title' => 'Official Car Celebration Rally',
         'leader' => 'Diamond Achiever',
         'location' => 'Lagos, Nigeria',
@@ -99,7 +99,7 @@ $carAchievers = [
         'desc' => 'Celebrated with team members, music, and official key presentation at the Lagos regional center.'
     ],
     [
-        'image' => 'assets/images/achievers/car-achiever-12.jpg',
+        'image' => 'images/achievers/car-achiever-12.jpg',
         'title' => 'Ceremonial Key Handover Gala',
         'leader' => 'Crown Ambassador Leader',
         'location' => 'African Summit Tour',
@@ -253,3 +253,4 @@ $carAchievers = [
 
   </div>
 </section>
+

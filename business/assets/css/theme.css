@@ -874,3 +874,32 @@ p {
 .ps-achiever-card:hover .ps-achiever-zoom-btn {
   transform: scale(1);
 }
+
+/* 18. Product Testimonies Showcase */
+.ps-testimony-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: #090A0F;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps-testimony-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ps-testimony-img-wrap.contain-mode img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+.ps-achiever-card:hover .ps-testimony-img-wrap img {
+  transform: scale(1.06);
+}
+

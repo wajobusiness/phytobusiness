@@ -71,6 +71,9 @@ function get_flash(): ?array {
  */
 function asset(string $path): string {
     $cleanPath = ltrim($path, '/');
+    if (str_starts_with($cleanPath, 'assets/')) {
+        $cleanPath = substr($cleanPath, 7);
+    }
     $filePath = __DIR__ . '/../assets/' . $cleanPath;
     $version = file_exists($filePath) ? (string)filemtime($filePath) : '2.0.1';
     return get_business_url('assets/' . $cleanPath) . '?v=' . $version;

@@ -162,7 +162,10 @@ require __DIR__ . '/components/hero.php';
 <!-- 3. MILLIONAIRES & CAR ACHIEVERS SHOWCASE -->
 <?php require __DIR__ . '/components/car-achievers.php'; ?>
 
-<!-- 4. DISTRIBUTOR TESTIMONIAL QUOTES -->
+<!-- 4. PRODUCT TESTIMONIES & CLINICAL WELLNESS PROOF -->
+<?php require __DIR__ . '/components/product-testimonies.php'; ?>
+
+<!-- 5. DISTRIBUTOR TESTIMONIAL QUOTES -->
 <section class="py-5 py-lg-6 position-relative" style="background: #0A0B0E;">
   <div class="container">
     
