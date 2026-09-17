@@ -62,7 +62,7 @@ require __DIR__ . '/components/hero.php';
 </section>
 
 <!-- 3. COMPREHENSIVE COMPARISON MATRIX -->
-<section class="py-5 py-lg-6 position-relative" id="comparison-table" style="background: rgba(6, 38, 26, 0.35);">
+<section class="py-5 py-lg-6 position-relative" id="comparison-table" style="background: rgba(18, 19, 24, 0.6);">
   <div class="container">
     
     <div class="text-center max-w-700 mx-auto mb-5">
@@ -84,7 +84,7 @@ require __DIR__ . '/components/hero.php';
             <th scope="col" style="width: 18%;">Silver</th>
             <th scope="col" style="width: 18%;">Gold</th>
             <th scope="col" style="width: 18%;">Junior Platinum</th>
-            <th scope="col" style="width: 21%;" class="text-gold">Platinum / Mobile</th>
+            <th scope="col" style="width: 21%;" class="text-crimson">Platinum / Mobile</th>
           </tr>
         </thead>
         <tbody>
@@ -93,14 +93,28 @@ require __DIR__ . '/components/hero.php';
             <td class="font-monospace text-secondary">100 PP</td>
             <td class="font-monospace text-secondary">500 PP</td>
             <td class="font-monospace text-secondary">1,500 PP</td>
-            <td class="font-monospace text-gold fw-bold">3,000 PP</td>
+            <td class="font-monospace text-crimson fw-bold">3,000 PP</td>
           </tr>
           <tr>
-            <td class="fw-semibold text-white">Estimated Investment Range</td>
-            <td class="text-secondary">~$120 – $150 USD</td>
-            <td class="text-secondary">~$600 – $750 USD</td>
-            <td class="text-secondary">~$1,800 – $2,200 USD</td>
-            <td class="text-gold fw-bold">~$3,600 – $4,200 USD</td>
+            <td class="fw-semibold text-white">Official Price (USD)</td>
+            <td class="text-white fw-bold">$130 USD</td>
+            <td class="text-white fw-bold">$650 USD</td>
+            <td class="text-white fw-bold">$1,950 USD</td>
+            <td class="text-crimson fw-bold">$3,900 USD</td>
+          </tr>
+          <tr>
+            <td class="fw-semibold text-white">Nigeria Equivalent (NGN)</td>
+            <td class="text-secondary">₦110,000</td>
+            <td class="text-secondary">₦550,000</td>
+            <td class="text-secondary">₦1,650,000</td>
+            <td class="text-crimson fw-bold">₦3,300,000</td>
+          </tr>
+          <tr>
+            <td class="fw-semibold text-white">Malaysia Equivalent (MYR)</td>
+            <td class="text-secondary">RM 420</td>
+            <td class="text-secondary">RM 2,100</td>
+            <td class="text-secondary">RM 6,300</td>
+            <td class="text-crimson fw-bold">RM 12,600</td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Product Allocation</td>

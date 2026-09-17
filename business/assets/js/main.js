@@ -42,7 +42,7 @@
     }
 
     // 2. Mobile Navigation Toggle & Drawer
-    const navToggleBtn = document.querySelector('[data-ps-toggle="nav"]');
+    const navToggleBtn = document.querySelector('[data-ps-toggle="nav"], .js-mobile-hamburger');
     const navMenu = document.querySelector('#psNavMenu');
 
     if (navToggleBtn && navMenu) {

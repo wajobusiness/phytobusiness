@@ -156,7 +156,7 @@ require __DIR__ . '/components/hero.php';
 </section>
 
 <!-- 3. PAIRING MATRIX & DAILY LIMITATIONS TABLE -->
-<section class="py-5 py-lg-6 position-relative" style="background: rgba(6, 38, 26, 0.35);">
+<section class="py-5 py-lg-6 position-relative" style="background: rgba(18, 19, 24, 0.6);">
   <div class="container">
     
     <div class="text-center max-w-700 mx-auto mb-5">
@@ -175,7 +175,8 @@ require __DIR__ . '/components/hero.php';
         <thead>
           <tr>
             <th scope="col">Package Tier</th>
-            <th scope="col">Package Points (PP)</th>
+            <th scope="col">Official Price</th>
+            <th scope="col">Points (PP)</th>
             <th scope="col">Direct Sponsor Bonus</th>
             <th scope="col">Daily Pairing Limitation</th>
             <th scope="col">Upline Roll-Up Capture</th>
@@ -185,35 +186,39 @@ require __DIR__ . '/components/hero.php';
         <tbody>
           <tr>
             <td class="fw-bold text-white">Silver</td>
+            <td class="text-white fw-bold">$130 <span class="text-secondary small">(₦110K)</span></td>
             <td class="font-monospace text-secondary">100 PP</td>
-            <td class="text-secondary">Basic (~45% of Silver PP)</td>
-            <td class="text-warning fw-semibold">~$148 USD / Day</td>
+            <td class="text-secondary">Basic ($30 USD)</td>
+            <td class="text-warning fw-semibold">~$140 USD / Day</td>
             <td class="text-danger">No (Rolls to Upline)</td>
             <td class="text-danger">No</td>
           </tr>
           <tr>
             <td class="fw-bold text-white">Gold</td>
+            <td class="text-white fw-bold">$650 <span class="text-secondary small">(₦550K)</span></td>
             <td class="font-monospace text-secondary">500 PP</td>
-            <td class="text-secondary">Mid-Level</td>
-            <td class="text-warning fw-semibold">~$500 USD / Day</td>
+            <td class="text-secondary">Mid-Level (Up to $177)</td>
+            <td class="text-warning fw-semibold">~$600 USD / Day</td>
             <td class="text-secondary">Partial</td>
             <td class="text-danger">No</td>
           </tr>
           <tr>
             <td class="fw-bold text-white">Junior Platinum</td>
+            <td class="text-white fw-bold">$1,950 <span class="text-secondary small">(₦1.65M)</span></td>
             <td class="font-monospace text-secondary">1,500 PP</td>
-            <td class="text-secondary">High-Level</td>
-            <td class="text-warning fw-semibold">~$1,500 USD / Day</td>
+            <td class="text-secondary">High-Level (Up to $450)</td>
+            <td class="text-warning fw-semibold">High-Capacity Binary</td>
             <td class="text-secondary">Partial</td>
             <td class="text-danger">No</td>
           </tr>
-          <tr style="background: rgba(198, 164, 92, 0.12); border-left: 3px solid var(--ps-gold);">
-            <td class="fw-bold text-gold">Platinum / Mobile Stockist</td>
-            <td class="font-monospace text-gold fw-bold">3,000 PP</td>
-            <td class="text-gold fw-bold">Full Payout on All Tiers</td>
-            <td class="text-gold fw-bold">UNLIMITED (Zero Cap)</td>
-            <td class="text-gold fw-bold">YES (100% Capture)</td>
-            <td class="text-gold fw-bold">YES (3%–5%)</td>
+          <tr style="background: rgba(216, 0, 29, 0.12); border-left: 3px solid var(--ps-crimson-500);">
+            <td class="fw-bold text-crimson">Platinum / Mobile Stockist</td>
+            <td class="text-crimson fw-bold">$3,900 <span class="text-white-50 small">(₦3.3M)</span></td>
+            <td class="font-monospace text-crimson fw-bold">3,000 PP</td>
+            <td class="text-crimson fw-bold">Up to $600/Pack</td>
+            <td class="text-crimson fw-bold">UNLIMITED (Zero Flush)</td>
+            <td class="text-crimson fw-bold">YES (100% Full Capture)</td>
+            <td class="text-crimson fw-bold">YES (3%–5% Override)</td>
           </tr>
         </tbody>
       </table>

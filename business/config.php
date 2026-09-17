@@ -37,6 +37,7 @@ define('CONTACT_PHONE_MY', '+603 – 8923 1880');
 define('CONTACT_PHONE_INTL', '+234 803 364 5497');
 define('CONTACT_WHATSAPP', '+2348033645497');
 define('CONTACT_WHATSAPP_LINK', 'https://wa.me/2348033645497?text=' . urlencode('Hello PhytoScience Team, I would like to learn more about the Business Opportunity and distributor membership packages.'));
+define('WHATSAPP_LINK', CONTACT_WHATSAPP_LINK);
 define('CONTACT_EMAIL', 'info@phytosciencewellness.com');
 
 // Headquarters & Regional Hubs
@@ -70,176 +71,234 @@ function get_business_url(string $path = ''): string {
     return $cleanPath !== '' ? $base . '/' . $cleanPath : $base . '/';
 }
 
+// Verified Executive Leadership Members
+define('LEADERSHIP_MEMBERS', [
+    [
+        'name' => 'The Late Tan Sri Lai Teck Peng',
+        'title' => 'Founder (P.S.M., S.S.A.P)',
+        'role' => 'Visionary Founder',
+        'credentials' => 'P.S.M., S.S.A.P • 28+ Yrs Experience',
+        'bio' => 'Founded Phyto Science on September 6, 2012 with a vision of life transformation. Brought over 28 years of direct selling excellence and was bestowed the royal title of "Tan Sri" by HM Yang di-Pertuan Agong in 2015.',
+        'image' => 'assets/images/founder.jpg'
+    ],
+    [
+        'name' => 'Puan Sri Datin Sri Ela Tan',
+        'title' => 'Co-Founder cum Managing Director',
+        'role' => 'Executive Managing Director',
+        'credentials' => 'Britishpedia Honoree • MCWEA Awardee',
+        'bio' => 'Recognized in Britishpedia "Successful People in Malaysia" (2022) and recipient of the MCWEA Women of Excellence Award. Over 25 years of global management transforming Phyto Science into a multi-million dollar powerhouse.',
+        'image' => 'assets/images/co-founder.jpg'
+    ],
+    [
+        'name' => 'Datuk Willy Toh Soon Thye',
+        'title' => 'Chief Executive Officer',
+        'role' => 'Chief Executive Officer',
+        'credentials' => '15+ Yrs Direct Selling Mastery',
+        'bio' => '15+ years of strategic network marketing leadership driving global expansion into 41+ countries, championing the mission to create multi-generational wealth.',
+        'image' => 'assets/images/ceo.jpg'
+    ],
+    [
+        'name' => 'Chong Kur Sen',
+        'title' => 'Legal Advisor',
+        'role' => 'Corporate Legal Counsel',
+        'credentials' => 'LLB (Hons) Malaya • Managing Partner',
+        'bio' => 'LLB (Hons) University of Malaya, founder and managing partner of M/s Kur Sen Chong & Co., providing steadfast legal governance and regulatory compliance across international operations.',
+        'image' => 'assets/images/legal-advisor.jpg'
+    ]
+]);
+
+// Verified Scientific Advisory Board
+define('SCIENTIFIC_ADVISORS', [
+    [
+        'name' => 'Dr. Fred Zülli',
+        'title' => 'CEO & Head of Research, Mibelle Biochemistry (Switzerland)',
+        'specialty' => 'Pioneer of PhytoCellTec™ Plant Stem Cell Technology',
+        'credentials' => 'PhD Biochemistry • Managing Director Mibelle',
+        'bio' => 'Leading Swiss biochemist behind the patented PhytoCellTec™ plant stem cell cultivation system, ensuring Phyto Science formulations remain the highest-quality botanical actives worldwide.',
+        'image' => 'assets/images/dr-fred.jpg'
+    ],
+    [
+        'name' => 'Dr. Jonathan F. Hull',
+        'title' => 'Biochemical Consultant (PhD, Yale University)',
+        'specialty' => 'Molecular Chemistry & Clean Synthesis',
+        'credentials' => 'PhD Yale • Brookhaven Goldhaber Fellow',
+        'bio' => 'Former Goldhaber Fellow at Brookhaven National Laboratory; specializes in biologically inspired molecular structures, green chemistry, and catalytic efficacy.',
+        'image' => 'assets/images/dr-hull.jpg'
+    ],
+    [
+        'name' => 'Dr. Gokula Mohan',
+        'title' => 'Senior Scientist & Lecturer (PhD, Glasgow University, UK)',
+        'specialty' => 'Stem Cell Biology & Cellular Epigenetics',
+        'credentials' => 'PhD Glasgow • Senior Lecturer Malaya',
+        'bio' => 'Senior Lecturer at Universiti Malaya focusing on human stem cell research, therapeutics, exosome applications, and cellular rejuvenation mechanisms.',
+        'image' => 'assets/images/dr-gokula.jpg'
+    ],
+    [
+        'name' => 'Dr. Taznim Begam Mohd Mohidin',
+        'title' => 'Molecular Biologist (PhD, Universiti Malaya)',
+        'specialty' => 'Immunology & Cellular Microbiology',
+        'credentials' => 'PhD Molecular Biology & Immunology',
+        'bio' => 'Senior researcher in translational immunology, antiviral cell biology, and immune modulation supporting Phyto Science’s cellular defense product lineup.',
+        'image' => 'assets/images/dr-taznim.jpg'
+    ],
+    [
+        'name' => 'Dr. Felix See Too Wah Seng',
+        'title' => 'Biotechnology Consultant (PhD, Universiti Malaya)',
+        'specialty' => 'Molecular Genomics & Bioactive Discovery',
+        'credentials' => 'PhD Genomics & Bioactive Discovery',
+        'bio' => 'Specialist in next-generation sequencing, microbial genomics, and natural bioactive compound discovery ensuring rigorous clinical substantiation.',
+        'image' => 'assets/images/dr-felix.jpg'
+    ]
+]);
+
 /**
  * Verified Executive Leadership & Key Scientists
  */
 function get_leadership_data(): array {
     return [
-        'executives' => [
-            [
-                'name' => 'The Late Tan Sri Lai Teck Peng',
-                'title' => 'Founder (P.S.M., S.S.A.P)',
-                'role' => 'Visionary Founder',
-                'bio' => 'Founded Phyto Science on September 6, 2012 with a vision of life transformation. Brought over 28 years of direct selling excellence and was bestowed the royal title of "Tan Sri" by HM Yang di-Pertuan Agong in 2015.',
-                'image' => 'assets/images/founder.jpg'
-            ],
-            [
-                'name' => 'Puan Sri Datin Sri Ela Tan',
-                'title' => 'Co-Founder cum Managing Director',
-                'role' => 'Executive Managing Director',
-                'bio' => 'Recognized in Britishpedia "Successful People in Malaysia" (2022) and recipient of the MCWEA Women of Excellence Award. Over 25 years of global management transforming Phyto Science into a multi-million dollar powerhouse.',
-                'image' => 'assets/images/co-founder.jpg'
-            ],
-            [
-                'name' => 'Datuk Willy Toh Soon Thye',
-                'title' => 'Chief Executive Officer',
-                'role' => 'Chief Executive Officer',
-                'bio' => '15+ years of strategic network marketing leadership driving global expansion into 41+ countries, championing the mission to create multi-generational wealth.',
-                'image' => 'assets/images/ceo.jpg'
-            ],
-            [
-                'name' => 'Chong Kur Sen',
-                'title' => 'Legal Advisor',
-                'role' => 'Corporate Legal Counsel',
-                'bio' => 'LLB (Hons) University of Malaya, founder and managing partner of M/s Kur Sen Chong & Co., providing steadfast legal governance and regulatory compliance across international operations.',
-                'image' => 'assets/images/legal-advisor.jpg'
-            ]
-        ],
-        'scientists' => [
-            [
-                'name' => 'Dr. Fred Zülli',
-                'title' => 'CEO & Head of Research, Mibelle Biochemistry (Switzerland)',
-                'specialty' => 'Pioneer of PhytoCellTec™ Plant Stem Cell Technology',
-                'bio' => 'Leading Swiss biochemist behind the patented PhytoCellTec™ plant stem cell cultivation system, ensuring Phyto Science formulations remain the highest-quality botanical actives worldwide.',
-                'image' => 'assets/images/dr-fred.jpg'
-            ],
-            [
-                'name' => 'Dr. Jonathan F. Hull',
-                'title' => 'Biochemical Consultant (PhD, Yale University)',
-                'specialty' => 'Molecular Chemistry & Clean Synthesis',
-                'bio' => 'Former Goldhaber Fellow at Brookhaven National Laboratory; specializes in biologically inspired molecular structures, green chemistry, and catalytic efficacy.',
-                'image' => 'assets/images/dr-hull.jpg'
-            ],
-            [
-                'name' => 'Dr. Gokula Mohan',
-                'title' => 'Senior Scientist & Lecturer (PhD, Glasgow University, UK)',
-                'specialty' => 'Stem Cell Biology & Cellular Epigenetics',
-                'bio' => 'Senior Lecturer at Universiti Malaya focusing on human stem cell research, therapeutics, exosome applications, and cellular rejuvenation mechanisms.',
-                'image' => 'assets/images/dr-gokula.jpg'
-            ],
-            [
-                'name' => 'Dr. Taznim Begam Mohd Mohidin',
-                'title' => 'Molecular Biologist (PhD, Universiti Malaya)',
-                'specialty' => 'Immunology & Cellular Microbiology',
-                'bio' => 'Senior researcher in translational immunology, antiviral cell biology, and immune modulation supporting Phyto Science’s cellular defense product lineup.',
-                'image' => 'assets/images/dr-taznim.jpg'
-            ],
-            [
-                'name' => 'Dr. Felix See Too Wah Seng',
-                'title' => 'Biotechnology Consultant (PhD, Universiti Malaya)',
-                'specialty' => 'Molecular Genomics & Bioactive Discovery',
-                'bio' => 'Specialist in next-generation sequencing, microbial genomics, and natural bioactive compound discovery ensuring rigorous clinical substantiation.',
-                'image' => 'assets/images/dr-felix.jpg'
-            ]
-        ]
+        'executives' => LEADERSHIP_MEMBERS,
+        'scientists' => SCIENTIFIC_ADVISORS
     ];
 }
 
+// Global Membership Package Tiers & Official Pricing Plans
+define('MEMBERSHIP_PACKAGES', [
+    'silver' => [
+        'id' => 'silver',
+        'slug' => 'silver',
+        'name' => 'Silver Package',
+        'badge' => 'Starter Pack',
+        'tagline' => 'Ideal entry level for part-time retail entrepreneurs and wellness advocates.',
+        'summary' => 'Ideal starting point for part-time distributors, wellness advocates, and retail entrepreneurs.',
+        'featured' => false,
+        'popular' => false,
+        'pp' => '100',
+        'pv_points' => '100 PP',
+        'price_estimate' => '$130 / ₦110,000',
+        'price_usd' => '$130',
+        'price_ngn' => '₦110,000',
+        'price_myr' => 'RM 420',
+        'daily_cap' => 'Up to 28 Pairs ($140/day)',
+        'daily_pair_cap' => 'Up to 28 Pairs Daily (Capped at ~$140/day)',
+        'typical_products' => '2 Packs Double Stemcell™ or Crystal Cell™',
+        'sponsor_bonus' => '$30 Direct Sponsor Commission',
+        'roll_up_status' => 'Partial (Excess upline compresses to Gold/Platinum)',
+        'key_in_bonus' => 'Not Eligible (Mobile Stockists only)',
+        'recommended_for' => 'Beginners, direct retail distributors, part-time hustlers',
+        'features' => [
+            '2 Packs of Double Stemcell™ or Crystal Cell™',
+            'Official PhytoScience Global Distributor ID',
+            'Full 24/7 Access to Online Member Backoffice',
+            'Real-Time Daily E-Wallet Cash Payouts',
+            'Immediate 20%–40% Retail Markup Profit',
+            'Binary Pairing Bonus: Up to 28 Pairs Daily',
+            'Access to Weekly Zoom & Regional Leadership Training'
+        ]
+    ],
+    'gold' => [
+        'id' => 'gold',
+        'slug' => 'gold',
+        'name' => 'Gold Package',
+        'badge' => 'Builder Choice',
+        'tagline' => 'Accelerated binary pairing leverage and partial roll-up bonuses for team leaders.',
+        'summary' => 'Built for ambitious team builders ready to scale earnings, leverage larger pairing caps, and capture partial roll-ups.',
+        'featured' => false,
+        'popular' => true,
+        'pp' => '500',
+        'pv_points' => '500 PP',
+        'price_estimate' => '$650 / ₦550,000',
+        'price_usd' => '$650',
+        'price_ngn' => '₦550,000',
+        'price_myr' => 'RM 2,100',
+        'daily_cap' => 'Up to 100 Pairs ($600/day)',
+        'daily_pair_cap' => 'Up to 100 Pairs Daily (Capped at ~$600/day)',
+        'typical_products' => '10 Packs Combo (Double Stemcell™ + Crystal Cell™)',
+        'sponsor_bonus' => 'Up to $177 Sponsor Commission',
+        'roll_up_status' => 'Intermediate Roll-Up Capture from Silvers',
+        'key_in_bonus' => 'Not Eligible (Mobile Stockists only)',
+        'recommended_for' => 'Active leaders, health clinics, serious network builders',
+        'features' => [
+            '10 Packs Combo (Double Stemcell™ + Crystal Cell™)',
+            'All Silver Member Benefits Included',
+            'Elevated Binary Pairing Rate (12% of PV)',
+            'Substantially Higher Daily Pairing Cap',
+            'Earn Roll-Up Commissions from Downline Silvers',
+            'Faster Capital Recovery & Leadership Advancement',
+            'Eligibility for Regional Incentive Contests & Rallies'
+        ]
+    ],
+    'junior_platinum' => [
+        'id' => 'junior-platinum',
+        'slug' => 'junior-platinum',
+        'name' => 'Junior Platinum',
+        'badge' => 'Executive Tier',
+        'tagline' => 'High-capacity inventory allocation and maximum binary depth for serious operators.',
+        'summary' => 'The bridge to stockist status, providing substantial inventory allocation and superior pairing leverage.',
+        'featured' => false,
+        'popular' => false,
+        'pp' => '1,500',
+        'pv_points' => '1,500 PP',
+        'price_estimate' => '$1,950 / ₦1,650,000',
+        'price_usd' => '$1,950',
+        'price_ngn' => '₦1,650,000',
+        'price_myr' => 'RM 6,300',
+        'daily_cap' => 'High-Capacity Leverage',
+        'daily_pair_cap' => 'High-Capacity Binary Pairing',
+        'typical_products' => '30 Packs Complete Clinical Therapeutic Range',
+        'sponsor_bonus' => 'Up to $450 Sponsor Commission',
+        'roll_up_status' => 'Advanced Roll-Up Retention',
+        'key_in_bonus' => 'Eligible in select regional business centers',
+        'recommended_for' => 'Established community leaders and regional stockist candidates',
+        'features' => [
+            '30 Packs Complete Clinical Therapeutic Range',
+            'All Gold Member Benefits Included',
+            'Substantial Wholesale Inventory Discount',
+            'Maximum Binary Leg Depth & Volume Leverage',
+            'Priority Product Fulfillment & Fast-Track Dispatch',
+            'Exclusive Invitations to Corporate Leadership Councils',
+            'Comprehensive Digital Marketing Field Toolkit'
+        ]
+    ],
+    'platinum_mobile' => [
+        'id' => 'platinum-mobile',
+        'slug' => 'platinum-mobile',
+        'name' => 'Platinum / Mobile Stockist',
+        'badge' => 'Enterprise Level',
+        'tagline' => 'The ultimate business package with UNLIMITED daily pairing and 3%–5% key-in overrides.',
+        'summary' => 'The ultimate enterprise tier. Unlimited daily pairing, maximum sponsor payouts, 100% roll-up capture, and administrative Key-In fees.',
+        'featured' => true,
+        'popular' => false,
+        'pp' => '3,000',
+        'pv_points' => '3,000 PP',
+        'price_estimate' => '$3,900 / ₦3,300,000',
+        'price_usd' => '$3,900',
+        'price_ngn' => '₦3,300,000',
+        'price_myr' => 'RM 12,600',
+        'daily_cap' => 'UNLIMITED Daily Pairs',
+        'daily_pair_cap' => 'UNLIMITED Daily Pairs (No Flushing)',
+        'typical_products' => '60+ Packs Master Inventory Allocation + Marketing Hub',
+        'sponsor_bonus' => 'Up to $600/Pack Sponsor Commission',
+        'roll_up_status' => '100% Full Roll-Up Capture from entire lineage',
+        'key_in_bonus' => '3% to 5% System Key-In Administrative Commission',
+        'recommended_for' => 'Master entrepreneurs, country stockists, and top industry leaders',
+        'features' => [
+            '60+ Packs Master Inventory Allocation + Promo Display Kit',
+            'UNLIMITED Daily Binary Pairing Potential (Never Flushes)',
+            '3%–5% Administrative Key-In Bonus on Every Registration Processed',
+            '100% Full Dynamic Compression Roll-Up Capture',
+            'Highest Direct Sponsor Bonus Tier (Up to $600 per recruit)',
+            'Official Mobile Stockist Backoffice Operational Terminal',
+            'VIP Red Carpet Access at Annual Global Conventions',
+            'Luxury Car & International Travel Award Point Acceleration'
+        ]
+    ]
+]);
+
 /**
- * Verified Membership Package Tiers
+ * Retrieve verified membership packages
  */
 function get_packages_data(): array {
-    return [
-        'silver' => [
-            'id' => 'silver',
-            'name' => 'Silver Package',
-            'badge' => 'Starter Pack',
-            'popular' => false,
-            'summary' => 'Ideal starting point for part-time distributors, wellness advocates, and retail entrepreneurs.',
-            'pv_points' => '100 PP',
-            'typical_products' => '2 Packs of Double Stemcell™ or customized introductory bundle',
-            'daily_pair_cap' => 'Up to 28 Pairs Daily (Capped)',
-            'sponsor_bonus' => 'Standard Silver Sponsor Bonus',
-            'roll_up_status' => 'Partial (Higher commissions compress to upline)',
-            'key_in_bonus' => 'Not eligible (Mobile Stockists only)',
-            'recommended_for' => 'Beginners, direct retail distributors, part-time hustlers',
-            'features' => [
-                'Full Access to Online Member Backoffice',
-                'Real-Time Daily E-Wallet Payouts',
-                'Immediate 20%–40% Retail Markup Profit',
-                'Direct Sponsorship Commissions',
-                'Binary Pairing Commissions',
-                'Access to Weekly Zoom & Regional Training'
-            ]
-        ],
-        'gold' => [
-            'id' => 'gold',
-            'name' => 'Gold Package',
-            'badge' => 'Builder Choice',
-            'popular' => true,
-            'summary' => 'Built for ambitious team builders ready to scale earnings, leverage larger pairing caps, and capture partial roll-ups.',
-            'pv_points' => '500 PP',
-            'typical_products' => '10+ Packs combo (Double Stemcell™ + Crystal Cell™)',
-            'daily_pair_cap' => 'Significantly Higher Daily Pairing Limit',
-            'sponsor_bonus' => 'Enhanced Gold Sponsor Bonus',
-            'roll_up_status' => 'Intermediate Roll-Up Capture from Silvers',
-            'key_in_bonus' => 'Not eligible (Mobile Stockists only)',
-            'recommended_for' => 'Active leaders, health clinics, serious network builders',
-            'features' => [
-                'All Silver Benefits Included',
-                'Substantially Higher Binary Pairing Payout',
-                'Accelerated Return on Capital',
-                'Leadership Advancement Acceleration',
-                'Eligibility for Regional Incentive Contests',
-                'Dedicated Team Mentorship & Marketing Kit'
-            ]
-        ],
-        'junior_platinum' => [
-            'id' => 'junior-platinum',
-            'name' => 'Junior Platinum',
-            'badge' => 'Executive Tier',
-            'popular' => false,
-            'summary' => 'The bridge to stockist status, providing substantial inventory allocation and superior pairing leverage.',
-            'pv_points' => '1,500 PP',
-            'typical_products' => 'Complete clinical range inventory allocation',
-            'daily_pair_cap' => 'High-Capacity Binary Pairing',
-            'sponsor_bonus' => 'High-Tier Sponsor Bonus',
-            'roll_up_status' => 'Advanced Roll-Up Retention',
-            'key_in_bonus' => 'Eligible in select regional business centers',
-            'recommended_for' => 'Established community leaders and regional stockist candidates',
-            'features' => [
-                'All Gold Benefits Included',
-                'Elevated Wholesale Inventory Discount',
-                'Maximum Binary Depth Leverage',
-                'Priority Product Fulfillment',
-                'Exclusive Leadership Council Invitations',
-                'Comprehensive Digital Marketing Toolkit'
-            ]
-        ],
-        'platinum_mobile' => [
-            'id' => 'platinum-mobile',
-            'name' => 'Platinum / Mobile Stockist',
-            'badge' => 'Highest Earning Potential',
-            'popular' => false,
-            'summary' => 'The ultimate enterprise tier. Unlimited daily pairing, maximum sponsor payouts, 100% roll-up capture, and administrative Key-In fees.',
-            'pv_points' => '3,000 PP',
-            'typical_products' => 'Complete Master Inventory with maximum stockist margin',
-            'daily_pair_cap' => 'UNLIMITED Daily Pairs (No Daily Flush)',
-            'sponsor_bonus' => 'Maximum Platinum Sponsor Bonus (Up to $600/pack)',
-            'roll_up_status' => '100% Full Roll-Up Capture from entire downline lineage',
-            'key_in_bonus' => '3% to 5% System Key-In Administrative Commission',
-            'recommended_for' => 'Master entrepreneurs, country stockists, and top industry leaders',
-            'features' => [
-                'UNLIMITED Daily Binary Pairing Potential',
-                'Zero Flush-Out on Strong Leg Carryover Volume',
-                '3%–5% Key-In Commission on Every Processed Registration',
-                'Full Dynamic Compression Roll-Up Capture',
-                'VIP Seating at Annual World Recognition Conventions',
-                'Direct Access to Corporate Executive Masterminds',
-                'Luxury Car & International Travel Qualification'
-            ]
-        ]
-    ];
+    return MEMBERSHIP_PACKAGES;
 }
 
 /**
@@ -353,6 +412,9 @@ function get_business_centers_data(): array {
         ]
     ];
 }
+
+// Regional Corporate Hubs & International Business Centers
+define('OFFICE_HUBS', get_business_centers_data());
 
 /**
  * Verified Official Video Gallery Embeds

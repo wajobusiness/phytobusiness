@@ -68,10 +68,19 @@ function render_package_card(array $pkg, bool $showDetailedCta = true): string
  */
 function render_person_card(array $person): string
 {
+    $name = sanitize($person['name'] ?? '');
+    $title = sanitize($person['title'] ?? '');
+    $credentials = sanitize($person['credentials'] ?? $person['specialty'] ?? $person['role'] ?? '');
+    $bio = sanitize($person['bio'] ?? '');
+
     $imagePlaceholder = '
     <div class="d-flex align-items-center justify-content-center w-100 h-100 text-crimson fs-1 fw-bold" style="background: linear-gradient(135deg, #181920 0%, #2A1015 100%);">
-        ' . substr($person['name'], 0, 1) . '
+        ' . (!empty($name) ? substr($name, 0, 1) : 'P') . '
     </div>';
+
+    $credentialsBadge = !empty($credentials) 
+        ? '<div class="badge bg-dark-subtle text-secondary border border-secondary border-opacity-25 px-2 py-1 mb-3 small">' . $credentials . '</div>' 
+        : '';
 
     return '
     <div class="ps-card ps-team-card h-100 p-4">
@@ -79,10 +88,10 @@ function render_person_card(array $person): string
             ' . $imagePlaceholder . '
         </div>
         <div class="text-center">
-            <h4 class="h5 text-white mb-1">' . sanitize($person['name']) . '</h4>
-            <div class="small text-crimson fw-semibold mb-2">' . sanitize($person['title']) . '</div>
-            <div class="badge bg-dark-subtle text-secondary border border-secondary border-opacity-25 px-2 py-1 mb-3 small">' . sanitize($person['credentials']) . '</div>
-            <p class="small text-secondary mb-0" style="line-height: 1.55;">' . sanitize($person['bio']) . '</p>
+            <h4 class="h5 text-white mb-1">' . $name . '</h4>
+            <div class="small text-crimson fw-semibold mb-2">' . $title . '</div>
+            ' . $credentialsBadge . '
+            <p class="small text-secondary mb-0" style="line-height: 1.55;">' . $bio . '</p>
         </div>
     </div>';
 }
@@ -116,7 +125,12 @@ function render_4p_card(string $pillar, string $title, string $tagline, string $
  */
 function render_office_card(array $office): string
 {
-    $statusBadge = $office['is_hq'] 
+    $country = sanitize($office['country'] ?? '');
+    $city = sanitize($office['city'] ?? '');
+    $address = sanitize($office['address'] ?? '');
+    $isHq = !empty($office['is_hq']) || stripos($country, 'HQ') !== false;
+
+    $statusBadge = $isHq 
         ? '<span class="badge bg-crimson fw-bold">GLOBAL HQ</span>' 
         : '<span class="badge bg-dark text-light border border-secondary">Regional Hub</span>';
 
@@ -131,11 +145,11 @@ function render_office_card(array $office): string
     return '
     <div class="ps-card h-100 p-4">
         <div class="d-flex justify-content-between align-items-start mb-2">
-            <h4 class="h5 text-white mb-0">' . sanitize($office['country']) . '</h4>
+            <h4 class="h5 text-white mb-0">' . $country . '</h4>
             ' . $statusBadge . '
         </div>
-        <div class="small text-crimson fw-semibold mb-3">' . sanitize($office['city']) . '</div>
-        <p class="small text-secondary mb-3" style="line-height: 1.5;">' . sanitize($office['address']) . '</p>
+        <div class="small text-crimson fw-semibold mb-3">' . $city . '</div>
+        <p class="small text-secondary mb-3" style="line-height: 1.5;">' . $address . '</p>
         <div class="border-top border-secondary border-opacity-25 pt-2 mt-auto">
             ' . $phoneLine . '
             ' . $emailLine . '

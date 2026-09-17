@@ -164,7 +164,7 @@ require __DIR__ . '/components/hero.php';
             <td class="fw-semibold text-white">Startup Capital</td>
             <td class="text-secondary">None (Time trade)</td>
             <td class="text-danger fw-semibold">$25,000 – $250,000+</td>
-            <td class="text-gold fw-bold">From $120 USD (Silver)</td>
+            <td class="text-crimson fw-bold">From $130 USD / ₦110,000 (Silver)</td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Monthly Overhead & Inventory</td>

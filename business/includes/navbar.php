@@ -83,8 +83,8 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button class="d-xl-none btn btn-link text-white p-2 text-decoration-none" type="button" data-ps-toggle="nav" aria-expanded="false" aria-controls="psNavMenu" aria-label="Toggle navigation">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <button class="d-xl-none btn btn-link text-white p-2 text-decoration-none js-mobile-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#psNavMenu" data-ps-toggle="nav" aria-expanded="false" aria-controls="psNavMenu" aria-label="Toggle navigation" style="cursor: pointer;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="pointer-events: none;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
 
     </div>

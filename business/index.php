@@ -222,7 +222,7 @@ require __DIR__ . '/components/hero.php';
 </section>
 
 <!-- 6. INTERACTIVE COMPENSATION SIMULATOR -->
-<section class="py-5 py-lg-6 position-relative" style="background: linear-gradient(180deg, rgba(10, 18, 16, 0.95) 0%, rgba(6, 38, 26, 0.3) 100%);">
+<section class="py-5 py-lg-6 position-relative" style="background: linear-gradient(180deg, #121318 0%, #0A0B0E 100%);">
   <div class="container">
     <?php require __DIR__ . '/components/compensation-calc.php'; ?>
   </div>

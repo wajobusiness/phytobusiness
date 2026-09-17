@@ -428,6 +428,15 @@ p {
   font-weight: 700;
 }
 
+/* Mobile Drawer Display Rules */
+#psNavMenu {
+  transition: all 0.3s ease;
+}
+
+#psNavMenu.show {
+  display: block !important;
+}
+
 /* Dropdown Menus */
 .dropdown-menu-ps {
   background: rgba(18, 19, 24, 0.98) !important;

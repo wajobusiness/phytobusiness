@@ -210,41 +210,45 @@ require __DIR__ . '/components/hero.php';
 
         <!-- Section 1: Package Selection -->
         <div class="mb-4 pb-3 border-bottom border-secondary border-opacity-25">
-          <h3 class="h6 text-gold text-uppercase fw-bold mb-3" style="letter-spacing: 0.05em;">1. Select Your Business Package</h3>
+          <h3 class="h6 text-crimson text-uppercase fw-bold mb-3" style="letter-spacing: 0.05em;">1. Select Your Business Package</h3>
           <div class="row g-3">
             <div class="col-md-6 col-lg-3">
-              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= $preselectedPackage === 'silver' ? 'border-gold' : '' ?>">
+              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= $preselectedPackage === 'silver' ? 'border-crimson' : '' ?>" style="border: 1px solid <?= $preselectedPackage === 'silver' ? 'var(--ps-crimson-500)' : 'rgba(255,255,255,0.1)' ?>;">
                 <input type="radio" name="package" value="silver" <?= $preselectedPackage === 'silver' ? 'checked' : '' ?> class="mb-2">
-                <div class="text-white fw-bold small">Silver</div>
-                <div class="text-secondary small">100 PP</div>
-                <div class="text-gold small fw-semibold mt-1">~$120–$150 USD</div>
+                <div class="text-white fw-bold">Silver Pack</div>
+                <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">100 PP</div>
+                <div class="text-white fw-bold fs-6 mt-1">$130 USD</div>
+                <div class="text-secondary small">₦110,000 / RM 420</div>
               </label>
             </div>
 
             <div class="col-md-6 col-lg-3">
-              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= $preselectedPackage === 'gold' ? 'border-gold' : '' ?>">
+              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= $preselectedPackage === 'gold' ? 'border-crimson' : '' ?>" style="border: 1px solid <?= $preselectedPackage === 'gold' ? 'var(--ps-crimson-500)' : 'rgba(255,255,255,0.1)' ?>;">
                 <input type="radio" name="package" value="gold" <?= $preselectedPackage === 'gold' ? 'checked' : '' ?> class="mb-2">
-                <div class="text-white fw-bold small">Gold</div>
-                <div class="text-secondary small">500 PP</div>
-                <div class="text-gold small fw-semibold mt-1">~$600–$750 USD</div>
+                <div class="text-white fw-bold">Gold Pack</div>
+                <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">500 PP</div>
+                <div class="text-white fw-bold fs-6 mt-1">$650 USD</div>
+                <div class="text-secondary small">₦550,000 / RM 2,100</div>
               </label>
             </div>
 
             <div class="col-md-6 col-lg-3">
-              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= $preselectedPackage === 'junior_platinum' ? 'border-gold' : '' ?>">
-                <input type="radio" name="package" value="junior_platinum" <?= $preselectedPackage === 'junior_platinum' ? 'checked' : '' ?> class="mb-2">
-                <div class="text-white fw-bold small">Junior Platinum</div>
-                <div class="text-secondary small">1,500 PP</div>
-                <div class="text-gold small fw-semibold mt-1">~$1,800–$2,200 USD</div>
+              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= ($preselectedPackage === 'junior_platinum' || $preselectedPackage === 'junior-platinum') ? 'border-crimson' : '' ?>" style="border: 1px solid <?= ($preselectedPackage === 'junior_platinum' || $preselectedPackage === 'junior-platinum') ? 'var(--ps-crimson-500)' : 'rgba(255,255,255,0.1)' ?>;">
+                <input type="radio" name="package" value="junior_platinum" <?= ($preselectedPackage === 'junior_platinum' || $preselectedPackage === 'junior-platinum') ? 'checked' : '' ?> class="mb-2">
+                <div class="text-white fw-bold">Junior Platinum</div>
+                <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">1,500 PP</div>
+                <div class="text-white fw-bold fs-6 mt-1">$1,950 USD</div>
+                <div class="text-secondary small">₦1,650,000 / RM 6,300</div>
               </label>
             </div>
 
             <div class="col-md-6 col-lg-3">
-              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage)) ? 'border-gold' : '' ?>" style="background: rgba(198, 164, 92, 0.08);">
-                <input type="radio" name="package" value="platinum" <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage)) ? 'checked' : '' ?> class="mb-2">
-                <div class="text-gold fw-bold small">Platinum / Stockist</div>
-                <div class="text-secondary small">3,000 PP</div>
-                <div class="text-gold small fw-semibold mt-1">~$3,600–$4,200 USD</div>
+              <label class="ps-card p-3 d-block text-center h-100 cursor-pointer <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage) || $preselectedPackage === 'platinum-mobile') ? 'border-crimson' : '' ?>" style="background: rgba(216, 0, 29, 0.08); border: 1px solid <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage) || $preselectedPackage === 'platinum-mobile') ? 'var(--ps-crimson-500)' : 'rgba(216,0,29,0.3)' ?>;">
+                <input type="radio" name="package" value="platinum" <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage) || $preselectedPackage === 'platinum-mobile') ? 'checked' : '' ?> class="mb-2">
+                <div class="text-crimson fw-bold">Platinum / Stockist</div>
+                <div class="badge bg-crimson text-white my-1">3,000 PP</div>
+                <div class="text-white fw-bold fs-6 mt-1">$3,900 USD</div>
+                <div class="text-secondary small">₦3,300,000 / RM 12,600</div>
               </label>
             </div>
           </div>

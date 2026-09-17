@@ -174,3 +174,34 @@ function handle_contact_submission(): ?array {
     ];
 }
 
+/**
+ * CSRF and Redirection helper aliases
+ */
+function generate_csrf_token(): string {
+    return csrf_token();
+}
+
+function verify_csrf_token(?string $token): bool {
+    return csrf_validate($token);
+}
+
+function redirect(string $url): void {
+    if (!headers_sent()) {
+        header('Location: ' . $url);
+        exit;
+    }
+    echo '<script>window.location.href=' . json_encode($url) . ';</script>';
+    exit;
+}
+
+function send_contact_mail(string $to, string $subject, string $body, ?string $replyTo = null): bool {
+    $host = $_SERVER['HTTP_HOST'] ?? 'phytosciencewellness.com';
+    $headers = "From: webmaster@" . $host . "\r\n";
+    if ($replyTo) {
+        $headers .= "Reply-To: {$replyTo}\r\n";
+    }
+    $headers .= "X-Mailer: PHP/" . phpversion();
+    return @mail($to, $subject, $body, $headers);
+}
+
+
