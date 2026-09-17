@@ -1,7 +1,7 @@
 <?php
 /**
  * PhytoScience Wellness - Compliance Disclaimer & Cross-Sell Component
- * Ensures adherence to Meta Ads, Google Ads, TikTok Ads, YouTube Ads & Health Advertising Regulations.
+ * Strictly adheres to Meta Ads, Google Ads, TikTok Ads, YouTube Ads & Health Advertising Regulations.
  */
 
 declare(strict_types=1);
@@ -45,18 +45,40 @@ $otherProducts = array_filter($allProducts, function($p) use ($product) {
 
     <!-- REGULATORY & ADVERTISING COMPLIANCE DISCLAIMER -->
     <div class="ps-compliance-box">
-      <div class="d-flex align-items-center gap-2 mb-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C6A45C" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        <strong class="text-white">Advertising Compliance, Regulatory Disclosure & Medical Disclaimer</strong>
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A45C" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <strong class="text-white fs-6">Advertising Disclosure & Health Regulatory Compliance Disclaimer</strong>
       </div>
-      <p class="mb-2">
-        <strong>Not Intended to Replace Medical Advice:</strong> The statements, claims, and product information provided on this landing page have not been evaluated by the National Agency for Food and Drug Administration and Control (NAFDAC), the European Medicines Agency (EMA), or the United States Food and Drug Administration (FDA). PhytoScience products are premium dietary supplements and functional nutrition formulas designed to nourish normal cellular health, support cellular longevity, and promote general physiological vitality. They are not manufactured, formulated, or marketed to diagnose, cure, mitigate, treat, or prevent any chronic disease, pathological condition, or illness.
-      </p>
-      <p class="mb-2">
-        <strong>Individual Results Disclosure:</strong> Testimonials and customer experiences shared on this website reflect authentic, individual feedback from verified users and distributors. Results are subjective and may vary significantly from individual to individual depending on body chemistry, age, medical history, diet, lifestyle, and adherence to recommended usage guidelines. No guarantees of specific physical transformation, healing, or income are expressed or implied.
-      </p>
-      <p class="mb-0">
-        <strong>Physician Consultation Recommended:</strong> Before introducing any new nutritional supplement to your routine, consult a licensed healthcare practitioner, particularly if you are pregnant, lactating, nursing, taking prescription pharmaceutical medication, scheduled for surgery, or under therapeutic medical care. Keep all dietary supplements out of the reach of children. Store in a cool, dry place away from direct sunlight.
+      
+      <ul class="list-unstyled d-flex flex-column gap-2 mb-3" style="font-size: 0.84rem; color: #A4A7B5;">
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Independent Ownership:</strong> This website is operated by an Independent PhytoScience Business Owner / Certified Distributor.</span>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Official Sourced Materials:</strong> Product information, nutritional values, and technical specifications are based on official materials provided by Phyto Science Sdn Bhd and Mibelle Biochemistry Switzerland.</span>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Individual Experiences Vary:</strong> Individual experiences, recovery timelines, and testimonials presented on this website may vary based on physiological factors, age, metabolism, and lifestyle. No specific results are guaranteed.</span>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Healthcare Guidance:</strong> Customers should follow official product instructions and consult an appropriate healthcare professional or licensed physician if they have questions about using any wellness product or pre-existing medical condition.</span>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Advertising Platform Non-Endorsement:</strong> This website is not affiliated with or endorsed by Facebook, Instagram, YouTube, Google, TikTok, or any other digital advertising platform.</span>
+        </li>
+        <li class="d-flex align-items-start gap-2">
+          <span class="text-gold fw-bold">•</span>
+          <span><strong>Trademark Notice:</strong> Facebook, Instagram, Google, YouTube, TikTok, and their respective trademarks belong to their respective corporate owners.</span>
+        </li>
+      </ul>
+
+      <p class="small text-secondary mb-0 border-top border-secondary border-opacity-25 pt-2" style="font-size: 0.78rem;">
+        *Disclaimer: Statements regarding dietary supplements have not been evaluated by NAFDAC, EMA, or the US FDA and are not intended to diagnose, treat, cure, or prevent any disease or health condition.
       </p>
     </div>
 

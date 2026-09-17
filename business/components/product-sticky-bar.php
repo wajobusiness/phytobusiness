@@ -26,3 +26,4 @@ $productImgUrl = asset(ltrim($product['image'], '/'));
     </a>
   </div>
 </div>
+

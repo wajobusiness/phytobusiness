@@ -1,7 +1,7 @@
 <?php
 /**
  * PhytoScience Wellness - High-Converting Product Landing Page Master Template
- * Renders all 13 advertising conversion sections with technical data from products.php.
+ * Renders all 14 advertising conversion sections with technical data from products.php.
  */
 
 declare(strict_types=1);
@@ -99,7 +99,7 @@ require __DIR__ . '/header.php';
   <div class="container">
     <div class="row align-items-center g-5">
       
-      <!-- Product Visual Stage (Left on desktop) -->
+      <!-- Product Visual Stage (Right on desktop) -->
       <div class="col-lg-6 order-lg-2">
         <div class="ps-prod-img-stage">
           <span class="ps-prod-badge-floating">
@@ -123,7 +123,7 @@ require __DIR__ . '/header.php';
         </div>
       </div>
 
-      <!-- Hero Pitch & Conversion Triggers (Right on desktop) -->
+      <!-- Hero Pitch & Conversion Triggers (Left on desktop) -->
       <div class="col-lg-6 order-lg-1">
         
         <!-- Live Urgency Banner -->
@@ -162,19 +162,23 @@ require __DIR__ . '/header.php';
           </div>
           <div class="text-white-50 small d-flex align-items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>International equivalent: <strong class="text-gold"><?= htmlspecialchars($product['pricing'][0]['price_usd']) ?></strong> | Pay on Delivery Available</span>
+            <span>International equivalent: <strong class="text-gold"><?= htmlspecialchars($product['pricing'][0]['price_usd']) ?></strong> | Pay on Delivery in Lagos & Abuja</span>
           </div>
         </div>
 
-        <!-- Triple Action CTAs -->
-        <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-3 mb-4">
-          <a href="#order-form" class="btn-ps btn-ps-primary py-3 px-4 text-center fs-6 fw-bold">
+        <!-- Triple Action CTAs: Order Now, WhatsApp, Call Now -->
+        <div class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 mb-4">
+          <a href="#order-form" class="btn-ps btn-ps-primary py-3 px-4 text-center fs-6 fw-bold flex-grow-1">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-            <span>Claim Promo & Order Now</span>
+            <span>Order Now</span>
           </a>
-          <a href="https://wa.me/2348023173303?text=<?= urlencode('Hello PhytoScience Team, I am interested in ordering ' . $product['name'] . '. Please assist me.') ?>" target="_blank" rel="noopener" class="btn-ps btn-ps-emerald py-3 px-4 text-center fs-6 fw-bold">
+          <a href="https://wa.me/2348023173303?text=<?= urlencode('Hello PhytoScience Team, I am interested in ordering ' . $product['name'] . '. Please assist me.') ?>" target="_blank" rel="noopener" class="btn-ps btn-ps-emerald py-3 px-3 text-center fs-6 fw-bold">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.551 4.095 1.517 5.82l-1.617 5.912 6.074-1.593c1.66.908 3.565 1.427 5.59 1.427 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
-            <span>WhatsApp Order</span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="tel:+2348023173303" class="btn-ps btn-ps-outline-gold py-3 px-3 text-center fs-6 fw-bold">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Call Now</span>
           </a>
         </div>
 
@@ -189,9 +193,9 @@ require __DIR__ . '/header.php';
 </section>
 
 <!-- ========================================================================
-     SECTION 2: "WHY YOU NEED THIS" / PROBLEM-AGITATION SECTION
+     SECTION 2: "WHY THIS PRODUCT?" / PROBLEM-AGITATION SECTION
 ======================================================================== -->
-<section class="py-5 position-relative" style="background: #101116;">
+<section class="py-5 position-relative" style="background: #101116;" id="why-this-product">
   <div class="container">
     <div class="text-center max-w-700 mx-auto mb-5">
       <span class="badge px-3 py-1 rounded-pill mb-2" style="background: rgba(216, 0, 29, 0.12); color: #FF4D5E; border: 1px solid rgba(216, 0, 29, 0.3); font-size: 0.75rem; font-weight: 700;">
@@ -239,9 +243,12 @@ require __DIR__ . '/header.php';
         <div class="col-lg-8">
           <span class="badge px-3 py-1 rounded-pill mb-2" style="background: #2ECC71; color: #000; font-weight: 800; font-size: 0.72rem;">THE PHYTOSCIENCE CELLULAR BREAKTHROUGH</span>
           <h3 class="text-white fw-bold display-6 fs-3 mb-3">How <?= htmlspecialchars($product['name']) ?> Solves This at the Cellular Level</h3>
-          <p class="text-secondary mb-0">
+          <p class="text-secondary mb-3">
             <?= htmlspecialchars($product['how_it_works']) ?>
           </p>
+          <div class="text-white-50 small">
+            <strong>Ideal For:</strong> <?= htmlspecialchars($product['target_audience']) ?>
+          </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">
           <a href="#order-form" class="btn-ps btn-ps-primary py-3 px-4">
@@ -284,42 +291,9 @@ require __DIR__ . '/header.php';
 </section>
 
 <!-- ========================================================================
-     SECTION 4: INGREDIENT DEEP DIVE SECTION
+     SECTION 4: WHY CUSTOMERS CHOOSE THIS (COMPARISON MATRIX)
 ======================================================================== -->
-<section class="py-5 position-relative" style="background: #101116;" id="ingredients">
-  <div class="container">
-    <div class="text-center max-w-700 mx-auto mb-5">
-      <span class="badge px-3 py-1 rounded-pill mb-2" style="background: rgba(216, 0, 29, 0.12); color: #FF4D5E; border: 1px solid rgba(216, 0, 29, 0.3); font-size: 0.75rem; font-weight: 700;">
-        NATURE REFINED BY SWISS BIOCHEMISTRY
-      </span>
-      <h2 class="display-6 fw-bold text-white mb-3">Patented Botanical Actives in <span class="text-crimson"><?= htmlspecialchars($product['name']) ?></span></h2>
-      <p class="text-secondary">No synthetic fillers, no artificial stimulants, no toxic colorants. Clean, certified bio-actives extracted through patented biotechnology.</p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      <?php foreach ($product['ingredients'] as $ing): ?>
-        <div class="col-lg-4 col-md-6">
-          <div class="ps-ingredient-card">
-            <div>
-              <span class="ps-ingredient-badge">Active Botanical</span>
-              <h4 class="text-white fw-bold fs-5 mb-1"><?= htmlspecialchars($ing['name']) ?></h4>
-              <div class="text-white-50 small mb-3"><strong>Origin:</strong> <?= htmlspecialchars($ing['origin']) ?></div>
-              <p class="text-secondary small mb-3"><?= htmlspecialchars($ing['role']) ?></p>
-            </div>
-            <div class="p-2 px-3 rounded-2" style="background: rgba(255,255,255,0.03); border-left: 2px solid #C6A45C;">
-              <span class="text-gold fw-semibold" style="font-size: 0.78rem;">✓ Standardized Active Compounds</span>
-            </div>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================
-     SECTION 5: "BEFORE & AFTER" / TRANSFORMATION MATRIX
-======================================================================== -->
-<section class="py-5 position-relative" style="background: #0A0B0E;" id="comparison">
+<section class="py-5 position-relative" style="background: #101116;" id="comparison">
   <div class="container">
     <div class="text-center max-w-700 mx-auto mb-5">
       <span class="badge px-3 py-1 rounded-pill mb-2" style="background: rgba(198, 164, 92, 0.15); color: #C6A45C; border: 1px solid rgba(198, 164, 92, 0.3); font-size: 0.75rem; font-weight: 700;">
@@ -329,7 +303,7 @@ require __DIR__ . '/header.php';
       <p class="text-secondary">See why thousands of families and medical practitioners worldwide have upgraded their wellness routine to PhytoScience.</p>
     </div>
 
-    <div class="ps-compare-table-wrap table-responsive">
+    <div class="ps-compare-table-wrap table-responsive mb-5">
       <table class="ps-compare-table">
         <thead>
           <tr>
@@ -355,16 +329,116 @@ require __DIR__ . '/header.php';
         </tbody>
       </table>
     </div>
+
+    <!-- Ingredient Deep Dive Cards -->
+    <div class="text-center max-w-700 mx-auto mb-4">
+      <h3 class="text-white fw-bold fs-4">Active Botanical Bio-Compounds</h3>
+      <p class="text-secondary small">Clinically verified ingredients extracted with patented Swiss biochemistry.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <?php foreach ($product['ingredients'] as $ing): ?>
+        <div class="col-lg-4 col-md-6">
+          <div class="ps-ingredient-card">
+            <div>
+              <span class="ps-ingredient-badge">Active Botanical</span>
+              <h4 class="text-white fw-bold fs-5 mb-1"><?= htmlspecialchars($ing['name']) ?></h4>
+              <div class="text-white-50 small mb-3"><strong>Origin:</strong> <?= htmlspecialchars($ing['origin']) ?></div>
+              <p class="text-secondary small mb-3"><?= htmlspecialchars($ing['role']) ?></p>
+            </div>
+            <div class="p-2 px-3 rounded-2" style="background: rgba(255,255,255,0.03); border-left: 2px solid #C6A45C;">
+              <span class="text-gold fw-semibold" style="font-size: 0.78rem;">✓ Standardized Bio-Active Extract</span>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
   </div>
 </section>
 
 <!-- ========================================================================
-     SECTION 6: PRODUCT GALLERY, PACKAGING & USAGE GUIDE
+     SECTION 5: PRODUCT GALLERY & PACKAGING SHOWCASE (WITH ZOOM)
+======================================================================== -->
+<section class="py-5 position-relative" style="background: #0A0B0E;" id="gallery">
+  <div class="container">
+    <div class="text-center max-w-700 mx-auto mb-5">
+      <span class="badge px-3 py-1 rounded-pill mb-2" style="background: rgba(216, 0, 29, 0.12); color: #FF4D5E; border: 1px solid rgba(216, 0, 29, 0.3); font-size: 0.75rem; font-weight: 700;">
+        GENUINE PACKAGING & BIO-VERIFICATION
+      </span>
+      <h2 class="display-6 fw-bold text-white mb-3"><?= htmlspecialchars($product['name']) ?> <span class="text-gold">Visual Showcase</span></h2>
+      <p class="text-secondary">Explore the packaging, tamper-proof seal, Swiss quality marks, and daily wellness ritual. Click any image to view in high-resolution lightbox.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Image 1: Main Product Box -->
+      <div class="col-lg-3 col-6">
+        <div class="ps-gallery-card js-image-trigger" data-img-src="<?= asset(ltrim($product['image'], '/')) ?>" data-img-caption="<?= htmlspecialchars($product['name']) ?> — Official Packaging & Holographic Seal">
+          <img src="<?= asset(ltrim($product['image'], '/')) ?>" alt="<?= htmlspecialchars($product['name']) ?> Packaging" loading="lazy">
+          <div class="ps-gallery-zoom-overlay">
+            <div class="ps-gallery-zoom-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <span class="text-white small fw-semibold">Retail Packshot & Seal</span>
+        </div>
+      </div>
+
+      <!-- Image 2: Swiss Mibelle Biotechnology Seal -->
+      <div class="col-lg-3 col-6">
+        <div class="ps-gallery-card js-image-trigger" data-img-src="<?= asset('images/logo.png') ?>" data-img-caption="PhytoScience & Mibelle Biochemistry Switzerland Partnership Seal">
+          <img src="<?= asset('images/logo.png') ?>" alt="Swiss Mibelle Certification" loading="lazy">
+          <div class="ps-gallery-zoom-overlay">
+            <div class="ps-gallery-zoom-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <span class="text-white small fw-semibold">Swiss Bio-Tech Patent</span>
+        </div>
+      </div>
+
+      <!-- Image 3: Clinical Testimonial Proof -->
+      <div class="col-lg-3 col-6">
+        <div class="ps-gallery-card js-image-trigger" data-img-src="<?= asset('images/testimonies/cancer-testimonies.png') ?>" data-img-caption="Documented Patient Cellular Regeneration Records with PhytoScience">
+          <img src="<?= asset('images/testimonies/cancer-testimonies.png') ?>" alt="Clinical Recovery Proof" loading="lazy">
+          <div class="ps-gallery-zoom-overlay">
+            <div class="ps-gallery-zoom-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <span class="text-white small fw-semibold">Documented Results</span>
+        </div>
+      </div>
+
+      <!-- Image 4: Global Distribution & Leaders -->
+      <div class="col-lg-3 col-6">
+        <div class="ps-gallery-card js-image-trigger" data-img-src="<?= asset('images/achievers/incentives-banner.jpg') ?>" data-img-caption="Global PhytoScience Leaders & Verified Product Testimonies Worldwide">
+          <img src="<?= asset('images/achievers/incentives-banner.jpg') ?>" alt="Global PhytoScience Achievers" loading="lazy">
+          <div class="ps-gallery-zoom-overlay">
+            <div class="ps-gallery-zoom-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <span class="text-white small fw-semibold">International Trust</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     SECTION 6: USAGE PROTOCOL & DOSAGE GUIDE
 ======================================================================== -->
 <section class="py-5 position-relative" style="background: #101116;" id="usage">
   <div class="container">
     <div class="row align-items-center g-5">
-      
       <div class="col-lg-5 text-center">
         <div class="p-4 rounded-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);">
           <img src="<?= asset(ltrim($product['image'], '/')) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="img-fluid mb-4" style="max-height: 320px; object-fit: contain;">
@@ -409,14 +483,7 @@ require __DIR__ . '/header.php';
             </div>
           </div>
         </div>
-
-        <div class="p-3 rounded-3 d-flex align-items-center gap-3" style="background: rgba(198, 164, 92, 0.1); border: 1px solid rgba(198, 164, 92, 0.3);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C6A45C" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          <span class="text-white small">Target Audience: <?= htmlspecialchars($product['target_audience']) ?></span>
-        </div>
-
       </div>
-
     </div>
   </div>
 </section>
@@ -473,7 +540,7 @@ require __DIR__ . '/header.php';
         AUTHENTIC BUYER EXPERIENCES
       </span>
       <h2 class="display-6 fw-bold text-white mb-3">Rated <span class="text-gold"><?= $product['rating'] ?>/5.0</span> Across Nigeria & Worldwide</h2>
-      <p class="text-secondary">Read what satisfied customers say about their physical vitality and wellness transformations.</p>
+      <p class="text-secondary">Read what verified buyers say about their physical vitality and wellness transformations.</p>
     </div>
 
     <div class="row g-4 justify-content-center">
@@ -591,12 +658,62 @@ require __DIR__ . '/header.php';
 </section>
 
 <!-- ========================================================================
-     SECTION 12: DIRECT ORDER & LEAD CAPTURE FORM
+     SECTION 12: CALL-TO-ACTION (LARGE 4-BUTTON CONVERSION SECTION)
+======================================================================== -->
+<section class="py-5 py-lg-6 position-relative text-center overflow-hidden" style="background: radial-gradient(circle at 50% 50%, rgba(216,0,29,0.22) 0%, rgba(10,11,14,0.98) 75%); border-top: 1px solid rgba(216,0,29,0.3); border-bottom: 1px solid rgba(216,0,29,0.3);">
+  <div class="container">
+    <div class="max-w-800 mx-auto">
+      <span class="badge px-3 py-2 rounded-pill mb-3" style="background: rgba(198, 164, 92, 0.15); color: #C6A45C; border: 1px solid rgba(198, 164, 92, 0.3); font-size: 0.8rem; font-weight: 700;">
+        TAKE CHARGE OF YOUR HEALTH TODAY
+      </span>
+      <h2 class="display-5 fw-bold text-white mb-3">Begin Your Transformation with <span class="text-crimson"><?= htmlspecialchars($product['name']) ?></span></h2>
+      <p class="text-secondary lead fs-6 mb-4">
+        Join millions of satisfied individuals across 41+ nations who have unlocked radiant energy, immune resilience, and cellular longevity through Swiss plant stem cell science.
+      </p>
+
+      <!-- 4 High-Converting Action Buttons -->
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-4">
+        <!-- 1. Order Now -->
+        <a href="#order-form" class="btn-ps btn-ps-primary py-3 px-4 fs-6 fw-bold">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+          <span>Order Now (Pay on Delivery)</span>
+        </a>
+
+        <!-- 2. Chat on WhatsApp -->
+        <a href="https://wa.me/2348023173303?text=<?= urlencode('Hello PhytoScience Team, I am on the ' . $product['name'] . ' page and would like to order or consult.') ?>" target="_blank" rel="noopener" class="btn-ps btn-ps-emerald py-3 px-4 fs-6 fw-bold">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.551 4.095 1.517 5.82l-1.617 5.912 6.074-1.593c1.66.908 3.565 1.427 5.59 1.427 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+          <span>Chat on WhatsApp</span>
+        </a>
+
+        <!-- 3. Call Consultant -->
+        <a href="tel:+2348023173303" class="btn-ps btn-ps-outline-gold py-3 px-4 fs-6 fw-bold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call Consultant (+234 802 317 3303)</span>
+        </a>
+
+        <!-- 4. Become a Distributor -->
+        <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-glass py-3 px-4 fs-6 fw-bold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Become a Distributor</span>
+        </a>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center gap-4 flex-wrap text-white-50 small">
+        <span>✓ 100% Original Guaranteed</span>
+        <span>✓ Pay on Delivery in Lagos & Abuja</span>
+        <span>✓ Express Doorstep Courier</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     SECTION 13: DIRECT ORDER & LEAD CAPTURE FORM
 ======================================================================== -->
 <?php require __DIR__ . '/../components/product-lead-form.php'; ?>
 
 <!-- ========================================================================
-     SECTION 13: ADVERTISING COMPLIANCE, MEDICAL DISCLAIMER & CROSS-SELL
+     SECTION 14: ADVERTISING COMPLIANCE, MEDICAL DISCLAIMER & CROSS-SELL
 ======================================================================== -->
 <?php require __DIR__ . '/../components/product-disclaimer.php'; ?>
 
@@ -608,6 +725,37 @@ require __DIR__ . '/header.php';
 document.addEventListener('DOMContentLoaded', function() {
   // Add body class for sticky bar padding
   document.body.classList.add('has-sticky-bar');
+
+  // Live Countdown Timer (Real-time ticking)
+  function initCountdown() {
+    let hours = 5, minutes = 42, seconds = 19;
+    const hElem = document.getElementById('cd-hours');
+    const mElem = document.getElementById('cd-minutes');
+    const sElem = document.getElementById('cd-seconds');
+
+    if (!hElem || !mElem || !sElem) return;
+
+    setInterval(function() {
+      if (seconds > 0) {
+        seconds--;
+      } else {
+        if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else {
+          if (hours > 0) {
+            hours--;
+            minutes = 59;
+            seconds = 59;
+          }
+        }
+      }
+      hElem.textContent = String(hours).padStart(2, '0');
+      mElem.textContent = String(minutes).padStart(2, '0');
+      sElem.textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+  initCountdown();
 
   // Order package pre-selection helper
   window.selectPricingTier = function(idx, packageString) {

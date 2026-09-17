@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/data/products.php';
 
 // Page-specific metadata
 $pageTitle = 'PhytoScience Global Business Opportunity | Official Distributor Portal';
@@ -185,6 +186,98 @@ require __DIR__ . '/components/hero.php';
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- 4.5 FLAGSHIP CELLULAR FORMULATIONS SHOWCASE -->
+<section class="py-5 py-lg-6 position-relative" id="flagship-products" style="background: #0D0E13;">
+  <div class="container">
+    
+    <div class="text-center max-w-700 mx-auto mb-5">
+      <div class="d-inline-flex align-items-center gap-2 ps-badge-gold mb-3">
+        <span class="ps-status-dot"></span>
+        <span>Swiss Biotechnology Formulations</span>
+      </div>
+      <h2 class="h2 text-white fw-bold mb-3">Flagship Cellular Health <span class="text-gold">Formulations</span></h2>
+      <p class="text-secondary lead fs-6 mb-0">
+        Engineered with patented Swiss plant stem cells and rare medicinal botanicals. Select any product below to view its dedicated advertising landing page, clinical evidence, and direct order options.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <?php
+      $featuredProducts = get_products_data();
+      foreach ($featuredProducts as $prodSlug => $prod):
+          $prodUrl = get_product_url($prodSlug);
+          $tierPrice = $prod['pricing'][0]['price_ngn'] ?? '₦38,000';
+          $tierOriginal = $prod['pricing'][0]['original_ngn'] ?? '₦48,000';
+          $tierUsd = $prod['pricing'][0]['price_usd'] ?? '$45 USD';
+      ?>
+        <div class="col-lg-4 col-md-6">
+          <div class="ps-card h-100 p-4 d-flex flex-column justify-content-between position-relative overflow-hidden" style="background: #14151B; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; transition: transform 0.3s ease, border-color 0.3s ease;">
+            
+            <div>
+              <!-- Badge -->
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="badge px-3 py-1 rounded-pill" style="background: rgba(216,0,29,0.15); color: #FF4D5E; font-size: 0.72rem; font-weight: 700; border: 1px solid rgba(216,0,29,0.3);">
+                  <?= htmlspecialchars($prod['badge']) ?>
+                </span>
+                <span class="text-warning small">★★★★★ <?= $prod['rating'] ?></span>
+              </div>
+
+              <!-- Packshot Image -->
+              <div class="text-center py-3 mb-3 rounded-3" style="background: rgba(255,255,255,0.02);">
+                <a href="<?= $prodUrl ?>">
+                  <img src="<?= asset(ltrim($prod['image'], '/')) ?>" alt="<?= htmlspecialchars($prod['name']) ?>" class="img-fluid" style="max-height: 190px; object-fit: contain; transition: transform 0.3s ease;">
+                </a>
+              </div>
+
+              <!-- Title & Category -->
+              <span class="text-gold small fw-semibold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.05em;"><?= htmlspecialchars($prod['category']) ?></span>
+              <h3 class="h5 text-white fw-bold mt-1 mb-2">
+                <a href="<?= $prodUrl ?>" class="text-white text-decoration-none">
+                  <?= htmlspecialchars($prod['name']) ?>
+                </a>
+              </h3>
+
+              <!-- Short Desc -->
+              <p class="small text-secondary mb-3" style="line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                <?= htmlspecialchars($prod['short_desc']) ?>
+              </p>
+
+              <!-- Packaging Spec -->
+              <div class="d-flex align-items-center gap-2 text-white-50 small mb-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                <span><?= htmlspecialchars($prod['packaging']) ?></span>
+              </div>
+            </div>
+
+            <!-- Price & Action -->
+            <div class="pt-3 border-top border-secondary border-opacity-25 mt-2">
+              <div class="d-flex align-items-baseline justify-content-between mb-3">
+                <div>
+                  <span class="text-white fw-bold fs-5"><?= htmlspecialchars($tierPrice) ?></span>
+                  <span class="text-secondary text-decoration-line-through small ms-1"><?= htmlspecialchars($tierOriginal) ?></span>
+                </div>
+                <span class="text-gold small fw-bold"><?= htmlspecialchars($tierUsd) ?></span>
+              </div>
+
+              <div class="d-flex gap-2">
+                <a href="<?= $prodUrl ?>" class="btn-ps btn-ps-primary py-2 px-3 flex-grow-1 text-center small fw-bold">
+                  <span>View & Order</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://wa.me/2348023173303?text=<?= urlencode('Hello PhytoScience Team, I am interested in ' . $prod['name'] . '. Please assist me.') ?>" target="_blank" rel="noopener" class="btn-ps btn-ps-emerald py-2 px-2 text-center" title="Chat on WhatsApp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.551 4.095 1.517 5.82l-1.617 5.912 6.074-1.593c1.66.908 3.565 1.427 5.59 1.427 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
   </div>
 </section>
 

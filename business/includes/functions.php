@@ -233,18 +233,24 @@ function handle_product_order_submission(): ?array {
         return ['status' => 'error', 'message' => 'Security token expired. Please refresh the page and try again.'];
     }
 
+    $firstName     = sanitize($_POST['first_name'] ?? '');
+    $lastName      = sanitize($_POST['last_name'] ?? '');
     $fullName      = sanitize($_POST['full_name'] ?? '');
+    if (empty($fullName) && (!empty($firstName) || !empty($lastName))) {
+        $fullName = trim($firstName . ' ' . $lastName);
+    }
     $phone         = sanitize($_POST['phone'] ?? '');
     $altPhone      = sanitize($_POST['alt_phone'] ?? '');
     $email         = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $address       = sanitize($_POST['address'] ?? '');
-    $cityState     = sanitize($_POST['city_state'] ?? '');
+    $cityState     = sanitize($_POST['state'] ?? $_POST['city_state'] ?? '');
     $country       = sanitize($_POST['country'] ?? 'Nigeria');
+    $contactMethod = sanitize($_POST['contact_method'] ?? 'WhatsApp');
     $productSlug   = sanitize($_POST['product_slug'] ?? '');
-    $productName   = sanitize($_POST['product_name'] ?? 'PhytoScience Product');
+    $productName   = sanitize($_POST['interested_product'] ?? $_POST['product_name'] ?? 'PhytoScience Product');
     $package       = sanitize($_POST['package'] ?? '');
     $paymentMethod = sanitize($_POST['payment_method'] ?? 'Pay on Delivery');
-    $notes         = sanitize($_POST['notes'] ?? '');
+    $comments      = sanitize($_POST['comments'] ?? $_POST['notes'] ?? '');
 
     if (empty($fullName) || empty($phone) || empty($address) || empty($package)) {
         return ['status' => 'error', 'message' => 'Please fill in your name, delivery phone number, full address, and select a package.'];
@@ -276,15 +282,18 @@ function handle_product_order_submission(): ?array {
         'product_slug'   => $productSlug,
         'product_name'   => $productName,
         'package'        => $package,
+        'first_name'     => $firstName,
+        'last_name'      => $lastName,
         'full_name'      => $fullName,
         'phone'          => $phone,
         'alt_phone'      => $altPhone,
         'email'          => $email,
-        'address'        => $address,
-        'city_state'     => $cityState,
         'country'        => $country,
+        'state'          => $cityState,
+        'address'        => $address,
+        'contact_method' => $contactMethod,
         'payment_method' => $paymentMethod,
-        'notes'          => $notes,
+        'comments'       => $comments,
         'status'         => 'Pending Confirmation'
     ];
 
@@ -307,16 +316,17 @@ function handle_product_order_submission(): ?array {
             "DATE: " . date('Y-m-d H:i:s') . "\n" .
             "PRODUCT: {$productName}\n" .
             "PACKAGE: {$package}\n" .
-            "PAYMENT METHOD: {$paymentMethod}\n\n" .
+            "PAYMENT METHOD: {$paymentMethod}\n" .
+            "PREFERRED CONTACT: {$contactMethod}\n\n" .
             "CUSTOMER DETAILS:\n" .
             "Name: {$fullName}\n" .
             "Phone: {$phone}\n" .
             (!empty($altPhone) ? "Alt Phone: {$altPhone}\n" : "") .
             (!empty($email) ? "Email: {$email}\n" : "") .
             "Delivery Address: {$address}\n" .
-            "City / State: {$cityState}\n" .
+            "State / City: {$cityState}\n" .
             "Country: {$country}\n\n" .
-            (!empty($notes) ? "Special Notes / Directions:\n{$notes}\n\n" : "") .
+            (!empty($comments) ? "Comments / Delivery Notes:\n{$comments}\n\n" : "") .
             "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'N/A') . "\n";
     send_contact_mail($to, $subject, $body, !empty($email) ? $email : null);
 
@@ -328,6 +338,7 @@ function handle_product_order_submission(): ?array {
               "👤 *Customer:* {$fullName}\n" .
               "📞 *Phone:* {$phone}\n" .
               "📍 *Delivery Address:* {$address}, {$cityState}, {$country}\n" .
+              "📲 *Contact Method:* {$contactMethod}\n" .
               "💳 *Payment Preference:* {$paymentMethod}\n\n" .
               "Please confirm my order and arrange dispatch. Thank you!";
     $waUrl = "https://wa.me/2348023173303?text=" . urlencode($waText);
@@ -340,7 +351,7 @@ function handle_product_order_submission(): ?array {
         'full_name'      => $fullName,
         'phone'          => $phone,
         'whatsapp_url'   => $waUrl,
-        'message'        => 'Thank you! Your order has been placed successfully. Order Reference: ' . $orderId . '. Our logistics team will call or WhatsApp you shortly to confirm dispatch.'
+        'message'        => 'Thank you! Your order has been placed successfully. Order Reference: ' . $orderId . '. Our logistics team will contact you shortly to confirm dispatch.'
     ];
 }
 

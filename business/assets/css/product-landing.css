@@ -729,3 +729,106 @@
   margin-bottom: 12px;
   padding: 8px;
 }
+
+/* 17. Live Countdown Box */
+.ps-countdown-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ps-countdown-unit {
+  background: rgba(10, 11, 14, 0.85);
+  border: 1px solid rgba(216, 0, 29, 0.35);
+  border-radius: 10px;
+  padding: 8px 14px;
+  text-align: center;
+  min-width: 62px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.ps-countdown-unit span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FF4D5E;
+  line-height: 1;
+  font-family: monospace;
+}
+
+.ps-countdown-unit small {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #8C8E99;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.ps-countdown-colon {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #D8001D;
+}
+
+/* 18. Product Gallery with Zoom */
+.ps-gallery-card {
+  position: relative;
+  background: #14151B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ps-gallery-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.ps-gallery-card:hover {
+  border-color: rgba(216, 0, 29, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.ps-gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+.ps-gallery-zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 11, 14, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ps-gallery-card:hover .ps-gallery-zoom-overlay {
+  opacity: 1;
+}
+
+.ps-gallery-zoom-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #D8001D;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(216, 0, 29, 0.5);
+}
+
+

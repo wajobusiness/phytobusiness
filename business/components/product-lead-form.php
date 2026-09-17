@@ -1,7 +1,8 @@
 <?php
 /**
  * PhytoScience Wellness - High-Converting Product Lead & Order Form
- * Integrates CSRF, Anti-spam honeypot, email notification to Phytosciencewellness7@gmail.com,
+ * Integrates First Name, Last Name, Phone, Email, Country, State, Preferred Contact Method,
+ * Interested Product, Comments, CSRF, Anti-spam honeypot, email notification to Phytosciencewellness7@gmail.com,
  * orders.json persistence, and 1-click WhatsApp fulfillment.
  */
 
@@ -31,7 +32,7 @@ $orderResult = handle_product_order_submission();
             <div class="p-3 rounded-3 mb-4 mx-auto max-w-600 text-start" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
               <div class="small text-secondary mb-1">What happens next?</div>
               <ul class="small text-light mb-0 ps-3">
-                <li>Our dispatch officer will call you on <strong class="text-white"><?= htmlspecialchars($orderResult['phone']) ?></strong> within 30 minutes to confirm your delivery address.</li>
+                <li>Our dispatch officer will contact you on <strong class="text-white"><?= htmlspecialchars($orderResult['phone']) ?></strong> shortly to verify your order and delivery address.</li>
                 <li>You can inspect the product seal upon arrival before payment.</li>
               </ul>
             </div>
@@ -58,18 +59,23 @@ $orderResult = handle_product_order_submission();
             <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 pb-3 mb-4 border-bottom border-secondary border-opacity-25">
               <div>
                 <span class="badge px-3 py-1 rounded-pill mb-1" style="background: #D8001D; color: #FFFFFF; font-size: 0.75rem; font-weight: 700;">
-                  SECURE ORDER FORM
+                  SECURE DIRECT ORDER FORM
                 </span>
                 <h3 class="text-white fw-bold m-0 fs-4">Order Original <?= htmlspecialchars($product['name']) ?></h3>
-                <p class="text-secondary small m-0">Payment on Delivery available in Lagos & Abuja. Nationwide tracked dispatch.</p>
+                <p class="text-secondary small m-0">Payment on Delivery available in Lagos & Abuja. Fast nationwide and international tracked delivery.</p>
               </div>
 
-              <!-- Live Urgency Countdown Badge -->
-              <div class="d-flex align-items-center gap-2 p-2 px-3 rounded-3" style="background: rgba(216,0,29,0.1); border: 1px solid rgba(216,0,29,0.3);">
-                <div class="ps-pulse-dot"></div>
-                <div class="text-start">
-                  <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.68rem; letter-spacing: 0.05em; display: block;">PROMO EXPIRES SOON</span>
-                  <span class="text-danger fw-bold small" id="order-countdown">Today at 11:59 PM</span>
+              <!-- Live Urgency Countdown Timer -->
+              <div class="d-flex flex-column align-items-end gap-1">
+                <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.68rem; letter-spacing: 0.05em;">
+                  ⚡ PROMO OFFER ENDS IN:
+                </span>
+                <div class="ps-countdown-box" id="psLiveCountdown">
+                  <div class="ps-countdown-unit"><span id="cd-hours">05</span><small>Hours</small></div>
+                  <span class="ps-countdown-colon">:</span>
+                  <div class="ps-countdown-unit"><span id="cd-minutes">42</span><small>Mins</small></div>
+                  <span class="ps-countdown-colon">:</span>
+                  <div class="ps-countdown-unit"><span id="cd-seconds">19</span><small>Secs</small></div>
                 </div>
               </div>
             </div>
@@ -78,40 +84,52 @@ $orderResult = handle_product_order_submission();
               <?= csrf_field() ?>
               <input type="hidden" name="action" value="place_order">
               <input type="hidden" name="product_slug" value="<?= htmlspecialchars($product['slug']) ?>">
-              <input type="hidden" name="product_name" value="<?= htmlspecialchars($product['name']) ?>">
 
               <!-- Anti-bot Honeypot Field -->
               <div style="position: absolute; left: -5000px;" aria-hidden="true">
                 <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
               </div>
 
-              <!-- STEP 1: CHOOSE PACKAGE -->
-              <div class="mb-4">
-                <label for="package-select" class="ps-form-label text-gold">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="me-1"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                  1. Select Your Preferred Package <span class="text-danger">*</span>
-                </label>
-                <select name="package" id="package-select" class="form-select ps-form-control" required>
-                  <?php foreach ($product['pricing'] as $idx => $tier): ?>
-                    <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" <?= !empty($tier['popular']) ? 'selected' : '' ?>>
-                      <?= htmlspecialchars($tier['name']) ?> — <?= htmlspecialchars($tier['price_ngn']) ?> / <?= htmlspecialchars($tier['price_usd']) ?> (<?= htmlspecialchars($tier['badge']) ?>)
-                    </option>
-                  <?php endforeach; ?>
-                </select>
-                <div class="form-text text-secondary small">
-                  💡 <em>Tip: The 2-Box Duo package offers the optimal 30-day cellular rejuvenation cycle.</em>
-                </div>
-              </div>
-
-              <!-- STEP 2: CONTACT & RECIPIENT INFORMATION -->
+              <!-- STEP 1: PRODUCT & PACKAGE SELECTION -->
               <div class="row g-3 mb-4">
                 <div class="col-12">
-                  <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">2. Recipient & Delivery Coordinates</span>
+                  <span class="text-gold text-uppercase fw-bold small d-flex align-items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    1. Product & Promotional Package Selection
+                  </span>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="full_name" class="ps-form-label">Full Name <span class="text-danger">*</span></label>
-                  <input type="text" name="full_name" id="full_name" class="form-control ps-form-control" placeholder="e.g. Chief Adebayo Johnson" required>
+                  <label for="interested_product" class="ps-form-label">Interested Product</label>
+                  <input type="text" name="interested_product" id="interested_product" class="form-control ps-form-control" value="<?= htmlspecialchars($product['name']) ?>" readonly style="background: rgba(216,0,29,0.1) !important; color: #FFFFFF; font-weight: 700; border-color: rgba(216,0,29,0.3) !important;">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="package-select" class="ps-form-label text-gold">Select Package <span class="text-danger">*</span></label>
+                  <select name="package" id="package-select" class="form-select ps-form-control" required>
+                    <?php foreach ($product['pricing'] as $idx => $tier): ?>
+                      <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" <?= !empty($tier['popular']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($tier['name']) ?> — <?= htmlspecialchars($tier['price_ngn']) ?> (<?= htmlspecialchars($tier['badge']) ?>)
+                      </option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+              </div>
+
+              <!-- STEP 2: CUSTOMER CONTACT & RECIPIENT INFORMATION -->
+              <div class="row g-3 mb-4">
+                <div class="col-12">
+                  <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">2. Customer & Delivery Information</span>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="first_name" class="ps-form-label">First Name <span class="text-danger">*</span></label>
+                  <input type="text" name="first_name" id="first_name" class="form-control ps-form-control" placeholder="e.g. Samuel" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="last_name" class="ps-form-label">Last Name <span class="text-danger">*</span></label>
+                  <input type="text" name="last_name" id="last_name" class="form-control ps-form-control" placeholder="e.g. Adebayo" required>
                 </div>
 
                 <div class="col-md-6">
@@ -129,29 +147,51 @@ $orderResult = handle_product_order_submission();
                   <input type="email" name="email" id="email" class="form-control ps-form-control" placeholder="e.g. yourname@gmail.com">
                 </div>
 
-                <div class="col-12">
-                  <label for="address" class="ps-form-label">Full Delivery Street Address <span class="text-danger">*</span></label>
-                  <textarea name="address" id="address" rows="2" class="form-control ps-form-control" placeholder="e.g. Flat 4B, 15 Opebi Road, Beside GTBank, Ikeja, Lagos" required></textarea>
-                </div>
-
                 <div class="col-md-6">
-                  <label for="city_state" class="ps-form-label">City & State <span class="text-danger">*</span></label>
-                  <input type="text" name="city_state" id="city_state" class="form-control ps-form-control" placeholder="e.g. Ikeja, Lagos" required>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="country" class="ps-form-label">Country <span class="text-danger">*</span></label>
+                  <label for="country" class="ps-form-label">Delivery Country <span class="text-danger">*</span></label>
                   <select name="country" id="country" class="form-select ps-form-control" required>
-                    <option value="Nigeria" selected>Nigeria (Pay on Delivery Available in Lagos/Abuja)</option>
-                    <option value="United Kingdom">United Kingdom (Direct DHL/Royal Mail)</option>
-                    <option value="United States">United States (USPS/FedEx Tracked)</option>
-                    <option value="Ghana">Ghana (Accra Distribution Center)</option>
-                    <option value="Cameroon">Cameroon (Douala/Yaoundé Office)</option>
+                    <option value="Nigeria" selected>Nigeria (Pay on Delivery in Lagos/Abuja)</option>
+                    <option value="United Kingdom">United Kingdom (DHL / Royal Mail)</option>
+                    <option value="United States">United States (FedEx / USPS)</option>
+                    <option value="Ghana">Ghana (Accra Hub)</option>
+                    <option value="Cameroon">Cameroon (Douala / Yaoundé)</option>
                     <option value="Cote d'Ivoire">Côte d'Ivoire (Abidjan Hub)</option>
-                    <option value="South Africa">South Africa (Johannesburg)</option>
+                    <option value="South Africa">South Africa</option>
                     <option value="Canada">Canada</option>
                     <option value="Other">Other International Destination</option>
                   </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="state" class="ps-form-label">State / Region <span class="text-danger">*</span></label>
+                  <input type="text" name="state" id="state" class="form-control ps-form-control" placeholder="e.g. Lagos State, FCT Abuja, Rivers" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="ps-form-label d-block">Preferred Contact Method</label>
+                  <div class="d-flex align-items-center gap-3 mt-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="contact_method" id="cm-wa" value="WhatsApp" checked>
+                      <label class="form-check-label text-white small" for="cm-wa">WhatsApp</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="contact_method" id="cm-call" value="Phone Call">
+                      <label class="form-check-label text-white small" for="cm-call">Phone Call</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="contact_method" id="cm-sms" value="SMS">
+                      <label class="form-check-label text-white small" for="cm-sms">SMS</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="contact_method" id="cm-email" value="Email">
+                      <label class="form-check-label text-white small" for="cm-email">Email</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="ps-form-label">Full Delivery Street Address <span class="text-danger">*</span></label>
+                  <textarea name="address" id="address" rows="2" class="form-control ps-form-control" placeholder="e.g. House 14, Opebi Road, Beside GTBank, Ikeja, Lagos" required></textarea>
                 </div>
               </div>
 
@@ -185,10 +225,10 @@ $orderResult = handle_product_order_submission();
                 </div>
               </div>
 
-              <!-- STEP 4: OPTIONAL NOTES -->
+              <!-- STEP 4: COMMENTS / SPECIAL INSTRUCTIONS -->
               <div class="mb-4">
-                <label for="notes" class="ps-form-label">Delivery Instructions / Special Notes <span class="text-secondary small">(Optional)</span></label>
-                <input type="text" name="notes" id="notes" class="form-control ps-form-control" placeholder="e.g. Please call my alternative number if unreachable; deliver before 3pm.">
+                <label for="comments" class="ps-form-label">Comments / Delivery Notes <span class="text-secondary small">(Optional)</span></label>
+                <textarea name="comments" id="comments" rows="2" class="form-control ps-form-control" placeholder="e.g. Please deliver before 3pm; call alternative number if unreachable."></textarea>
               </div>
 
               <!-- SUBMIT BUTTON -->
@@ -223,7 +263,7 @@ $orderResult = handle_product_order_submission();
                 <div class="col-md-4">
                   <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 text-secondary small">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span>Strict Data & Privacy Protection</span>
+                    <span>Strict Privacy Protection</span>
                   </div>
                 </div>
               </div>

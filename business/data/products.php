@@ -918,3 +918,4 @@ function get_product_by_slug(string $slug): ?array {
     $products = get_products_data();
     return $products[$slug] ?? null;
 }
+
