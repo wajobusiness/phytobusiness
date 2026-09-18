@@ -32,6 +32,24 @@ define('MEMBER_LOGIN_URL', 'https://app.iphyto.com/member/login.aspx');
 define('OFFICIAL_PORTAL_URL', 'https://iphyto.com/');
 define('AFRICA_PORTAL_URL', 'https://phytoscienceafrica.com/');
 
+// ==============================================================================
+// Live Currency Exchange Rate API Settings (User Configurable)
+// ==============================================================================
+// 1. Enable/disable live API rate updates (set false to use manual fixed rates only)
+define('CURRENCY_API_AUTO_UPDATE', true);
+
+// 2. The Exchange Rate API Endpoint URL (Base: USD). 
+// You can change this URL to any free or paid exchange rate API service you prefer!
+// Default (Free, Open, No Key Required): https://open.er-api.com/v6/latest/USD
+// Alternative with personal key: https://v6.exchangerate-api.com/v6/YOUR_API_KEY/latest/USD
+define('CURRENCY_API_URL', 'https://open.er-api.com/v6/latest/USD');
+
+// 3. Optional API Key (leave empty if using the default open API)
+define('CURRENCY_API_KEY', '');
+
+// 4. Cache duration in hours before refreshing rates from API (default: 12 hours)
+define('CURRENCY_API_CACHE_HOURS', 12);
+
 // Contact Coordinates
 define('CONTACT_PHONE_NG_1', '+234 802 317 3303'); // Call and WhatsApp
 define('CONTACT_PHONE_NG_2', '+234 806 864 9995');

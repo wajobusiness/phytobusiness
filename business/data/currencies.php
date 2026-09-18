@@ -10,7 +10,7 @@ declare(strict_types=1);
  * Supported global currencies and conversion multipliers (relative to base USD)
  */
 function get_supported_currencies(): array {
-    return [
+    $currencies = [
         'NGN' => [
             'code' => 'NGN',
             'symbol' => '₦',
@@ -155,6 +155,143 @@ function get_supported_currencies(): array {
             'round_to' => 50,
         ],
     ];
+
+    // Merge live exchange rates from API if enabled
+    $liveRates = get_live_exchange_rates();
+    if (!empty($liveRates)) {
+        foreach ($currencies as $code => $info) {
+            if (isset($liveRates[$code]) && is_numeric($liveRates[$code]) && (float)$liveRates[$code] > 0) {
+                $currencies[$code]['rate'] = (float)$liveRates[$code];
+                $currencies[$code]['is_live'] = true;
+            }
+        }
+    }
+
+    return $currencies;
+}
+
+/**
+ * Fetches live exchange rates from the configured API with file-based caching and fallback
+ */
+function get_live_exchange_rates(): array {
+    static $memoryCache = null;
+    if ($memoryCache !== null) {
+        return $memoryCache;
+    }
+
+    $autoUpdate = defined('CURRENCY_API_AUTO_UPDATE') ? (bool)CURRENCY_API_AUTO_UPDATE : true;
+    if (!$autoUpdate) {
+        return $memoryCache = [];
+    }
+
+    $cacheFile = __DIR__ . '/rates-cache.json';
+    $cacheHours = defined('CURRENCY_API_CACHE_HOURS') ? (int)CURRENCY_API_CACHE_HOURS : 12;
+    $cacheTtl = max(1, $cacheHours) * 3600;
+
+    // 1. Check if fresh cache exists on disk
+    if (file_exists($cacheFile)) {
+        $mtime = filemtime($cacheFile);
+        if ($mtime && (time() - $mtime) < $cacheTtl) {
+            $cachedContent = @file_get_contents($cacheFile);
+            if ($cachedContent) {
+                $cachedJson = json_decode($cachedContent, true);
+                if (is_array($cachedJson) && !empty($cachedJson['rates']) && is_array($cachedJson['rates'])) {
+                    return $memoryCache = $cachedJson['rates'];
+                }
+            }
+        }
+    }
+
+    // 2. Fetch fresh rates from configured API URL
+    $apiUrl = defined('CURRENCY_API_URL') ? CURRENCY_API_URL : 'https://open.er-api.com/v6/latest/USD';
+    $apiKey = defined('CURRENCY_API_KEY') ? trim(CURRENCY_API_KEY) : '';
+    if (!empty($apiKey)) {
+        if (strpos($apiUrl, '{API_KEY}') !== false) {
+            $apiUrl = str_replace('{API_KEY}', $apiKey, $apiUrl);
+        } else if (strpos($apiUrl, '?') !== false) {
+            $apiUrl .= '&apikey=' . urlencode($apiKey);
+        } else {
+            $apiUrl .= '?apikey=' . urlencode($apiKey);
+        }
+    }
+
+    $rates = [];
+    $rawResponse = null;
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'PhytoScience-RateFetcher/1.0');
+        $rawResponse = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if ($httpCode !== 200) {
+            $rawResponse = null;
+        }
+    }
+
+    if (!$rawResponse && function_exists('file_get_contents') && ini_get('allow_url_fopen')) {
+        $ctx = stream_context_create([
+            'http' => [
+                'timeout' => 3,
+                'user_agent' => 'PhytoScience-RateFetcher/1.0'
+            ]
+        ]);
+        $rawResponse = @file_get_contents($apiUrl, false, $ctx);
+    }
+
+    if ($rawResponse) {
+        $json = json_decode($rawResponse, true);
+        if (is_array($json)) {
+            if (!empty($json['rates']) && is_array($json['rates'])) {
+                $rates = $json['rates'];
+            } else if (!empty($json['conversion_rates']) && is_array($json['conversion_rates'])) {
+                $rates = $json['conversion_rates'];
+            }
+        }
+    }
+
+    if (!empty($rates)) {
+        // Cache to file
+        $cachePayload = json_encode([
+            'updated_at' => date('c'),
+            'timestamp' => time(),
+            'source' => $apiUrl,
+            'rates' => $rates
+        ], JSON_PRETTY_PRINT);
+        @file_put_contents($cacheFile, $cachePayload);
+        return $memoryCache = $rates;
+    }
+
+    // 3. Fallback: If network request failed, use existing cache even if older than TTL
+    if (file_exists($cacheFile)) {
+        $cachedContent = @file_get_contents($cacheFile);
+        if ($cachedContent) {
+            $cachedJson = json_decode($cachedContent, true);
+            if (is_array($cachedJson) && !empty($cachedJson['rates']) && is_array($cachedJson['rates'])) {
+                return $memoryCache = $cachedJson['rates'];
+            }
+        }
+    }
+
+    return $memoryCache = [];
+}
+
+/**
+ * Returns simple associative array of current rates (code => multiplier)
+ */
+function get_current_exchange_rates_array(): array {
+    $currencies = get_supported_currencies();
+    $result = [];
+    foreach ($currencies as $code => $info) {
+        $result[$code] = $info['rate'];
+    }
+    return $result;
 }
 
 /**

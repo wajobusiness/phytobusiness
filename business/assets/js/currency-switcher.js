@@ -23,6 +23,15 @@
     INR: { code: 'INR', symbol: '₹', name: 'Indian Rupee', flag: '🇮🇳', rate: 84, decimals: 0, symbolFirst: true, roundTo: 50 }
   };
 
+  // Merge server-provided live exchange rates if available
+  if (window.PS_LIVE_RATES && typeof window.PS_LIVE_RATES === 'object') {
+    Object.keys(window.PS_LIVE_RATES).forEach(function(code) {
+      if (CURRENCIES[code] && typeof window.PS_LIVE_RATES[code] === 'number' && window.PS_LIVE_RATES[code] > 0) {
+        CURRENCIES[code].rate = window.PS_LIVE_RATES[code];
+      }
+    });
+  }
+
   // Country Code to Currency Map
   const COUNTRY_CURRENCY_MAP = {
     NG: 'NGN', GB: 'GBP', US: 'USD', GH: 'GHS', KE: 'KES', ZA: 'ZAR',

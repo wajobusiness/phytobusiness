@@ -21,13 +21,36 @@ require_once __DIR__ . '/functions.php';
   <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+  <!-- Theme Pre-Render Initialization (Prevents FOUC) -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ps_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved ? saved : (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'light') {
+          document.documentElement.classList.add('ps-theme-light');
+        } else {
+          document.documentElement.classList.add('ps-theme-dark');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <!-- Custom Luxury Theme & Animations -->
   <link rel="stylesheet" href="<?= asset('css/theme.css') ?>">
   <link rel="stylesheet" href="<?= asset('css/animations.css') ?>">
 
-  <!-- Multi-Currency Dynamic Engine -->
+  <!-- Dark & Light Mode Theme Switcher -->
+  <script src="<?= asset('js/theme-switcher.js') ?>" defer></script>
+
+  <!-- Multi-Currency Dynamic Engine with Live Rates -->
   <script>
     window.PS_DETECTED_CURRENCY = <?= json_encode(get_active_currency(false)) ?>;
+    window.PS_LIVE_RATES = <?= json_encode(get_current_exchange_rates_array()) ?>;
   </script>
   <script src="<?= asset('js/currency-switcher.js') ?>" defer></script>
 

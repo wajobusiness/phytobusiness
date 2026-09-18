@@ -86,6 +86,17 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
       <!-- Action CTAs -->
       <div class="d-none d-lg-flex align-items-center gap-2">
         <?= render_currency_selector() ?>
+        
+        <!-- Theme Toggle Button (Desktop) -->
+        <button type="button" class="btn-ps-theme-toggle js-theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle Dark / Light Mode">
+          <span class="ps-theme-icon-sun">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </span>
+          <span class="ps-theme-icon-moon d-none">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </span>
+        </button>
+
         <a href="<?= MAIN_SHOP_URL ?>" class="btn-ps btn-ps-sm btn-ps-glass" target="_blank" rel="noopener">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
           Shop Products
@@ -99,9 +110,20 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         </a>
       </div>
 
-      <!-- Mobile Controls (Currency + Hamburger) -->
-      <div class="d-flex d-lg-none align-items-center gap-2">
+      <!-- Mobile Controls (Currency + Theme + Hamburger) -->
+      <div class="d-flex d-lg-none align-items-center gap-1">
         <?= render_currency_selector('me-1') ?>
+
+        <!-- Mobile Header Theme Toggle Button -->
+        <button type="button" class="btn-ps-theme-toggle js-theme-toggle me-1" aria-label="Toggle Dark / Light Mode" title="Toggle Dark / Light Mode">
+          <span class="ps-theme-icon-sun">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </span>
+          <span class="ps-theme-icon-moon d-none">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </span>
+        </button>
+
         <button class="d-xl-none btn btn-link text-white p-2 text-decoration-none js-mobile-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#psNavMenu" data-ps-toggle="nav" aria-expanded="false" aria-controls="psNavMenu" aria-label="Toggle navigation" style="cursor: pointer;">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="pointer-events: none;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -114,7 +136,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
       <div class="container d-flex flex-column gap-2">
         
         <!-- Mobile Drawer Currency Selector -->
-        <div class="p-3 rounded-3 mb-2" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(198, 164, 92, 0.3);">
+        <div class="p-3 rounded-3 mb-1" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(198, 164, 92, 0.3);">
           <div class="d-flex align-items-center justify-content-between mb-2">
             <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">Currency / Country:</span>
             <span class="text-gold small fw-bold js-curr-label"><?= htmlspecialchars(get_active_currency()) ?></span>
@@ -126,6 +148,24 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
               </option>
             <?php endforeach; ?>
           </select>
+        </div>
+
+        <!-- Mobile Drawer Theme Selector -->
+        <div class="p-3 rounded-3 mb-2 ps-mobile-theme-box" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(216, 0, 29, 0.25);">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <span class="text-white-50 text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">Display Mode:</span>
+              <div class="small fw-semibold text-white">Dark / Light</div>
+            </div>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Theme Selection">
+              <button type="button" class="btn btn-outline-secondary js-theme-pill-dark active" style="font-size: 0.78rem; padding: 5px 12px;">
+                🌙 Dark
+              </button>
+              <button type="button" class="btn btn-outline-secondary js-theme-pill-light" style="font-size: 0.78rem; padding: 5px 12px;">
+                ☀️ Light
+              </button>
+            </div>
+          </div>
         </div>
 
         <a href="<?= get_business_url('index.php') ?>" class="ps-nav-link js-mobile-nav-link <?= is_active_page('index.php') ?>">Home</a>

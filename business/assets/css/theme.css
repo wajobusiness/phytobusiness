@@ -1037,4 +1037,282 @@ p {
   box-shadow: 0 2px 8px rgba(216, 0, 29, 0.4);
 }
 
+/* ==============================================================================
+   20. Dark & Light Mode Theme Toggle Button
+   ============================================================================== */
+.btn-ps-theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
 
+.btn-ps-theme-toggle:hover {
+  background: rgba(216, 0, 29, 0.2);
+  border-color: #D8001D;
+  color: #FF5C6F;
+  transform: rotate(15deg) scale(1.05);
+}
+
+.btn-ps-theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* ==============================================================================
+   21. Luxury Light Mode Design System ([data-theme="light"])
+   ============================================================================== */
+[data-theme="light"] body {
+  background-color: #F8F9FA !important;
+  color: #1E293B !important;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .font-heading {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] p {
+  color: #334155;
+}
+
+[data-theme="light"] .text-muted {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .text-white-50 {
+  color: #64748B !important;
+}
+
+/* Adapt general text-white to deep slate in light mode, preserving buttons & badges */
+[data-theme="light"] .text-white:not(.btn):not(.btn-ps):not(.badge):not(.ps-badge-gold):not(.ps-badge-brand):not(.ps-badge-crimson):not(.floating-whatsapp):not(.ps-package-featured-badge):not(.ps-prod-badge-floating):not(.ps-achiever-zoom-btn):not(.bg-crimson):not(.bg-danger):not(.bg-success):not(.bg-primary):not(.ps-footer *):not(.ps-video-modal *) {
+  color: #0F172A !important;
+}
+
+/* Theme Toggle Button in Light Mode */
+[data-theme="light"] .btn-ps-theme-toggle {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #0F172A;
+}
+
+[data-theme="light"] .btn-ps-theme-toggle:hover {
+  background: rgba(216, 0, 29, 0.1);
+  border-color: #D8001D;
+  color: #D8001D;
+  transform: rotate(-15deg) scale(1.05);
+}
+
+/* Navigation Bar */
+[data-theme="light"] .ps-navbar {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-bottom: 1px solid rgba(216, 0, 29, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .ps-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .ps-nav-link {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .ps-nav-link:hover,
+[data-theme="light"] .ps-nav-link.active {
+  color: #D8001D !important;
+  background-color: rgba(216, 0, 29, 0.08) !important;
+}
+
+[data-theme="light"] .ps-navbar .js-mobile-hamburger {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] #psNavMenu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-top-color: rgba(216, 0, 29, 0.2) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .ps-mobile-theme-box {
+  background: #F8F9FA !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .ps-mobile-theme-box .text-white {
+  color: #0F172A !important;
+}
+
+/* Dropdown Menus */
+[data-theme="light"] .dropdown-menu-ps {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(216, 0, 29, 0.2) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] .dropdown-item-ps {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .dropdown-item-ps:hover {
+  background: rgba(216, 0, 29, 0.08) !important;
+  color: #D8001D !important;
+}
+
+/* Glass Buttons */
+[data-theme="light"] .btn-ps-glass {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #1E293B !important;
+}
+
+[data-theme="light"] .btn-ps-glass:hover {
+  background: rgba(216, 0, 29, 0.1) !important;
+  border-color: #D8001D !important;
+  color: #D8001D !important;
+}
+
+/* Cards & Surfaces */
+[data-theme="light"] .ps-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06) !important;
+  color: #1E293B !important;
+}
+
+[data-theme="light"] .ps-card:hover {
+  border-color: rgba(216, 0, 29, 0.35) !important;
+  box-shadow: 0 16px 40px rgba(216, 0, 29, 0.12) !important;
+}
+
+[data-theme="light"] .ps-card-gold,
+[data-theme="light"] .ps-card-brand {
+  background: linear-gradient(180deg, rgba(216, 0, 29, 0.04) 0%, #FFFFFF 100%) !important;
+  border-color: rgba(216, 0, 29, 0.25) !important;
+}
+
+[data-theme="light"] .ps-package-card.featured {
+  background: linear-gradient(180deg, rgba(216, 0, 29, 0.08) 0%, #FFFFFF 100%) !important;
+  border-color: #D8001D !important;
+  box-shadow: 0 16px 45px rgba(216, 0, 29, 0.15) !important;
+}
+
+/* Tables */
+[data-theme="light"] .ps-table thead th {
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] .ps-table tbody tr {
+  background: #FFFFFF !important;
+}
+
+[data-theme="light"] .ps-table tbody tr:hover {
+  background: rgba(216, 0, 29, 0.04) !important;
+}
+
+[data-theme="light"] .ps-table tbody td {
+  border-top: 1px solid #E2E8F0 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  color: #1E293B !important;
+}
+
+/* Forms */
+[data-theme="light"] .ps-form-control {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .ps-form-control:focus {
+  background: #FFFFFF !important;
+  border-color: #D8001D !important;
+  box-shadow: 0 0 0 4px rgba(216, 0, 29, 0.15) !important;
+}
+
+/* Achievers & Testimonies */
+[data-theme="light"] .ps-achiever-card {
+  background: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .ps-testimony-img-wrap,
+[data-theme="light"] .ps-achiever-img-wrap {
+  background: #F1F5F9 !important;
+}
+
+/* Currency Dropdown & Pills */
+[data-theme="light"] .ps-currency-dropdown .dropdown-toggle {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #1E293B !important;
+}
+
+[data-theme="light"] .ps-currency-dropdown .dropdown-toggle:hover {
+  background: #E2E8F0 !important;
+  border-color: #D8001D !important;
+}
+
+[data-theme="light"] .ps-currency-dropdown .dropdown-menu {
+  background: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="light"] .ps-currency-dropdown .dropdown-item {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .ps-currency-dropdown .dropdown-item:hover {
+  background: rgba(216, 0, 29, 0.08) !important;
+  color: #D8001D !important;
+}
+
+[data-theme="light"] .ps-currency-pills-wrap {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .ps-currency-pill-btn {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .ps-currency-pill-btn:hover {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .ps-currency-pill-btn.active {
+  background: #D8001D !important;
+  color: #FFFFFF !important;
+}
+
+/* Floating Actions in Light Mode */
+[data-theme="light"] .back-to-top {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .back-to-top:hover {
+  background: #D8001D !important;
+  color: #FFFFFF !important;
+}

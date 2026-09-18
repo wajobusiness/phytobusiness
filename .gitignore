@@ -17,6 +17,7 @@ error_log
 # Sensitive user submission logs (ensure customer inquiries/enrollments are not committed publicly)
 business/data/*.json
 !business/data/.gitkeep
+!business/data/rates-cache.json
 
 # IDE / Editor
 .vscode/
