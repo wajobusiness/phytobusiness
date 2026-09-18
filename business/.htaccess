@@ -32,9 +32,15 @@
     RewriteCond %{REQUEST_URI} ^/business/?$ [NC]
     RewriteRule ^business/?$ / [R=301,L]
 
-    # 301 Permanent Redirects: Forward old /shop/ URLs to /main/shop/
+    # 301 Permanent Redirects: Forward /main/store, /store, and legacy /shop to /main/
+    RewriteCond %{REQUEST_URI} ^/main/store/?(.*)$ [NC]
+    RewriteRule ^main/store/?(.*)$ /main/$1 [R=301,L]
+
+    RewriteCond %{REQUEST_URI} ^/store/?(.*)$ [NC]
+    RewriteRule ^store/?(.*)$ /main/$1 [R=301,L]
+
     RewriteCond %{REQUEST_URI} ^/shop/?(.*)$ [NC]
-    RewriteRule ^shop/?(.*)$ /main/shop/$1 [R=301,L]
+    RewriteRule ^shop/?(.*)$ /main/$1 [R=301,L]
 
     # Block access to git or hidden files
     RewriteRule "(^|/)\.(?!well-known)" - [F]

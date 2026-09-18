@@ -27,7 +27,7 @@ define('COMPANY_FOUNDED_YEAR', 2012);
 
 // URLs & Integration Links
 define('MAIN_SITE_URL', 'https://phytosciencewellness.com/');
-define('MAIN_SHOP_URL', 'https://phytosciencewellness.com/main/shop/');
+define('MAIN_SHOP_URL', 'https://phytosciencewellness.com/main/');
 define('MEMBER_LOGIN_URL', 'https://app.iphyto.com/member/login.aspx');
 define('OFFICIAL_PORTAL_URL', 'https://iphyto.com/');
 define('AFRICA_PORTAL_URL', 'https://phytoscienceafrica.com/');
