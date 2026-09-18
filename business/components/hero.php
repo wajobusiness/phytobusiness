@@ -140,7 +140,7 @@ $heroVideoId = $heroVideoId ?? 'hSWI5_NXxWk'; // Official corporate overview
                 <div class="small text-secondary" style="font-size: 0.75rem;">Years Proven</div>
               </div>
               <div class="col-4 border-start border-end border-secondary border-opacity-25">
-                <div class="text-gold fw-bold fs-5">41+</div>
+                <div class="text-gold fw-bold fs-5">1B+</div>
                 <div class="small text-secondary" style="font-size: 0.75rem;">Global Markets</div>
               </div>
               <div class="col-4">

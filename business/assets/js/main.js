@@ -145,13 +145,13 @@
     }
 
     // 5. Animated Number Counters
-    const counterElements = document.querySelectorAll('[data-counter-target]');
+    const counterElements = document.querySelectorAll('[data-counter-target], [data-target]');
     if ('IntersectionObserver' in window && counterElements.length > 0) {
       const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target;
-            const target = parseFloat(el.getAttribute('data-counter-target')) || 0;
+            const target = parseFloat(el.getAttribute('data-counter-target') || el.getAttribute('data-target')) || 0;
             const prefix = el.getAttribute('data-counter-prefix') || '';
             const suffix = el.getAttribute('data-counter-suffix') || '';
             const duration = parseInt(el.getAttribute('data-counter-duration'), 10) || 1800;
