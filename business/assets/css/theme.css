@@ -1188,6 +1188,21 @@ p {
   color: #D8001D !important;
 }
 
+/* Outline Buttons */
+[data-theme="light"] .btn-ps-outline-gold,
+[data-theme="light"] .btn-ps-outline-crimson {
+  color: #D8001D !important;
+  border-color: #D8001D !important;
+  background-color: rgba(216, 0, 29, 0.04) !important;
+}
+
+[data-theme="light"] .btn-ps-outline-gold:hover,
+[data-theme="light"] .btn-ps-outline-crimson:hover {
+  background-color: #D8001D !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px rgba(216, 0, 29, 0.35) !important;
+}
+
 /* Cards & Surfaces */
 [data-theme="light"] .ps-card {
   background: #FFFFFF !important;

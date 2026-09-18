@@ -26,6 +26,8 @@ $heroTitle = 'Turn Cellular Wellness into <span class="text-gold">Global Financi
 $heroSubtitle = 'Build a sustainable, recurring international income by partnering with PhytoScience — the world pioneer in plant stem cell therapy, backed by Mibelle Biochemistry Switzerland and a 100% reliable daily payout hybrid plan.';
 $heroCtaPrimaryText = 'Explore Business Packages';
 $heroCtaPrimaryUrl = get_business_url('membership.php');
+$heroCtaStoreText = 'Browse Wellness Store';
+$heroCtaStoreUrl = MAIN_SHOP_URL;
 $heroCtaSecondaryText = 'Watch Corporate Story';
 $heroVideoId = 'hSWI5_NXxWk'; // Verified official corporate overview
 $heroIsSubpage = false;

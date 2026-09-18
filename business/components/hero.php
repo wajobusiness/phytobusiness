@@ -80,6 +80,13 @@ $heroVideoId = $heroVideoId ?? 'hSWI5_NXxWk'; // Official corporate overview
             </a>
           <?php endif; ?>
 
+          <?php if (!empty($heroCtaStoreText) && !empty($heroCtaStoreUrl)): ?>
+            <a href="<?= $heroCtaStoreUrl ?>" class="btn-ps btn-ps-outline-crimson btn-ps-lg" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+              <span><?= sanitize($heroCtaStoreText) ?></span>
+            </a>
+          <?php endif; ?>
+
           <?php if (!empty($heroVideoId)): ?>
             <button type="button" class="btn-ps btn-ps-glass btn-ps-lg js-video-trigger" data-video-id="<?= sanitize($heroVideoId) ?>" data-video-title="<?= sanitize($heroCtaSecondaryText) ?>" aria-label="Play video">
               <span class="ps-play-circle me-1">
