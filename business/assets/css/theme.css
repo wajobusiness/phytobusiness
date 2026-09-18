@@ -242,13 +242,26 @@ p {
   box-shadow: 0 14px 30px rgba(216, 0, 29, 0.5);
 }
 
-.btn-ps-outline-gold, .btn-ps-outline-crimson {
+.btn-ps-outline-gold {
+  background-color: transparent;
+  color: #D4AF37 !important;
+  border: 1.5px solid #D4AF37;
+}
+
+.btn-ps-outline-gold:hover {
+  background-color: #D4AF37;
+  color: #0A0B0E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+}
+
+.btn-ps-outline-crimson {
   background-color: transparent;
   color: #FF4D5E !important;
   border: 1.5px solid #D8001D;
 }
 
-.btn-ps-outline-gold:hover, .btn-ps-outline-crimson:hover {
+.btn-ps-outline-crimson:hover {
   background-color: #D8001D;
   color: #FFFFFF !important;
   transform: translateY(-2px);
@@ -1189,14 +1202,24 @@ p {
 }
 
 /* Outline Buttons */
-[data-theme="light"] .btn-ps-outline-gold,
+[data-theme="light"] .btn-ps-outline-gold {
+  color: #B8860B !important;
+  border-color: #B8860B !important;
+  background-color: rgba(184, 134, 11, 0.06) !important;
+}
+
+[data-theme="light"] .btn-ps-outline-gold:hover {
+  background-color: #B8860B !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px rgba(184, 134, 11, 0.35) !important;
+}
+
 [data-theme="light"] .btn-ps-outline-crimson {
   color: #D8001D !important;
   border-color: #D8001D !important;
   background-color: rgba(216, 0, 29, 0.04) !important;
 }
 
-[data-theme="light"] .btn-ps-outline-gold:hover,
 [data-theme="light"] .btn-ps-outline-crimson:hover {
   background-color: #D8001D !important;
   color: #FFFFFF !important;
