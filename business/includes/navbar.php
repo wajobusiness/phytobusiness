@@ -101,10 +101,6 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
           Shop Products
         </a>
-        <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-sm btn-ps-outline-crimson" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-          Member Login
-        </a>
         <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-sm btn-ps-primary">
           Join Now
         </a>
@@ -220,7 +216,6 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
         
         <div class="d-flex flex-column gap-2 mt-3 pt-3 border-top border-secondary border-opacity-25">
           <a href="<?= get_business_url('join.php') ?>" class="btn-ps btn-ps-primary w-100 text-center">Join PhytoScience Now</a>
-          <a href="<?= MEMBER_LOGIN_URL ?>" class="btn-ps btn-ps-outline-crimson w-100 text-center" target="_blank" rel="noopener">Member Portal Login</a>
           <a href="<?= MAIN_SHOP_URL ?>" class="btn-ps btn-ps-glass w-100 text-center" target="_blank" rel="noopener">Browse Wellness Store</a>
         </div>
       </div>
