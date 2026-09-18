@@ -99,12 +99,12 @@ $orderResult = handle_product_order_submission();
                   </span>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
                   <label for="interested_product" class="ps-form-label">Interested Product</label>
                   <input type="text" name="interested_product" id="interested_product" class="form-control ps-form-control" value="<?= htmlspecialchars($product['name']) ?>" readonly style="background: rgba(216,0,29,0.1) !important; color: #FFFFFF; font-weight: 700; border-color: rgba(216,0,29,0.3) !important;">
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
                   <label for="package-select" class="ps-form-label text-gold">Select Package <span class="text-danger">*</span></label>
                   <select name="package" id="package-select" class="form-select ps-form-control" required>
                     <?php foreach ($product['pricing'] as $idx => $tier): 
@@ -112,11 +112,23 @@ $orderResult = handle_product_order_submission();
                     ?>
                       <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" 
                               data-usd="<?= $usdVal ?>"
+                              data-price="<?= htmlspecialchars($tier['price_ngn']) ?>"
                               data-tier-name="<?= htmlspecialchars($tier['name']) ?>"
                               <?= !empty($tier['popular']) ? 'selected' : '' ?>>
                         <?= htmlspecialchars($tier['name']) ?> — <?= htmlspecialchars($tier['price_ngn']) ?> (<?= htmlspecialchars($tier['badge']) ?>)
                       </option>
                     <?php endforeach; ?>
+                  </select>
+                </div>
+
+                <div class="col-md-2">
+                  <label for="order_quantity" class="ps-form-label">Quantity</label>
+                  <select name="quantity" id="order_quantity" class="form-select ps-form-control">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5+">5+</option>
                   </select>
                 </div>
               </div>
@@ -170,6 +182,11 @@ $orderResult = handle_product_order_submission();
                 <div class="col-md-6">
                   <label for="state" class="ps-form-label">State / Region <span class="text-danger">*</span></label>
                   <input type="text" name="state" id="state" class="form-control ps-form-control" placeholder="e.g. Lagos State, FCT Abuja, Rivers" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="city" class="ps-form-label">City / Town <span class="text-danger">*</span></label>
+                  <input type="text" name="city" id="city" class="form-control ps-form-control" placeholder="e.g. Ikeja, Lekki, Garki, Wuse" required>
                 </div>
 
                 <div class="col-md-6">
@@ -237,9 +254,10 @@ $orderResult = handle_product_order_submission();
               </div>
 
               <!-- SUBMIT BUTTON -->
-              <button type="submit" class="ps-btn-order-submit mb-3" id="orderSubmitBtn">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
-                <span>CONFIRM ORDER NOW — PAY ON DELIVERY</span>
+              <button type="submit" class="ps-btn-order-submit mb-3 d-flex align-items-center justify-content-center gap-2" id="orderSubmitBtn">
+                <span class="ps-btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                <svg class="ps-btn-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                <span class="ps-btn-text">CONFIRM ORDER NOW — PAY ON DELIVERY</span>
               </button>
 
               <!-- ALTERNATIVE: DIRECT WHATSAPP INSTANT CHECKOUT -->

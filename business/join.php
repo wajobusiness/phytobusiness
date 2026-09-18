@@ -35,6 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = sanitize((string)($_POST['phone'] ?? ''));
     $country = sanitize((string)($_POST['country'] ?? ''));
     $city = sanitize((string)($_POST['city'] ?? ''));
+    $businessName = sanitize((string)($_POST['business_name'] ?? ''));
+    $website = sanitize((string)($_POST['website'] ?? ''));
+    $businessType = sanitize((string)($_POST['business_type'] ?? 'Independent Distributor'));
+    $additionalInfo = sanitize((string)($_POST['additional_information'] ?? ''));
     $chosenPackage = sanitize((string)($_POST['package'] ?? 'platinum'));
     $sponsorPreference = sanitize((string)($_POST['sponsor_preference'] ?? 'assign_leader'));
     $existingSponsorId = sanitize((string)($_POST['existing_sponsor_id'] ?? ''));
@@ -53,6 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $formErrors[] = 'Please indicate your country of residence.';
     }
 
+    $isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') 
+              || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)
+              || !empty($_POST['is_ajax']);
+
+    if (!empty($formErrors) && $isAjax) {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => 'error', 'message' => implode(' ', $formErrors)]);
+        exit;
+    }
+
     // 5. If Valid, Log & Alert
     if (empty($formErrors)) {
         $enrollmentData = [
@@ -63,6 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'phone' => $phone,
             'country' => $country,
             'city' => $city,
+            'business_name' => $businessName,
+            'website' => $website,
+            'business_type' => $businessType,
+            'additional_information' => $additionalInfo,
             'package' => $chosenPackage,
             'sponsor_preference' => $sponsorPreference,
             'existing_sponsor_id' => $existingSponsorId,
@@ -82,18 +100,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         @file_put_contents($logFile, json_encode($existingEntries, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         // Send Email Alert
-        $subject = "[New Enrollment Application] {$chosenPackage} - {$fullName} ({$country})";
+        $subject = "[New Onboarding Application] {$chosenPackage} - {$fullName} ({$country})";
         $body = "A new distributor onboarding application was submitted:\n\n"
             . "Name: {$fullName}\n"
             . "Email: {$email}\n"
             . "Phone: {$phone}\n"
             . "Location: {$city}, {$country}\n"
+            . (!empty($businessName) ? "Business Name: {$businessName}\n" : "")
+            . (!empty($website) ? "Website: {$website}\n" : "")
+            . "Business Type: {$businessType}\n"
             . "Selected Package: {$chosenPackage}\n"
             . "Sponsor Option: {$sponsorPreference}\n"
-            . "Existing Sponsor ID: " . ($existingSponsorId ?: 'None / Assign Leader') . "\n\n"
-            . "Date: " . date('Y-m-d H:i:s T');
+            . "Existing Sponsor ID: " . ($existingSponsorId ?: 'None / Assign Leader') . "\n"
+            . (!empty($additionalInfo) ? "Additional Info: {$additionalInfo}\n" : "")
+            . "\nDate: " . date('Y-m-d H:i:s T');
 
         send_contact_mail(CONTACT_EMAIL, $subject, $body, $email);
+
+        if ($isAjax) {
+            header('Content-Type: application/json');
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Onboarding application registered successfully.'
+            ]);
+            exit;
+        }
 
         set_flash('Congratulations! Your onboarding application has been registered. An onboarding advisor will contact you within hours to finalize binary placement and package activation.', 'success');
         redirect(get_business_url('join.php?status=success'));
@@ -279,8 +310,34 @@ require __DIR__ . '/components/hero.php';
             </div>
 
             <div class="col-md-6">
-              <label for="city" class="form-label text-white small fw-semibold">City / Region</label>
-              <input type="text" class="form-control ps-form-control text-white" id="city" name="city" placeholder="e.g. Lagos, Kuala Lumpur, Nairobi">
+              <label for="city" class="form-label text-white small fw-semibold">City / Region *</label>
+              <input type="text" class="form-control ps-form-control text-white" id="city" name="city" required placeholder="e.g. Lagos, Kuala Lumpur, Nairobi">
+            </div>
+
+            <div class="col-md-6">
+              <label for="business_name" class="form-label text-white small fw-semibold">Business Name <span class="text-secondary small">(Optional)</span></label>
+              <input type="text" class="form-control ps-form-control text-white" id="business_name" name="business_name" placeholder="e.g. Wellness Global Enterprises">
+            </div>
+
+            <div class="col-md-6">
+              <label for="website" class="form-label text-white small fw-semibold">Website <span class="text-secondary small">(Optional)</span></label>
+              <input type="url" class="form-control ps-form-control text-white" id="website" name="website" placeholder="https://yourwebsite.com">
+            </div>
+
+            <div class="col-md-6">
+              <label for="business_type" class="form-label text-white small fw-semibold">Business Type</label>
+              <select class="form-select ps-form-control text-white" id="business_type" name="business_type">
+                <option value="Independent Distributor" selected>Independent Distributor</option>
+                <option value="Mobile Stockist / Regional Hub">Mobile Stockist / Regional Hub</option>
+                <option value="Healthcare & Wellness Practitioner">Healthcare & Wellness Practitioner</option>
+                <option value="E-Commerce & Digital Marketer">E-Commerce & Digital Marketer</option>
+                <option value="Corporate / Franchise Partner">Corporate / Franchise Partner</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="additional_information" class="form-label text-white small fw-semibold">Additional Information <span class="text-secondary small">(Optional)</span></label>
+              <textarea class="form-control ps-form-control text-white" id="additional_information" name="additional_information" rows="2" placeholder="Tell us about your distribution goals, team size, or questions..."></textarea>
             </div>
           </div>
         </div>
@@ -311,9 +368,10 @@ require __DIR__ . '/components/hero.php';
 
         <!-- Submit Button -->
         <div class="pt-3">
-          <button type="submit" class="btn-ps btn-ps-gold btn-ps-lg w-100 justify-content-center">
-            <span>Submit Onboarding Application</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <button type="submit" class="btn-ps btn-ps-gold btn-ps-lg w-100 justify-content-center d-flex align-items-center gap-2" id="onboardingSubmitBtn">
+            <span class="ps-btn-spinner spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            <span class="ps-btn-text">Submit Onboarding Application</span>
+            <svg class="ps-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
           
           <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 mt-3 text-secondary small">

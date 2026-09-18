@@ -487,6 +487,13 @@
   color: #FFFFFF;
 }
 
+.ps-btn-order-submit:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 4px 15px rgba(216, 0, 29, 0.25) !important;
+}
+
 .ps-btn-whatsapp-order {
   background: #25D366;
   border: none;

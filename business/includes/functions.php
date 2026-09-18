@@ -244,8 +244,11 @@ function handle_product_order_submission(): ?array {
     $altPhone      = sanitize($_POST['alt_phone'] ?? '');
     $email         = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $address       = sanitize($_POST['address'] ?? '');
-    $cityState     = sanitize($_POST['state'] ?? $_POST['city_state'] ?? '');
+    $city          = sanitize($_POST['city'] ?? '');
+    $state         = sanitize($_POST['state'] ?? $_POST['city_state'] ?? '');
     $country       = sanitize($_POST['country'] ?? 'Nigeria');
+    $quantity      = sanitize($_POST['quantity'] ?? '1');
+    $totalAmount   = sanitize($_POST['total'] ?? $_POST['total_amount'] ?? '');
     $contactMethod = sanitize($_POST['contact_method'] ?? 'WhatsApp');
     $productSlug   = sanitize($_POST['product_slug'] ?? '');
     $productName   = sanitize($_POST['interested_product'] ?? $_POST['product_name'] ?? 'PhytoScience Product');
@@ -253,18 +256,40 @@ function handle_product_order_submission(): ?array {
     $paymentMethod = sanitize($_POST['payment_method'] ?? 'Pay on Delivery');
     $comments      = sanitize($_POST['comments'] ?? $_POST['notes'] ?? '');
 
+    $isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') 
+              || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)
+              || !empty($_POST['is_ajax']);
+
     if (empty($fullName) || empty($phone) || empty($address) || empty($package)) {
-        return ['status' => 'error', 'message' => 'Please fill in your name, delivery phone number, full address, and select a package.'];
+        $msg = 'Please fill in your name, delivery phone number, full address, and select a package.';
+        if ($isAjax) {
+            header('Content-Type: application/json');
+            echo json_encode(['status' => 'error', 'message' => $msg]);
+            exit;
+        }
+        return ['status' => 'error', 'message' => $msg];
     }
 
     if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return ['status' => 'error', 'message' => 'Please provide a valid email address.'];
+        $msg = 'Please provide a valid email address.';
+        if ($isAjax) {
+            header('Content-Type: application/json');
+            echo json_encode(['status' => 'error', 'message' => $msg]);
+            exit;
+        }
+        return ['status' => 'error', 'message' => $msg];
     }
 
     // Rate limiting: 1 submission per 5 seconds
     $now = time();
     if (isset($_SESSION['last_order_time']) && ($now - $_SESSION['last_order_time']) < 5) {
-        return ['status' => 'error', 'message' => 'Please wait a moment before submitting again.'];
+        $msg = 'Please wait a moment before submitting again.';
+        if ($isAjax) {
+            header('Content-Type: application/json');
+            echo json_encode(['status' => 'error', 'message' => $msg]);
+            exit;
+        }
+        return ['status' => 'error', 'message' => $msg];
     }
     $_SESSION['last_order_time'] = $now;
 
@@ -283,6 +308,8 @@ function handle_product_order_submission(): ?array {
         'product_slug'   => $productSlug,
         'product_name'   => $productName,
         'package'        => $package,
+        'quantity'       => $quantity,
+        'total'          => $totalAmount,
         'first_name'     => $firstName,
         'last_name'      => $lastName,
         'full_name'      => $fullName,
@@ -290,7 +317,8 @@ function handle_product_order_submission(): ?array {
         'alt_phone'      => $altPhone,
         'email'          => $email,
         'country'        => $country,
-        'state'          => $cityState,
+        'state'          => $state,
+        'city'           => $city,
         'address'        => $address,
         'contact_method' => $contactMethod,
         'payment_method' => $paymentMethod,
@@ -311,12 +339,14 @@ function handle_product_order_submission(): ?array {
 
     // Dispatch email notification
     $to = CONTACT_EMAIL;
-    $subject = "🔥 NEW ORDER: [{$orderId}] {$productName} - {$fullName} ({$cityState})";
+    $subject = "🔥 NEW ORDER: [{$orderId}] {$productName} - {$fullName} ({$state})";
     $body = "A new product order has been placed on the PhytoScience Platform!\n\n" .
             "ORDER ID: {$orderId}\n" .
             "DATE: " . date('Y-m-d H:i:s') . "\n" .
             "PRODUCT: {$productName}\n" .
             "PACKAGE: {$package}\n" .
+            "QUANTITY: {$quantity}\n" .
+            (!empty($totalAmount) ? "TOTAL: {$totalAmount}\n" : "") .
             "PAYMENT METHOD: {$paymentMethod}\n" .
             "PREFERRED CONTACT: {$contactMethod}\n\n" .
             "CUSTOMER DETAILS:\n" .
@@ -325,35 +355,53 @@ function handle_product_order_submission(): ?array {
             (!empty($altPhone) ? "Alt Phone: {$altPhone}\n" : "") .
             (!empty($email) ? "Email: {$email}\n" : "") .
             "Delivery Address: {$address}\n" .
-            "State / City: {$cityState}\n" .
+            "City: {$city}\n" .
+            "State: {$state}\n" .
             "Country: {$country}\n\n" .
             (!empty($comments) ? "Comments / Delivery Notes:\n{$comments}\n\n" : "") .
             "Client IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'N/A') . "\n";
     send_contact_mail($to, $subject, $body, !empty($email) ? $email : null);
 
-    // Build prefilled WhatsApp message
-    $waText = "Hello PhytoScience Team, I just placed an order on the website!\n\n" .
-              "📦 *Order ID:* {$orderId}\n" .
-              "🌿 *Product:* {$productName}\n" .
-              "💎 *Package:* {$package}\n" .
-              "👤 *Customer:* {$fullName}\n" .
-              "📞 *Phone:* {$phone}\n" .
-              "📍 *Delivery Address:* {$address}, {$cityState}, {$country}\n" .
-              "📲 *Contact Method:* {$contactMethod}\n" .
-              "💳 *Payment Preference:* {$paymentMethod}\n\n" .
-              "Please confirm my order and arrange dispatch. Thank you!";
+    // Build WhatsApp URL
+    $waText = "━━━━━━━━━━━━━━━━━━━━━━\n" .
+              "🛒 NEW ORDER REQUEST\n\n" .
+              "👤 Customer:\n{$fullName}\n\n" .
+              "📞 Phone:\n{$phone}\n\n" .
+              "📧 Email:\n" . (!empty($email) ? $email : 'N/A') . "\n\n" .
+              "📍 Delivery Address:\n{$address}\n\n" .
+              "🏙 City:\n" . (!empty($city) ? $city : 'N/A') . "\n\n" .
+              "🌍 State:\n{$state}\n\n" .
+              "📦 Product:\n{$productName}\n\n" .
+              "🔢 Quantity:\n{$quantity}\n\n" .
+              "💰 Package:\n{$package}\n\n" .
+              (!empty($totalAmount) ? "💵 Total:\n{$totalAmount}\n\n" : "") .
+              (!empty($comments) ? "📝 Additional Notes:\n{$comments}\n\n" : "📝 Additional Notes:\nNone\n\n") .
+              "🚚 Payment Method:\nPay on Delivery\n\n" .
+              "Please confirm this order and provide delivery details.\n\n" .
+              "Thank you.\n" .
+              "━━━━━━━━━━━━━━━━━━━━━━";
     $waUrl = "https://wa.me/2348023173303?text=" . urlencode($waText);
 
-    return [
+    $response = [
         'status'         => 'success',
         'order_id'       => $orderId,
         'product_name'   => $productName,
         'package'        => $package,
+        'quantity'       => $quantity,
+        'total'          => $totalAmount,
         'full_name'      => $fullName,
         'phone'          => $phone,
         'whatsapp_url'   => $waUrl,
-        'message'        => 'Thank you! Your order has been placed successfully. Order Reference: ' . $orderId . '. Our logistics team will contact you shortly to confirm dispatch.'
+        'message'        => 'Thank you! Your order has been registered under Order Reference: ' . $orderId . '.'
     ];
+
+    if ($isAjax) {
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
+    }
+
+    return $response;
 }
 
 /**
