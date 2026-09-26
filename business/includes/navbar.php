@@ -63,6 +63,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('snowphyll-forte') ?>">🍃 Snowphyll Forte™ (Blood Cleanser)</a></li>
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('irq-cell') ?>">🧠 iiQ Plus™ / IRQ Cell (Brain & Vision)</a></li>
             <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('actual-plus') ?>">💧 Actual Plus™ (39-in-1 Immune Drops)</a></li>
+            <li><a class="dropdown-item dropdown-item-ps" href="<?= get_product_url('mie') ?>">✨ Miracle Intense Essence™ (MIE Skincare)</a></li>
           </ul>
         </div>
 
@@ -197,6 +198,7 @@ $currentPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             <a href="<?= get_product_url('snowphyll-forte') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('snowphyll-forte.php') ?>">🍃 Snowphyll Forte™</a>
             <a href="<?= get_product_url('irq-cell') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('irq-cell.php') ?>">🧠 iiQ Plus™ / IRQ Cell</a>
             <a href="<?= get_product_url('actual-plus') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('actual-plus.php') ?>">💧 Actual Plus™</a>
+            <a href="<?= get_product_url('mie') ?>" class="ps-nav-link js-mobile-nav-link py-1 <?= is_active_page('mie.php') ?>">✨ Miracle Intense Essence™ (MIE)</a>
           </div>
         </div>
 

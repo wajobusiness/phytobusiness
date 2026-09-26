@@ -91,6 +91,7 @@ require_once __DIR__ . '/functions.php';
           <li><a href="<?= get_product_url('snowphyll-forte') ?>" class="ps-footer-link">Snowphyll Forte™</a></li>
           <li><a href="<?= get_product_url('irq-cell') ?>" class="ps-footer-link">iiQ Plus / IRQ Cell</a></li>
           <li><a href="<?= get_product_url('actual-plus') ?>" class="ps-footer-link">Actual Plus™</a></li>
+          <li><a href="<?= get_product_url('mie') ?>" class="ps-footer-link">Miracle Intense Essence (MIE)™</a></li>
         </ul>
       </div>
 
