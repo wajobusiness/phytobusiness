@@ -186,7 +186,7 @@ require __DIR__ . '/components/hero.php';
         <tbody>
           <tr>
             <td class="fw-bold text-white">Silver</td>
-            <td class="text-white fw-bold">$130 <span class="text-secondary small">(₦110K)</span></td>
+            <td class="text-white fw-bold"><span data-price-usd="206">$206</span> <span class="text-secondary small">(₦330K)</span></td>
             <td class="font-monospace text-secondary">100 PP</td>
             <td class="text-secondary">Basic ($30 USD)</td>
             <td class="text-warning fw-semibold">~$140 USD / Day</td>
@@ -195,7 +195,7 @@ require __DIR__ . '/components/hero.php';
           </tr>
           <tr>
             <td class="fw-bold text-white">Gold</td>
-            <td class="text-white fw-bold">$650 <span class="text-secondary small">(₦550K)</span></td>
+            <td class="text-white fw-bold"><span data-price-usd="992">$992</span> <span class="text-secondary small">(₦1.59M)</span></td>
             <td class="font-monospace text-secondary">500 PP</td>
             <td class="text-secondary">Mid-Level (Up to $177)</td>
             <td class="text-warning fw-semibold">~$600 USD / Day</td>
@@ -204,7 +204,7 @@ require __DIR__ . '/components/hero.php';
           </tr>
           <tr>
             <td class="fw-bold text-white">Junior Platinum</td>
-            <td class="text-white fw-bold">$1,950 <span class="text-secondary small">(₦1.65M)</span></td>
+            <td class="text-white fw-bold"><span data-price-usd="1373">$1,373</span> <span class="text-secondary small">(₦2.2M)</span></td>
             <td class="font-monospace text-secondary">1,500 PP</td>
             <td class="text-secondary">High-Level (Up to $450)</td>
             <td class="text-warning fw-semibold">High-Capacity Binary</td>
@@ -213,7 +213,7 @@ require __DIR__ . '/components/hero.php';
           </tr>
           <tr style="background: rgba(216, 0, 29, 0.12); border-left: 3px solid var(--ps-crimson-500);">
             <td class="fw-bold text-crimson">Platinum / Mobile Stockist</td>
-            <td class="text-crimson fw-bold">$3,900 <span class="text-white-50 small">(₦3.3M)</span></td>
+            <td class="text-crimson fw-bold"><span data-price-usd="2587">$2,587</span> <span class="text-white-50 small">(₦4.14M)</span></td>
             <td class="font-monospace text-crimson fw-bold">3,000 PP</td>
             <td class="text-crimson fw-bold">Up to $600/Pack</td>
             <td class="text-crimson fw-bold">UNLIMITED (Zero Flush)</td>

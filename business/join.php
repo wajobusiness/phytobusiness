@@ -248,8 +248,9 @@ require __DIR__ . '/components/hero.php';
                 <input type="radio" name="package" value="silver" <?= $preselectedPackage === 'silver' ? 'checked' : '' ?> class="mb-2">
                 <div class="text-white fw-bold">Silver Pack</div>
                 <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">100 PP</div>
-                <div class="text-white fw-bold fs-6 mt-1">$130 USD</div>
-                <div class="text-secondary small">₦110,000 / RM 420</div>
+                <div class="text-white fw-bold fs-6 mt-1"><span data-price-usd="206">$206 USD</span></div>
+                <div class="text-secondary small">₦330,000 / RM 920</div>
+                <div class="text-gold small mt-2" style="font-size: 0.72rem;">4 CC, 1 DS, 1 SF (6 packs)</div>
               </label>
             </div>
 
@@ -258,8 +259,9 @@ require __DIR__ . '/components/hero.php';
                 <input type="radio" name="package" value="gold" <?= $preselectedPackage === 'gold' ? 'checked' : '' ?> class="mb-2">
                 <div class="text-white fw-bold">Gold Pack</div>
                 <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">500 PP</div>
-                <div class="text-white fw-bold fs-6 mt-1">$650 USD</div>
-                <div class="text-secondary small">₦550,000 / RM 2,100</div>
+                <div class="text-white fw-bold fs-6 mt-1"><span data-price-usd="992">$992 USD</span></div>
+                <div class="text-secondary small">₦1,590,000 / RM 4,410</div>
+                <div class="text-gold small mt-2" style="font-size: 0.72rem;">26 CC, 4 SF (30 packs)</div>
               </label>
             </div>
 
@@ -268,8 +270,9 @@ require __DIR__ . '/components/hero.php';
                 <input type="radio" name="package" value="junior_platinum" <?= ($preselectedPackage === 'junior_platinum' || $preselectedPackage === 'junior-platinum') ? 'checked' : '' ?> class="mb-2">
                 <div class="text-white fw-bold">Junior Platinum</div>
                 <div class="badge bg-dark text-crimson border border-danger border-opacity-25 my-1">1,500 PP</div>
-                <div class="text-white fw-bold fs-6 mt-1">$1,950 USD</div>
-                <div class="text-secondary small">₦1,650,000 / RM 6,300</div>
+                <div class="text-white fw-bold fs-6 mt-1"><span data-price-usd="1373">$1,373 USD</span></div>
+                <div class="text-secondary small">₦2,200,000 / RM 6,110</div>
+                <div class="text-gold small mt-2" style="font-size: 0.72rem;">30 CC, 10 DS, 4 SF, 1 Actual+ (45 units)</div>
               </label>
             </div>
 
@@ -278,8 +281,9 @@ require __DIR__ . '/components/hero.php';
                 <input type="radio" name="package" value="platinum" <?= ($preselectedPackage === 'platinum' || empty($preselectedPackage) || $preselectedPackage === 'platinum-mobile') ? 'checked' : '' ?> class="mb-2">
                 <div class="text-crimson fw-bold">Platinum / Stockist</div>
                 <div class="badge bg-crimson text-white my-1">3,000 PP</div>
-                <div class="text-white fw-bold fs-6 mt-1">$3,900 USD</div>
-                <div class="text-secondary small">₦3,300,000 / RM 12,600</div>
+                <div class="text-white fw-bold fs-6 mt-1"><span data-price-usd="2587">$2,587 USD</span></div>
+                <div class="text-secondary small">₦4,140,000 / RM 11,500</div>
+                <div class="text-gold small mt-2" style="font-size: 0.72rem;">30 DS, 20 CC, 8 SF, 4 iiQ+ (62 units)</div>
               </label>
             </div>
           </div>

@@ -37,9 +37,9 @@ function get_products_data(): array {
                 [
                     'name' => '1 Box (Starter Pack)',
                     'packs' => 1,
-                    'price_usd' => '$45 USD',
-                    'price_ngn' => '₦38,000',
-                    'original_ngn' => '₦48,000',
+                    'price_usd' => '$54 USD',
+                    'price_ngn' => '₦86,000',
+                    'original_ngn' => '₦100,000',
                     'popular' => false,
                     'badge' => '14-Day Cellular Revitalization',
                     'desc' => 'Ideal starter trial to experience boosted morning vitality and immune defense.'
@@ -47,9 +47,9 @@ function get_products_data(): array {
                 [
                     'name' => '2 Boxes (Duo Therapy)',
                     'packs' => 2,
-                    'price_usd' => '$85 USD',
-                    'price_ngn' => '₦72,000',
-                    'original_ngn' => '₦96,000',
+                    'price_usd' => '$108 USD',
+                    'price_ngn' => '₦170,000',
+                    'original_ngn' => '₦200,000',
                     'popular' => true,
                     'badge' => 'Most Popular — 28-Day Renewal',
                     'desc' => 'Recommended full 4-week cycle to trigger noticeable cellular repair, radiant skin, and metabolic balance.'
@@ -57,9 +57,9 @@ function get_products_data(): array {
                 [
                     'name' => '4 Boxes (Intensive Therapy)',
                     'packs' => 4,
-                    'price_usd' => '$160 USD',
-                    'price_ngn' => '₦138,000',
-                    'original_ngn' => '₦192,000',
+                    'price_usd' => '$216 USD',
+                    'price_ngn' => '₦340,000',
+                    'original_ngn' => '₦400,000',
                     'popular' => false,
                     'badge' => 'Best Value — 56-Day Reset',
                     'desc' => 'Comprehensive therapy for severe physical fatigue, recovery, or sharing with a spouse. Includes Free Nationwide Delivery.'
@@ -223,9 +223,9 @@ function get_products_data(): array {
                 [
                     'name' => '1 Box (15-Day Cleansing)',
                     'packs' => 1,
-                    'price_usd' => '$45 USD',
-                    'price_ngn' => '₦38,000',
-                    'original_ngn' => '₦48,000',
+                    'price_usd' => '$54 USD',
+                    'price_ngn' => '₦86,000',
+                    'original_ngn' => '₦100,000',
                     'popular' => false,
                     'badge' => '15-Day Blood Detox',
                     'desc' => 'Ideal for body odor elimination, gastrointestinal cleansing, and acid-reflux relief.'
@@ -233,9 +233,9 @@ function get_products_data(): array {
                 [
                     'name' => '2 Boxes (30-Day Blood Rebuild)',
                     'packs' => 2,
-                    'price_usd' => '$85 USD',
-                    'price_ngn' => '₦72,000',
-                    'original_ngn' => '₦96,000',
+                    'price_usd' => '$108 USD',
+                    'price_ngn' => '₦170,000',
+                    'original_ngn' => '₦200,000',
                     'popular' => true,
                     'badge' => 'Most Popular — 30-Day Cycle',
                     'desc' => 'Recommended protocol for boosting PCV/hemoglobin counts and maintaining an alkaline system.'
@@ -243,9 +243,9 @@ function get_products_data(): array {
                 [
                     'name' => '4 Boxes (Family & Anemia Support)',
                     'packs' => 4,
-                    'price_usd' => '$160 USD',
-                    'price_ngn' => '₦138,000',
-                    'original_ngn' => '₦192,000',
+                    'price_usd' => '$216 USD',
+                    'price_ngn' => '₦340,000',
+                    'original_ngn' => '₦400,000',
                     'popular' => false,
                     'badge' => 'Best Value Pack',
                     'desc' => 'Full two-month therapy for sickle cell crisis defense, deep liver detox, and whole-family wellness.'
@@ -399,9 +399,9 @@ function get_products_data(): array {
                 [
                     'name' => '1 Box (14-Day Skin Renewal)',
                     'packs' => 1,
-                    'price_usd' => '$45 USD',
-                    'price_ngn' => '₦38,000',
-                    'original_ngn' => '₦48,000',
+                    'price_usd' => '$54 USD',
+                    'price_ngn' => '₦86,000',
+                    'original_ngn' => '₦100,000',
                     'popular' => false,
                     'badge' => 'Starter Glow',
                     'desc' => 'Experience initial skin hydration, reduced oxidative stress, and improved morning radiance.'
@@ -409,9 +409,9 @@ function get_products_data(): array {
                 [
                     'name' => '2 Boxes (28-Day Anti-Pigmentation)',
                     'packs' => 2,
-                    'price_usd' => '$85 USD',
-                    'price_ngn' => '₦72,000',
-                    'original_ngn' => '₦96,000',
+                    'price_usd' => '$108 USD',
+                    'price_ngn' => '₦170,000',
+                    'original_ngn' => '₦200,000',
                     'popular' => true,
                     'badge' => 'Most Popular — 4-Week Skin Reset',
                     'desc' => 'Recommended cycle to fade stubborn dark spots, reduce melasma, and build natural internal UV protection.'
@@ -419,9 +419,9 @@ function get_products_data(): array {
                 [
                     'name' => '4 Boxes (Complete Dermatological Therapy)',
                     'packs' => 4,
-                    'price_usd' => '$160 USD',
-                    'price_ngn' => '₦138,000',
-                    'original_ngn' => '₦192,000',
+                    'price_usd' => '$216 USD',
+                    'price_ngn' => '₦340,000',
+                    'original_ngn' => '₦400,000',
                     'popular' => false,
                     'badge' => 'Best Value — 8-Week Glow',
                     'desc' => 'Total body skin brightening, collagen rejuvenation, and long-term DNA protection. Free Nationwide Shipping.'
@@ -580,9 +580,9 @@ function get_products_data(): array {
                 [
                     'name' => '1 Box (15-Day Cognitive Boost)',
                     'packs' => 1,
-                    'price_usd' => '$45 USD',
-                    'price_ngn' => '₦38,000',
-                    'original_ngn' => '₦48,000',
+                    'price_usd' => '$97 USD',
+                    'price_ngn' => '₦155,000',
+                    'original_ngn' => '₦180,000',
                     'popular' => false,
                     'badge' => 'Focus & Eye Relief',
                     'desc' => 'Relieves digital eye strain, reduces afternoon brain fog, and sharpens daily focus.'
@@ -590,9 +590,9 @@ function get_products_data(): array {
                 [
                     'name' => '2 Boxes (30-Day Neural Protocol)',
                     'packs' => 2,
-                    'price_usd' => '$85 USD',
-                    'price_ngn' => '₦72,000',
-                    'original_ngn' => '₦96,000',
+                    'price_usd' => '$194 USD',
+                    'price_ngn' => '₦310,000',
+                    'original_ngn' => '₦360,000',
                     'popular' => true,
                     'badge' => 'Most Popular — 30-Day Memory Cycle',
                     'desc' => 'Recommended protocol for significant memory retention, sharper eyesight, and reduced mental fatigue.'
@@ -600,9 +600,9 @@ function get_products_data(): array {
                 [
                     'name' => '4 Boxes (Executive & Family Therapy)',
                     'packs' => 4,
-                    'price_usd' => '$160 USD',
-                    'price_ngn' => '₦138,000',
-                    'original_ngn' => '₦192,000',
+                    'price_usd' => '$388 USD',
+                    'price_ngn' => '₦620,000',
+                    'original_ngn' => '₦720,000',
                     'popular' => false,
                     'badge' => 'Best Value Nootropic Pack',
                     'desc' => 'Comprehensive therapy for senior cognitive support (dementia defense) and student academic excellence. Free Shipping.'
@@ -761,9 +761,9 @@ function get_products_data(): array {
                 [
                     'name' => '1 Bottle (30ml Starter Pack)',
                     'packs' => 1,
-                    'price_usd' => '$45 USD',
-                    'price_ngn' => '₦38,000',
-                    'original_ngn' => '₦48,000',
+                    'price_usd' => '$97 USD',
+                    'price_ngn' => '₦155,000',
+                    'original_ngn' => '₦180,000',
                     'popular' => false,
                     'badge' => '3-Week Immune Boost',
                     'desc' => 'Ideal introductory bottle for rapid immune revitalization and digestive cleansing.'
@@ -771,9 +771,9 @@ function get_products_data(): array {
                 [
                     'name' => '2 Bottles (Complete Defense)',
                     'packs' => 2,
-                    'price_usd' => '$85 USD',
-                    'price_ngn' => '₦72,000',
-                    'original_ngn' => '₦96,000',
+                    'price_usd' => '$194 USD',
+                    'price_ngn' => '₦310,000',
+                    'original_ngn' => '₦360,000',
                     'popular' => true,
                     'badge' => 'Most Popular — 6-Week Protocol',
                     'desc' => 'Recommended therapy for deep cellular detoxification, blood sugar stabilization, and sustained vitality.'
@@ -781,9 +781,9 @@ function get_products_data(): array {
                 [
                     'name' => '4 Bottles (Intensive Recovery Pack)',
                     'packs' => 4,
-                    'price_usd' => '$160 USD',
-                    'price_ngn' => '₦138,000',
-                    'original_ngn' => '₦192,000',
+                    'price_usd' => '$388 USD',
+                    'price_ngn' => '₦620,000',
+                    'original_ngn' => '₦720,000',
                     'popular' => false,
                     'badge' => 'Best Value Pack',
                     'desc' => 'Full recovery protocol for chronic illness rehabilitation and multi-member family protection. Includes Free Shipping.'
@@ -906,6 +906,146 @@ function get_products_data(): array {
                 'title' => 'Actual Plus™ (Actual+) | 39-in-1 Botanical Immune Drops',
                 'description' => 'Buy original PhytoScience Actual Plus™ (Actual+) online. 39 natural fruits, vegetables, and herbs including Soursop and Black Cumin for supreme immune defense and metabolic wellness.',
                 'keywords' => 'Actual Plus, PhytoScience Actual Plus, Actual+, immune booster drops, soursop black seed supplement, buy actual plus Nigeria'
+            ]
+        ],
+
+        'mie' => [
+            'slug' => 'mie',
+            'name' => 'Miracle Intense Essence (MIE)™',
+            'brand' => 'PhytoScience',
+            'tagline' => 'Revolutionary Plant Stem Cell Age-Defying Spray with Pure Alps Water',
+            'hero_headline' => 'Instant Hydration, Firming & Radiance with <span class="text-crimson">Miracle Intense Essence™</span>',
+            'short_desc' => 'Powered by Swiss PhytoCellTec™ Malus Domestica and Solar Vitis plant stem cells infused with pure Switzerland mountain spring water. Delivers micro-droplet cellular revitalization, instant skin tightening, and pollution barrier protection.',
+            'category' => 'Stem Cell Skincare & Topical Radiance',
+            'badge' => 'Swiss Cellular Mist Technology',
+            'image' => 'images/products/crystal-cell.png',
+            'packaging' => '50ml Spray Bottle',
+            'shelf_life' => '24 Months',
+            'origin' => 'Formulated in Switzerland & Packed under GMP Standards',
+            'certifications' => ['Halal Certified', 'GMP Standard', 'Dermatologically Tested', '100% Non-Toxic'],
+            'rating' => 4.9,
+            'reviews_count' => 640,
+            'orders_today' => 19,
+            'target_audience' => 'Individuals dealing with facial fine lines, enlarged pores, dull complexion, uneven skin tone, or skin dehydration.',
+            'how_it_works' => 'Sprayed directly onto face and neck, ultra-fine microscopic droplets penetrate through the stratum corneum to deliver live plant stem cell metabolites, boosting collagen synthesis and locking in 24-hour hydration.',
+            'usage' => [
+                'dosage' => 'Spray 2 to 3 times daily across face and neck.',
+                'method' => 'Hold bottle 20cm away from face, close eyes, and mist evenly. Gently pat with clean fingertips until absorbed.',
+                'tip' => 'Can be used over makeup as a setting mist or anytime skin feels tired and dry.'
+            ],
+            'pricing' => [
+                [
+                    'name' => '1 Bottle (50ml Spray)',
+                    'packs' => 1,
+                    'price_usd' => '$97 USD',
+                    'price_ngn' => '₦155,000',
+                    'original_ngn' => '₦180,000',
+                    'popular' => false,
+                    'badge' => 'Introductory Glow',
+                    'desc' => 'Ideal 30-day supply to experience immediate skin tightening, pore refinement, and morning radiance.'
+                ],
+                [
+                    'name' => '2 Bottles (Duo Radiance Protocol)',
+                    'packs' => 2,
+                    'price_usd' => '$194 USD',
+                    'price_ngn' => '₦310,000',
+                    'original_ngn' => '₦360,000',
+                    'popular' => true,
+                    'badge' => 'Most Popular — 60-Day Renewal',
+                    'desc' => 'Recommended protocol for complete reduction of fine lines, dark spots, and lasting skin elasticity.'
+                ],
+                [
+                    'name' => '4 Bottles (Intensive Anti-Aging Kit)',
+                    'packs' => 4,
+                    'price_usd' => '$388 USD',
+                    'price_ngn' => '₦620,000',
+                    'original_ngn' => '₦720,000',
+                    'popular' => false,
+                    'badge' => 'Best Value Skincare Kit',
+                    'desc' => 'Complete dermatological anti-aging therapy. Includes Free Nationwide Tracked Delivery.'
+                ]
+            ],
+            'key_benefits' => [
+                [
+                    'title' => 'Instant Cellular Hydration & Firming',
+                    'desc' => 'Penetrates deeply to provide immediate lifting, pore tightening, and plump, hydrated skin texture.',
+                    'icon' => 'zap'
+                ],
+                [
+                    'title' => 'Fine Line & Wrinkle Diminution',
+                    'desc' => 'Stimulates natural fibroblast activity to increase collagen production and smooth away expression lines.',
+                    'icon' => 'activity'
+                ],
+                [
+                    'title' => 'Environmental Smog & UV Shield',
+                    'desc' => 'Forms a breathable microscopic antioxidant shield that prevents urban pollution particles from settling into pores.',
+                    'icon' => 'shield'
+                ]
+            ],
+            'ingredients' => [
+                [
+                    'name' => 'PhytoCellTec™ Malus Domestica',
+                    'source' => 'Rare Swiss Apple Stem Cell Extract',
+                    'desc' => 'Protects skin stem cells from premature aging and enhances cellular longevity.'
+                ],
+                [
+                    'name' => 'PhytoCellTec™ Solar Vitis',
+                    'source' => 'Burgundy Red Grape Stem Cells',
+                    'desc' => 'High antioxidant capacity that protects facial tissues from UV photo-aging.'
+                ],
+                [
+                    'name' => 'Swiss Alps Glacier Water',
+                    'source' => 'Buchs, Switzerland Mountain Spring',
+                    'desc' => 'Mineral-rich ultra-pure water that calms redness, soothes inflammation, and balances skin pH.'
+                ]
+            ],
+            'comparison' => [
+                'phytoscience' => [
+                    'title' => 'Miracle Intense Essence (MIE)™',
+                    'points' => [
+                        'Contains patented Swiss plant stem cells (PhytoCellTec™)',
+                        'Micro-droplet spray technology for instant epidermal absorption',
+                        'Free from alcohol, parabens, synthetic perfumes, and parabens',
+                        'Multipurpose: toner, hydrator, anti-aging serum, and makeup setting mist',
+                        'Clinically substantiated with Mibelle Biochemistry Switzerland'
+                    ]
+                ],
+                'others' => [
+                    'title' => 'Ordinary Facial Mists & Toners',
+                    'points' => [
+                        'Mostly plain tap water and synthetic fragrances that evaporate quickly',
+                        'Can dry out skin due to alcohol and astringent chemicals',
+                        'No cellular repair or stem cell regeneration capability',
+                        'Short-lived surface effect without deeper tissue benefits',
+                        'No Swiss scientific formulation or clinical backing'
+                    ]
+                ]
+            ],
+            'faqs' => [
+                [
+                    'q' => 'Can I use MIE with my existing daily moisturizer and sunscreen?',
+                    'a' => 'Yes. MIE is an ultra-fine botanical mist that absorbs in seconds without leaving oily residues. Spray it before your moisturizer or apply it throughout the day over makeup for an instant radiance boost.'
+                ],
+                [
+                    'q' => 'Is MIE suitable for sensitive or acne-prone skin?',
+                    'a' => 'Absolutely. MIE is non-comedogenic, alcohol-free, and dermatologically tested. The pure glacier water and plant stem cells soothe redness and reduce skin irritation.'
+                ]
+            ],
+            'testimonials' => [
+                [
+                    'name' => 'Mrs. Folake A.',
+                    'location' => 'Victoria Island, Lagos',
+                    'rating' => 5,
+                    'text' => 'MIE spray is pure magic. I spray it whenever I step out of meetings or into air-conditioned rooms. My skin has never looked this glowing and firm at 48.'
+                ]
+            ],
+            'videos' => [
+                ['id' => 'KVqWChK6fdI', 'title' => 'PhytoScience Stem Cell Facial Beauty & Skincare Science']
+            ],
+            'seo' => [
+                'title' => 'Buy Miracle Intense Essence (MIE)™ | Swiss Stem Cell Skincare Mist',
+                'description' => 'Order authentic PhytoScience Miracle Intense Essence (MIE) online. Patented Swiss plant stem cell mist for instant hydration, pore refinement, and age defense.',
+                'keywords' => 'Miracle Intense Essence, MIE PhytoScience, Swiss stem cell spray, facial mist anti-aging, buy MIE Lagos Nigeria'
             ]
         ]
     ];

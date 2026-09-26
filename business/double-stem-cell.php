@@ -68,8 +68,8 @@ require __DIR__ . '/includes/header.php';
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "NGN",
-    "lowPrice": "38000",
-    "highPrice": "138000",
+    "lowPrice": "86000",
+    "highPrice": "340000",
     "offerCount": "3",
     "availability": "https://schema.org/InStock",
     "seller": {
@@ -174,8 +174,8 @@ require __DIR__ . '/includes/header.php';
         <div class="p-3 rounded-3 mb-4" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
           <div class="small text-secondary text-uppercase fw-bold" style="font-size: 0.72rem; letter-spacing: 0.05em;">Special Direct Promotional Pricing:</div>
           <div class="ps-hero-price-wrap my-1">
-            <span class="ps-hero-price-now" data-price-usd="45"><?= htmlspecialchars($product['pricing'][0]['price_ngn']) ?></span>
-            <span class="ps-hero-price-was" data-original-usd="55"><?= htmlspecialchars($product['pricing'][0]['original_ngn']) ?></span>
+            <span class="ps-hero-price-now" data-price-usd="<?= (float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '54') ?>"><?= htmlspecialchars($product['pricing'][0]['price_ngn']) ?></span>
+            <span class="ps-hero-price-was" data-original-usd="<?= round(((float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '54')) * 1.25) ?>"><?= htmlspecialchars($product['pricing'][0]['original_ngn']) ?></span>
             <span class="ps-hero-save-badge">PROMOTIONAL OFFER</span>
           </div>
           <div class="text-white-50 small d-flex align-items-center gap-2">
@@ -653,11 +653,8 @@ require __DIR__ . '/includes/header.php';
 
     <div class="row g-4 justify-content-center align-items-stretch">
       <?php foreach ($product['pricing'] as $pIdx => $tier): 
-        $tierUsd = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '45');
-        $tierOrigUsd = $tierUsd * 1.25;
-        if ($tierUsd >= 44 && $tierUsd <= 46) $tierOrigUsd = 55;
-        elseif ($tierUsd >= 84 && $tierUsd <= 86) $tierOrigUsd = 110;
-        elseif ($tierUsd >= 155 && $tierUsd <= 165) $tierOrigUsd = 220;
+        $tierUsd = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '54');
+        $tierOrigUsd = round($tierUsd * 1.25);
       ?>
         <div class="col-lg-4 col-md-6">
           <div class="ps-pricing-tier-card <?= !empty($tier['popular']) ? 'popular' : '' ?>" onclick="selectPricingTier(<?= $pIdx ?>, '<?= htmlspecialchars(addslashes($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')')) ?>')">

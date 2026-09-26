@@ -292,10 +292,12 @@ Thank you.
       if (!services && packageInput) {
         const pkgVal = packageInput.value;
         const pkgLabels = {
-          'silver': 'Silver Pack ($130 USD / 100 PP)',
-          'gold': 'Gold Pack ($650 USD / 500 PP)',
-          'junior_platinum': 'Junior Platinum ($1,950 USD / 1,500 PP)',
-          'platinum': 'Platinum / Stockist ($3,900 USD / 3,000 PP)'
+          'silver': 'Silver Pack ($206 USD / 100 PP) — 4 CC, 1 DS, 1 SF',
+          'gold': 'Gold Pack ($992 USD / 500 PP) — 26 CC, 4 SF',
+          'junior_platinum': 'Junior Platinum ($1,373 USD / 1,500 PP) — 30 CC, 10 DS, 4 SF, 1 Actual+',
+          'junior-platinum': 'Junior Platinum ($1,373 USD / 1,500 PP) — 30 CC, 10 DS, 4 SF, 1 Actual+',
+          'platinum': 'Platinum / Stockist ($2,587 USD / 3,000 PP) — 30 DS, 20 CC, 8 SF, 4 iiQ+',
+          'platinum-mobile': 'Platinum / Stockist ($2,587 USD / 3,000 PP) — 30 DS, 20 CC, 8 SF, 4 iiQ+'
         };
         services = pkgLabels[pkgVal] || pkgVal;
       }

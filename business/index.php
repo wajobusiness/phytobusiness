@@ -227,12 +227,11 @@ require __DIR__ . '/components/hero.php';
       $featuredProducts = get_products_data();
       foreach ($featuredProducts as $prodSlug => $prod):
           $prodUrl = get_product_url($prodSlug);
-          $tierPrice = $prod['pricing'][0]['price_ngn'] ?? '₦38,000';
-          $tierOriginal = $prod['pricing'][0]['original_ngn'] ?? '₦48,000';
-          $tierUsd = $prod['pricing'][0]['price_usd'] ?? '$45 USD';
-          $prodUsd = (float)preg_replace('/[^0-9.]/', '', $prod['pricing'][0]['price_usd'] ?? '45');
-          $prodOrigUsd = $prodUsd * 1.25;
-          if ($prodUsd >= 44 && $prodUsd <= 46) $prodOrigUsd = 55;
+          $tierPrice = $prod['pricing'][0]['price_ngn'] ?? '₦86,000';
+          $tierOriginal = $prod['pricing'][0]['original_ngn'] ?? '₦100,000';
+          $tierUsd = $prod['pricing'][0]['price_usd'] ?? '$54 USD';
+          $prodUsd = (float)preg_replace('/[^0-9.]/', '', $prod['pricing'][0]['price_usd'] ?? '54');
+          $prodOrigUsd = round($prodUsd * 1.25);
       ?>
         <div class="col-lg-4 col-md-6">
           <div class="ps-card h-100 p-4 d-flex flex-column justify-content-between position-relative overflow-hidden" style="background: #14151B; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; transition: transform 0.3s ease, border-color 0.3s ease;">

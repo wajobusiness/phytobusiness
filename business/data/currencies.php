@@ -363,17 +363,21 @@ function convert_usd_price(float $usdAmount, string $targetCurrency = 'NGN'): st
 
     // Special fixed values for flagship tiers to preserve exact marketing pricing
     if ($targetCurrency === 'NGN') {
-        if ($usdAmount >= 44 && $usdAmount <= 46) return '₦38,000';
-        if ($usdAmount >= 54 && $usdAmount <= 56) return '₦48,000';
-        if ($usdAmount >= 84 && $usdAmount <= 86) return '₦72,000';
-        if ($usdAmount >= 105 && $usdAmount <= 115) return '₦96,000';
-        if ($usdAmount >= 155 && $usdAmount <= 165) return '₦138,000';
-        if ($usdAmount >= 190 && $usdAmount <= 225) return '₦192,000';
+        // Individual Product tiers ($54 base: DS, CC, SF)
+        if ($usdAmount >= 50 && $usdAmount <= 58) return '₦86,000';
+        if ($usdAmount >= 104 && $usdAmount <= 112) return '₦170,000';
+        if ($usdAmount >= 210 && $usdAmount <= 220) return '₦340,000';
+
+        // Individual Product tiers ($97 base: Actual+, iiQ+, MIE)
+        if ($usdAmount >= 94 && $usdAmount <= 100) return '₦155,000';
+        if ($usdAmount >= 190 && $usdAmount <= 198) return '₦310,000';
+        if ($usdAmount >= 380 && $usdAmount <= 395) return '₦620,000';
+
         // Membership packages
-        if ($usdAmount >= 125 && $usdAmount <= 135) return '₦110,000';
-        if ($usdAmount >= 640 && $usdAmount <= 660) return '₦550,000';
-        if ($usdAmount >= 1900 && $usdAmount <= 2000) return '₦1,650,000';
-        if ($usdAmount >= 3800 && $usdAmount <= 4000) return '₦3,300,000';
+        if ($usdAmount >= 200 && $usdAmount <= 209) return '₦330,000';
+        if ($usdAmount >= 980 && $usdAmount <= 1000) return '₦1,590,000';
+        if ($usdAmount >= 1360 && $usdAmount <= 1385) return '₦2,200,000';
+        if ($usdAmount >= 2570 && $usdAmount <= 2600) return '₦4,140,000';
     }
 
     if ($targetCurrency === 'USD') {

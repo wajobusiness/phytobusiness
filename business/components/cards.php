@@ -27,9 +27,9 @@ function render_package_card(array $pkg, bool $showDetailedCta = true): string
         </li>';
     }
 
-    $rawUsd = (float)preg_replace('/[^0-9.]/', '', $pkg['price_usd'] ?? '130');
+    $rawUsd = (float)preg_replace('/[^0-9.]/', '', $pkg['price_usd'] ?? '206');
     $displayNgn = sanitize($pkg['price_ngn'] ?? $pkg['price_estimate']);
-    $displayUsd = sanitize($pkg['price_usd'] ?? '$130');
+    $displayUsd = sanitize($pkg['price_usd'] ?? '$206');
 
     $ctaHtml = $showDetailedCta
         ? '<a href="' . get_business_url('join.php?package=' . urlencode($pkg['slug'])) . '" class="btn-ps ' . ($isFeatured ? 'btn-ps-primary' : 'btn-ps-outline-crimson') . ' w-100 mt-auto">Choose ' . sanitize($pkg['name']) . '</a>'

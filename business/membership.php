@@ -113,31 +113,31 @@ require __DIR__ . '/components/hero.php';
           </tr>
           <tr>
             <td class="fw-semibold text-white">Official Price (USD)</td>
-            <td class="text-white fw-bold">$130 USD</td>
-            <td class="text-white fw-bold">$650 USD</td>
-            <td class="text-white fw-bold">$1,950 USD</td>
-            <td class="text-crimson fw-bold">$3,900 USD</td>
+            <td class="text-white fw-bold"><span data-price-usd="206">$206 USD</span></td>
+            <td class="text-white fw-bold"><span data-price-usd="992">$992 USD</span></td>
+            <td class="text-white fw-bold"><span data-price-usd="1373">$1,373 USD</span></td>
+            <td class="text-crimson fw-bold"><span data-price-usd="2587">$2,587 USD</span></td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Nigeria Equivalent (NGN)</td>
-            <td class="text-secondary">₦110,000</td>
-            <td class="text-secondary">₦550,000</td>
-            <td class="text-secondary">₦1,650,000</td>
-            <td class="text-crimson fw-bold">₦3,300,000</td>
+            <td class="text-secondary">₦330,000</td>
+            <td class="text-secondary">₦1,590,000</td>
+            <td class="text-secondary">₦2,200,000</td>
+            <td class="text-crimson fw-bold">₦4,140,000</td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Malaysia Equivalent (MYR)</td>
-            <td class="text-secondary">RM 420</td>
-            <td class="text-secondary">RM 2,100</td>
-            <td class="text-secondary">RM 6,300</td>
-            <td class="text-crimson fw-bold">RM 12,600</td>
+            <td class="text-secondary">RM 920</td>
+            <td class="text-secondary">RM 4,410</td>
+            <td class="text-secondary">RM 6,110</td>
+            <td class="text-crimson fw-bold">RM 11,500</td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Product Allocation</td>
-            <td class="text-secondary">2 Packets Flagship Stem Cells</td>
-            <td class="text-secondary">10–12 Packets Stem Cells</td>
-            <td class="text-secondary">30–36 Packets Stem Cells</td>
-            <td class="text-gold fw-bold">Bulk Stockist Inventory (60+ Units)</td>
+            <td class="text-secondary">4 packs CC, 1 pack DS, 1 pack SF (6 packs)</td>
+            <td class="text-secondary">26 packs CC, 4 packs SF (30 packs)</td>
+            <td class="text-secondary">30 packs CC, 10 packs DS, 4 packs SF, 1 Bot. Actual+ (45 units)</td>
+            <td class="text-gold fw-bold">30 packs DS, 20 packs CC, 8 packs SF, 4 Bot. iiQ+ (62 units)</td>
           </tr>
           <tr>
             <td class="fw-semibold text-white">Daily Pairing Limitation</td>
