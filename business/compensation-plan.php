@@ -175,7 +175,7 @@ require __DIR__ . '/components/hero.php';
         <thead>
           <tr>
             <th scope="col">Package Tier</th>
-            <th scope="col">Official Price</th>
+            <th scope="col">Package Price</th>
             <th scope="col">Points (PP)</th>
             <th scope="col">Direct Sponsor Bonus</th>
             <th scope="col">Daily Pairing Limitation</th>

@@ -112,7 +112,7 @@ require __DIR__ . '/components/hero.php';
             <td class="font-monospace text-crimson fw-bold">3,000 PP</td>
           </tr>
           <tr>
-            <td class="fw-semibold text-white">Official Price (USD)</td>
+            <td class="fw-semibold text-white">Package Price (USD)</td>
             <td class="text-white fw-bold"><span data-price-usd="206">$206 USD</span></td>
             <td class="text-white fw-bold"><span data-price-usd="992">$992 USD</span></td>
             <td class="text-white fw-bold"><span data-price-usd="1373">$1,373 USD</span></td>
