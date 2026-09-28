@@ -108,7 +108,7 @@ $orderResult = handle_product_order_submission();
                   <label for="package-select" class="ps-form-label text-gold">Select Package <span class="text-danger">*</span></label>
                   <select name="package" id="package-select" class="form-select ps-form-control" required>
                     <?php foreach ($product['pricing'] as $idx => $tier): 
-                      $usdVal = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '45');
+                      $usdVal = (float)preg_replace('/[^0-9.]/', '', $tier['price_usd'] ?? '54');
                     ?>
                       <option value="<?= htmlspecialchars($tier['name'] . ' - ' . $tier['price_ngn'] . ' (' . $tier['price_usd'] . ')') ?>" 
                               data-usd="<?= $usdVal ?>"

@@ -7,7 +7,7 @@
 declare(strict_types=1);
 
 $starterPrice = $product['pricing'][0]['price_ngn'] ?? '';
-$starterUsd = (float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '45');
+$starterUsd = (float)preg_replace('/[^0-9.]/', '', $product['pricing'][0]['price_usd'] ?? '54');
 $productImgUrl = asset(ltrim($product['image'], '/'));
 ?>
 <div class="ps-sticky-mobile-bar d-lg-none" id="psStickyMobileBar">
