@@ -193,7 +193,7 @@ function get_leadership_data(): array {
     ];
 }
 
-// Global Membership Package Tiers & Official Pricing Plans
+// Global Membership Package Tiers & Pricing Plans
 define('MEMBERSHIP_PACKAGES', [
     'silver' => [
         'id' => 'silver',
@@ -338,6 +338,74 @@ define('MEMBERSHIP_PACKAGES', [
  */
 function get_packages_data(): array {
     return MEMBERSHIP_PACKAGES;
+}
+
+// Flagship Product Base Prices (USD Base & Local Multi-Currency Targets)
+define('PRODUCT_BASE_PRICES', [
+    'double_stemcell' => [
+        'name' => 'Double Stemcell™',
+        'price_usd' => '$54',
+        'price_ngn' => '₦86,000',
+        'tiers' => [
+            '1_box' => ['usd' => 54, 'ngn' => '₦86,000'],
+            '2_boxes' => ['usd' => 108, 'ngn' => '₦170,000'],
+            '4_boxes' => ['usd' => 216, 'ngn' => '₦340,000'],
+        ]
+    ],
+    'crystal_cell' => [
+        'name' => 'Crystal Cell™',
+        'price_usd' => '$54',
+        'price_ngn' => '₦86,000',
+        'tiers' => [
+            '1_box' => ['usd' => 54, 'ngn' => '₦86,000'],
+            '2_boxes' => ['usd' => 108, 'ngn' => '₦170,000'],
+            '4_boxes' => ['usd' => 216, 'ngn' => '₦340,000'],
+        ]
+    ],
+    'snowphyll_forte' => [
+        'name' => 'Snowphyll™ Forte',
+        'price_usd' => '$54',
+        'price_ngn' => '₦86,000',
+        'tiers' => [
+            '1_box' => ['usd' => 54, 'ngn' => '₦86,000'],
+            '2_boxes' => ['usd' => 108, 'ngn' => '₦170,000'],
+            '4_boxes' => ['usd' => 216, 'ngn' => '₦340,000'],
+        ]
+    ],
+    'actual_plus' => [
+        'name' => 'Actual Plus™',
+        'price_usd' => '$97',
+        'price_ngn' => '₦155,000',
+        'tiers' => [
+            '1_bottle' => ['usd' => 97, 'ngn' => '₦155,000'],
+            '2_bottles' => ['usd' => 194, 'ngn' => '₦310,000'],
+            '4_bottles' => ['usd' => 388, 'ngn' => '₦620,000'],
+        ]
+    ],
+    'iiq_plus' => [
+        'name' => 'iiQ Plus™',
+        'price_usd' => '$97',
+        'price_ngn' => '₦155,000',
+        'tiers' => [
+            '1_box' => ['usd' => 97, 'ngn' => '₦155,000'],
+            '2_boxes' => ['usd' => 194, 'ngn' => '₦310,000'],
+            '4_boxes' => ['usd' => 388, 'ngn' => '₦620,000'],
+        ]
+    ],
+    'mie' => [
+        'name' => 'Miracle Intense Essence (MIE)™',
+        'price_usd' => '$97',
+        'price_ngn' => '₦155,000',
+        'tiers' => [
+            '1_bottle' => ['usd' => 97, 'ngn' => '₦155,000'],
+            '2_bottles' => ['usd' => 194, 'ngn' => '₦310,000'],
+            '4_bottles' => ['usd' => 388, 'ngn' => '₦620,000'],
+        ]
+    ],
+]);
+
+function get_product_base_prices(): array {
+    return PRODUCT_BASE_PRICES;
 }
 
 /**
